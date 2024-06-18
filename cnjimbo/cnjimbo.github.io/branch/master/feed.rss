@@ -4,7 +4,7 @@
         <title>代码收容所</title>
         <link>https://www.dmsrs.org/preview</link>
         <description>天道酬勤，恒以致遠（大前端相关技术分享）</description>
-        <lastBuildDate>Tue, 18 Jun 2024 15:15:48 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 18 Jun 2024 17:24:10 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -18,17 +18,18 @@
             <title><![CDATA[技术杂文集]]></title>
             <link>https://www.dmsrs.org/preview/preview/cnjimbo/cnjimbo.github.io/branch/master/technology/learn/</link>
             <guid>https://www.dmsrs.org/preview/preview/cnjimbo/cnjimbo.github.io/branch/master/technology/learn/</guid>
-            <pubDate>Tue, 18 Jun 2024 09:50:34 GMT</pubDate>
+            <pubDate>Tue, 18 Jun 2024 17:22:20 GMT</pubDate>
             <description><![CDATA[记录一些开发过程中遇到的一些小问题以及解决方案
 记录一些开发实践
  目录
-* 在提交pr请求后自动部署preview github pages
-* 实践：利用ArrayBuffer实现预览指定目录下的]]></description>
+* pnpm install 在github actions中运行的问题
+* 在提交pr请求后自动部署preview gith]]></description>
             <content:encoded><![CDATA[<h1 id="技术杂文集" tabindex="-1">技术杂文集 <a class="header-anchor" href="#技术杂文集" aria-label="Permalink to &quot;技术杂文集&quot;">&ZeroWidthSpace;</a></h1>
 <p>记录一些开发过程中遇到的一些小问题以及解决方案</p>
 <p>记录一些开发实践</p>
 <h2 id="目录" tabindex="-1">目录 <a class="header-anchor" href="#目录" aria-label="Permalink to &quot;目录&quot;">&ZeroWidthSpace;</a></h2>
 <ul>
+<li><a href="./pnpm-issue-githubactions.html">pnpm install 在github actions中运行的问题</a></li>
 <li><a href="./deploy-preview-pr.html">在提交pr请求后自动部署preview github pages</a></li>
 <li><a href="./array-buffer.html">实践：利用ArrayBuffer实现预览指定目录下的所有文件的内容</a></li>
 <li><a href="./deepin-wemeet.html">在linux-deepin上使用deepin-wine5完美运行腾讯会议/QQ/微信等此类应用</a></li>
@@ -63,8 +64,8 @@
         </item>
         <item>
             <title><![CDATA[在提交pr请求后自动部署preview github pages]]></title>
-            <link>https://www.dmsrs.org/preview/preview/cnjimbo/cnjimbo.github.io/branch/master/technology/learn/deploy-preview-pr.html</link>
-            <guid>https://www.dmsrs.org/preview/preview/cnjimbo/cnjimbo.github.io/branch/master/technology/learn/deploy-preview-pr.html</guid>
+            <link>https://www.dmsrs.org/preview/preview/cnjimbo/cnjimbo.github.io/branch/master/technology/learn/deploy-preview-pr copy.html</link>
+            <guid>https://www.dmsrs.org/preview/preview/cnjimbo/cnjimbo.github.io/branch/master/technology/learn/deploy-preview-pr copy.html</guid>
             <pubDate>Tue, 18 Jun 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[# 在提交pr请求后自动部署preview github pages
 
@@ -263,7 +264,7 @@ Also, make sure to change <code>EndBug/pages-preview</code>'s inputs to match yo
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # --- OPTIONAL ---</span></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # The name of the environment to use for the deployment</span></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # Default: 'preview'</span></span>
-<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">    deployment_env</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'development'</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">    deployment_env</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">development</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # Whether to use the deployments API</span></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # Default: 'true'</span></span>
@@ -275,7 +276,7 @@ Also, make sure to change <code>EndBug/pages-preview</code>'s inputs to match yo
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # The email of the author of the resulting commit</span></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # Default: the GitHub Actor's</span></span>
-<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">    git_committer_name</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">mona@users.noreply.github.com</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">    git_author_email</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">mona@users.noreply.github.com</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # The committer of the resulting commit</span></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # Default: copies git_author_name</span></span>
@@ -297,6 +298,30 @@ Also, make sure to change <code>EndBug/pages-preview</code>'s inputs to match yo
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    # Default: preview.yml</span></span>
 <span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">    preview_workflow_file_name</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">custom_workflow.yml</span></span></code></pre>
 </div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[pnpm install 在github actions中运行的问题]]></title>
+            <link>https://www.dmsrs.org/preview/preview/cnjimbo/cnjimbo.github.io/branch/master/technology/learn/pnpm-issue-githubactions.html</link>
+            <guid>https://www.dmsrs.org/preview/preview/cnjimbo/cnjimbo.github.io/branch/master/technology/learn/pnpm-issue-githubactions.html</guid>
+            <pubDate>Tue, 18 Jun 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[&gt; :octocat: pnpm install在CI环境中 `GitHub Action` 的默认参数，用于为拉取请求（PR）和分支创建GitHub Pages预览 —— EndBug/pag]]></description>
+            <content:encoded><![CDATA[<h1 id="pnpm-install-在github-actions中运行的问题" tabindex="-1">pnpm install 在github actions中运行的问题 <a class="header-anchor" href="#pnpm-install-在github-actions中运行的问题" aria-label="Permalink to &quot;pnpm install 在github actions中运行的问题&quot;">&ZeroWidthSpace;</a></h1>
+<blockquote>
+<h2 id="excerpt" tabindex="-1">Excerpt <a class="header-anchor" href="#excerpt" aria-label="Permalink to &quot;Excerpt&quot;">&ZeroWidthSpace;</a></h2>
+<p>:octocat: pnpm install在CI环境中 <code>GitHub Action</code> 的默认参数，用于为拉取请求（PR）和分支创建GitHub Pages预览 —— EndBug/pages-preview</p>
+</blockquote>
+<h2 id="table-of-contents" tabindex="-1">Table of contents <a class="header-anchor" href="#table-of-contents" aria-label="Permalink to &quot;Table of contents&quot;">&ZeroWidthSpace;</a></h2>
+<ul>
+<li><a href="#what-does-it-do">What does it do?</a></li>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#inputs">Inputs</a></li>
+</ul>
+<h2 id="what-does-it-do" tabindex="-1">What does it do? <a class="header-anchor" href="#what-does-it-do" aria-label="Permalink to &quot;What does it do?&quot;">&ZeroWidthSpace;</a></h2>
+<p>pnpm 在workspace monorepo的环境下，一定要使用 <code>pnpm install -wr</code> 来确保工作空间内所有项目的package.json都递归进行了安装，否则仅仅会安装根目录下的package.json</p>
+<p>pnpm 在个人开发时 pnpm install 是没有默认参数的，但在 github actions中运行时，由于是CI环境下运行会带上不同平常给的默认行为，比如
+<code>pnpm install -wr</code> 会与 <code>pnpm install -wr --frozen-lockfile</code> 等同，如果希望全新安装，则需要指定参数  <code>pnpm install -wr  --ignore-scripts --no-frozen-lockfile</code>.
+<code>--ignore-scripts</code>参数为忽略安装本地脚本，加快安装速度</p>
+]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[javascript]]></title>
@@ -3336,7 +3361,7 @@ const ]]></description>
 <p><img src="https://img.cdn.sugarat.top/mdImg/MTY4ODMwOTkwMzgwOA==688309903808" alt="" loading="lazy"></p>
 <p>下面实操使用一下上面的提示词</p>
 <p>我这里把步数调成了30</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-UV9hf" id="tab-ifHAF0i" checked><label for="tab-ifHAF0i">① 提示词</label><input type="radio" name="group-UV9hf" id="tab-mGLheW9" ><label for="tab-mGLheW9">② 反向提示词</label><input type="radio" name="group-UV9hf" id="tab-gmZsXo-" ><label for="tab-gmZsXo-">③ 采样器</label><input type="radio" name="group-UV9hf" id="tab-8pETUyn" ><label for="tab-8pETUyn">④ 步数</label><input type="radio" name="group-UV9hf" id="tab-rEnwS5l" ><label for="tab-rEnwS5l">⑤ 引导系数</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-V7Tk-" id="tab-t3mRG5R" checked><label for="tab-t3mRG5R">① 提示词</label><input type="radio" name="group-V7Tk-" id="tab-moWHoQb" ><label for="tab-moWHoQb">② 反向提示词</label><input type="radio" name="group-V7Tk-" id="tab-9BhWToC" ><label for="tab-9BhWToC">③ 采样器</label><input type="radio" name="group-V7Tk-" id="tab-FVN-Iyc" ><label for="tab-FVN-Iyc">④ 步数</label><input type="radio" name="group-V7Tk-" id="tab-Ng4pU7H" ><label for="tab-Ng4pU7H">⑤ 引导系数</label></div><div class="blocks">
 <div class="language-txt vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>extremely detailed CG uniform 8k illustrations, high color substitution, sketches graffiti art, illustrations photo, masterpiece, hyper detailed, best quality, ultra high res, high resolution, (intricate details), perfect lighting, best shadow, (graffiti wall:1.4), 1 girl, (extremely detailed face and eyes), (shiny big eyes), (shiny graffiti long hair:1.2), ((colorful)), ((colorful illustrations)), face focus, lip gloss, random eyes color,</span></span></code></pre>
 </div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>by bad-picture-chill-75v, nude, porn, nipples, pussy, pornography, canvas frame, cartoon, 3d, ((disfigured)), ((bad art)), ((deformed)),((extra limbs)),((close up)),((b&#x26;w)), wierd colors, blurry, (((duplicate))), ((morbid)), ((mutilated)), [out of frame], extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))), Photoshop, video game, ugly, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of frame, mutation, mutated, extra limbs, extra legs, extra arms, disfigured, deformed, cross-eye, body out of frame, blurry, bad art, bad anatomy, 3d render, background blur, (blurred background),  (briefs), (triangle pants), watermark, astigmatism, scattered light, lens astigmatism, chest light, shiny boobs, glowing boobs, halo, fog, hazy,</span></span></code></pre>
 </div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>DPM++ SDE Karras</span></span></code></pre>
@@ -3456,20 +3481,20 @@ const ]]></description>
 <h2 id="快速体验" tabindex="-1">快速体验 <a class="header-anchor" href="#快速体验" aria-label="Permalink to &quot;快速体验&quot;">&ZeroWidthSpace;</a></h2>
 <p>只需3步，即可体验</p>
 <p>① 拉取 Github 模板</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group--8iO3" id="tab-t64-jT9" checked><label for="tab-t64-jT9">npm</label><input type="radio" name="group--8iO3" id="tab-kg28DbA" ><label for="tab-kg28DbA">yarn</label><input type="radio" name="group--8iO3" id="tab-Srts6LV" ><label for="tab-Srts6LV">pnpm</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-srE3i" id="tab-XdqAaDB" checked><label for="tab-XdqAaDB">npm</label><input type="radio" name="group-srE3i" id="tab-BrpQRiu" ><label for="tab-BrpQRiu">yarn</label><input type="radio" name="group-srE3i" id="tab-y98TEjW" ><label for="tab-y98TEjW">pnpm</label></div><div class="blocks">
 <div class="language-bash vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme@latest</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span></span></code></pre>
 </div></div></div>
 <p>也可以指定项目名</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-AJOX0" id="tab-tlyTYS5" checked><label for="tab-tlyTYS5">npm</label><input type="radio" name="group-AJOX0" id="tab-HxAjp4D" ><label for="tab-HxAjp4D">yarn</label><input type="radio" name="group-AJOX0" id="tab-HJ9qQ10" ><label for="tab-HJ9qQ10">pnpm</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-UfZXS" id="tab-Fv2U6Kk" checked><label for="tab-Fv2U6Kk">npm</label><input type="radio" name="group-UfZXS" id="tab-j5lsdln" ><label for="tab-j5lsdln">yarn</label><input type="radio" name="group-UfZXS" id="tab-6u8ODw8" ><label for="tab-6u8ODw8">pnpm</label></div><div class="blocks">
 <div class="language-bash vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme@latest</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div></div></div>
 <p><img src="https://img.cdn.sugarat.top/mdImg/MTY4OTQyMDE1NTcxMA==689420155710" alt="" loading="lazy"></p>
 <p>② 安装依赖</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-E6Zf2" id="tab-K4xTRJq" checked><label for="tab-K4xTRJq">pnpm</label><input type="radio" name="group-E6Zf2" id="tab-j1svWxQ" ><label for="tab-j1svWxQ">安装 PNPM</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-1TXGd" id="tab-U6lmpQj" checked><label for="tab-U6lmpQj">pnpm</label><input type="radio" name="group-1TXGd" id="tab-do_FDEy" ><label for="tab-do_FDEy">安装 PNPM</label></div><div class="blocks">
 <div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 如果你没有 PNPM 请先安装</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> i</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -g</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span></span></code></pre>
@@ -13548,174 +13573,6 @@ if (!name) {
 </ul>
 ]]></content:encoded>
             <enclosure url="https://img.cdn.sugarat.top/mdImg/MTYyODI2NDU4MDE2Ng==time-control5.gif" length="0" type="image/gif"/>
-        </item>
-        <item>
-            <title><![CDATA[做一个CL版的时间管理工具（四）]]></title>
-            <link>https://www.dmsrs.org/preview/preview/cnjimbo/cnjimbo.github.io/branch/master/works/time-tools/time-tools-4.html</link>
-            <guid>https://www.dmsrs.org/preview/preview/cnjimbo/cnjimbo.github.io/branch/master/works/time-tools/time-tools-4.html</guid>
-            <pubDate>Thu, 05 Aug 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[前言
-上一篇文章主要阐述了：
-* 批量markdown转json逻辑
-* 合并多个md的中记录的内容，并按时间排序
-本文将详细介绍的开发:
-* 初始化项目模板指令：`timec init &lt;pr]]></description>
-            <content:encoded><![CDATA[<h1 id="做一个cli版的时间管理工具-四" tabindex="-1">做一个CLI版的时间管理工具（四） <a class="header-anchor" href="#做一个cli版的时间管理工具-四" aria-label="Permalink to &quot;做一个CLI版的时间管理工具（四）&quot;">&ZeroWidthSpace;</a></h1>
-<h2 id="前言" tabindex="-1">前言 <a class="header-anchor" href="#前言" aria-label="Permalink to &quot;前言&quot;">&ZeroWidthSpace;</a></h2>
-<p><a href="./time-tools-3.html">上一篇文章</a>主要阐述了：</p>
-<ul>
-<li>批量markdown转json逻辑</li>
-<li>合并多个md的中记录的内容，并按时间排序</li>
-</ul>
-<p>本文将详细介绍的开发:</p>
-<ul>
-<li>初始化项目模板指令：<code>timec init &lt;projectName&gt;</code></li>
-<li>初始化记录模板指令：<code>timec create &lt;filename&gt;</code></li>
-</ul>
-<h2 id="功能开发" tabindex="-1">功能开发 <a class="header-anchor" href="#功能开发" aria-label="Permalink to &quot;功能开发&quot;">&ZeroWidthSpace;</a></h2>
-<h3 id="初始化模板项目" tabindex="-1">初始化模板项目 <a class="header-anchor" href="#初始化模板项目" aria-label="Permalink to &quot;初始化模板项目&quot;">&ZeroWidthSpace;</a></h3>
-<h4 id="简述" tabindex="-1">简述 <a class="header-anchor" href="#简述" aria-label="Permalink to &quot;简述&quot;">&ZeroWidthSpace;</a></h4>
-<p>用户输入简单的指令，就可以自动创建出一个时间管理模板工程</p>
-<p>模板工程结构如下</p>
-<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">project</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">├──</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> README.md</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">├──</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> study</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">|</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">  └──</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> README.md</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">└──</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> work</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">   └──</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> README.md</span></span></code></pre>
-</div><h4 id="工作流程" tabindex="-1">工作流程 <a class="header-anchor" href="#工作流程" aria-label="Permalink to &quot;工作流程&quot;">&ZeroWidthSpace;</a></h4>
-<ol>
-<li>终端输入指令</li>
-<li>获取到指令执行目录（cmd）与用户输入的项目名称</li>
-<li>利用<code>existsSync</code>判断目录是否存在
-<ol>
-<li>目录不存在的，利用<code>fs.mkdirSync</code>创建目录</li>
-</ol>
-</li>
-<li>通过<code>fs.writeFileSync</code>创建文件，将文件写入到用户的当前目录下
-<ol>
-<li>文件内容来源于指定静态资源目录（相对路径）</li>
-</ol>
-</li>
-</ol>
-<h4 id="实现" tabindex="-1">实现 <a class="header-anchor" href="#实现" aria-label="Permalink to &quot;实现&quot;">&ZeroWidthSpace;</a></h4>
-<p>注册<code>init</code>指令：</p>
-<ol>
-<li>使用<code>commander.command</code>API注册</li>
-<li>从action回掉中拿到 设置的<code>&lt;projectName&gt;</code>参数</li>
-</ol>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">/**</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> * 初始化项目</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> */</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">commander.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">command</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"init &#x3C;projectName>"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">alias</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'i'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">description</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'init project'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">action</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">((</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">projectName</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">initProject</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(cwd, projectName)) {</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">            console.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">log</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`初始化 ${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">projectName</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">} 成功`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">            return</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        console.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">log</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">projectName</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">} 已存在`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    })</span></span></code></pre>
-</div><p>接下来是具体的<code>initProject</code>逻辑:</p>
-<ul>
-<li>cmd：<code>process.cwd()</code>指令执行目录</li>
-<li>projectName：用户输入的项目名</li>
-</ul>
-<ol>
-<li>判断目标目录是否存在
-<ol>
-<li>不存在则创建</li>
-<li>存在则抛出<code>已经存在</code>警告</li>
-</ol>
-</li>
-<li>将模板文件的内容先读入</li>
-<li>通过<code>createDir</code>方法创建目录</li>
-<li>通过<code>createFile</code>方法将内容写到目标目录</li>
-</ol>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> path</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> require</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'path'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// 静态资源目录</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> assetsDir</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> path.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">resolve</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(__dirname, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'assets'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> readmeContent</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> getFileContent</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(path.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">resolve</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(assetsDir, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'README.md'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">))</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> demoContent</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> getFileContent</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(path.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">resolve</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(assetsDir, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'demo.md'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">))</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">/**</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> * 初始化一个模板项目</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> * </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">@param</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> {string}</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> cwd</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> 项目目录</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> * </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">@param</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> {string}</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> projectName</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> 项目名称</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> */</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">function</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> initProject</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">cwd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">projectName</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> dir</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> path.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">resolve</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(cwd, projectName)</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    // 创建目录</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">createDir</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(dir)) {</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">        createFile</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(path.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">resolve</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(dir, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'README.md'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">), readmeContent)</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">        createDir</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(path.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">resolve</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(dir, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'work'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">))</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">        createDir</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(path.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">resolve</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(dir, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'study'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">))</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">        createFile</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(path.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">resolve</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(dir, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'work'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'README.md'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">), demoContent)</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">        createFile</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(path.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">resolve</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(dir, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'study'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'README.md'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">), demoContent)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        return</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    return</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> false</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">/**</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> * 创建一个不存在的目录</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> * </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">@param</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> {string}</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> path</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> </span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> */</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">function</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> createDir</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">path</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">!</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fs.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">existsSync</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(path)) {</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        fs.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">mkdirSync</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(path, { recursive: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">true</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> })</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        return</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> true</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    console.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">error</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">path</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">} 已存在`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    return</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> false</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><p>这样初始化一个模板项目的流程就完成了</p>
-<h3 id="初始化记录模板" tabindex="-1">初始化记录模板 <a class="header-anchor" href="#初始化记录模板" aria-label="Permalink to &quot;初始化记录模板&quot;">&ZeroWidthSpace;</a></h3>
-<p>有模板项目就有模板文件</p>
-<p>这部分主要阐述生成模板文件的流程</p>
-<p>首先注册<code>create &lt;filename&gt;</code> 指令</p>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">/**</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> * 创建一个时间记录模板文件</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> */</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">commander.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">command</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"create &#x3C;filename>"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">alias</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'c'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">description</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'create template note file'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">action</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">((</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">filename</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">createTemplateFIle</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(cwd, filename)) {</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">            console.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">log</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">filename</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">} 创建成功`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">            return</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        console.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">log</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">filename</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">} 已存在`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    })</span></span></code></pre>
-</div><p>主要逻辑是<code>createTemplateFIle</code>方法里</p>
-<p>这里的思路就比较简单，因为创建模板文件的目录默认是指令命令的目录</p>
-<p>一行代码就搞定文件的写出</p>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">/**</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> * 初始化一个模板记录文件</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> * </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">@param</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> {string}</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> cwd</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> 文件目录</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> * </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">@param</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> {string}</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> filename</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> 文件名称</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> */</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">function</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> createTemplateFIle</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">cwd</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">filename</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    return</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> createFile</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(path.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">resolve</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(cwd, filename), demoContent)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><h3 id="本期效果" tabindex="-1">本期效果 <a class="header-anchor" href="#本期效果" aria-label="Permalink to &quot;本期效果&quot;">&ZeroWidthSpace;</a></h3>
-<p><img src="https://img.cdn.sugarat.top/mdImg/MTYyODE3NDI1NTI1Mg==timec4.gif" alt="图片" loading="lazy"></p>
-<h2 id="其它" tabindex="-1">其它 <a class="header-anchor" href="#其它" aria-label="Permalink to &quot;其它&quot;">&ZeroWidthSpace;</a></h2>
-<p><strong>下一期根据已有的功能整个周报生成</strong>(鸽了一期)</p>
-<p>由于每天空闲时间有限，本文就先到这</p>
-<p>如果读者还感觉意犹未尽，敬请期待后续更新，或先关注一下<a href="https://github.com/ATQQ/time-control" target="_blank" rel="noreferrer">仓库</a></p>
-<p>欢迎评论区提需求，交流探讨</p>
-<p>本系列会不断的更新迭代，直至产品初代完成</p>
-<ul>
-<li><a href="https://github.com/ATQQ/time-control" target="_blank" rel="noreferrer">仓库地址</a></li>
-</ul>
-]]></content:encoded>
-            <enclosure url="https://img.cdn.sugarat.top/mdImg/MTYyODE3NDI1NTI1Mg==timec4.gif" length="0" type="image/gif"/>
         </item>
     </channel>
 </rss>
