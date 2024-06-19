@@ -4,7 +4,7 @@
         <title>代码收容所</title>
         <link>https://www.dmsrs.org/preview</link>
         <description>天道酬勤，恒以致遠（大前端相关技术分享）</description>
-        <lastBuildDate>Wed, 19 Jun 2024 05:42:52 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 19 Jun 2024 16:23:33 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -14,6 +14,254 @@
             <link>https://www.dmsrs.org/preview</link>
         </image>
         <copyright>Copyright (c) 2018-present, 代码收容所</copyright>
+        <item>
+            <title><![CDATA[博客性能优化笔记 | 99分]]></title>
+            <link>https://www.dmsrs.org/preview/preview/cnjimbo/cnjimbo.github.io/branch/master/essay/dev/2024-blog-perf.html</link>
+            <guid>https://www.dmsrs.org/preview/preview/cnjimbo/cnjimbo.github.io/branch/master/essay/dev/2024-blog-perf.html</guid>
+            <pubDate>Wed, 19 Jun 2024 16:21:44 GMT</pubDate>
+            <description><![CDATA[# 博客性能优化笔记 | 99分
+
+闲着没事，拿 lighthouse 测了一下博客网站的性能评测，发现诊断出的问题还挺多，就顺手优化了一下。
+
+这篇文章将记录这个优化的过程。
+
+## 优化前后对比
+lighthouse 检测结果
+
+|                                     优化前                                      |                                     优化后                                      |
+| :]]></description>
+            <content:encoded><![CDATA[<h1 id="博客性能优化笔记-99分" tabindex="-1">博客性能优化笔记 | 99分 <a class="header-anchor" href="#博客性能优化笔记-99分" aria-label="Permalink to &quot;博客性能优化笔记 | 99分&quot;">&ZeroWidthSpace;</a></h1>
+<p>闲着没事，拿 lighthouse 测了一下博客网站的性能评测，发现诊断出的问题还挺多，就顺手优化了一下。</p>
+<p>这篇文章将记录这个优化的过程。</p>
+<h2 id="优化前后对比" tabindex="-1">优化前后对比 <a class="header-anchor" href="#优化前后对比" aria-label="Permalink to &quot;优化前后对比&quot;">&ZeroWidthSpace;</a></h2>
+<p>lighthouse 检测结果</p>
+<table tabindex="0">
+<thead>
+<tr>
+<th style="text-align:center">优化前</th>
+<th style="text-align:center">优化后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/4d82e4e81e499921a65b73c80034c153" alt="" loading="lazy"></td>
+<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/b5bae2c72f1d2aed2c09857c1b9e6b5f" alt="" loading="lazy"></td>
+</tr>
+</tbody>
+</table>
+<p>性能面板检测结果</p>
+<table tabindex="0">
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">FCP</th>
+<th style="text-align:center">DOMContentLoaded</th>
+<th style="text-align:center">LCP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">优化前</td>
+<td style="text-align:center">764ms</td>
+<td style="text-align:center">1798ms</td>
+<td style="text-align:center">1864ms</td>
+</tr>
+<tr>
+<td style="text-align:center">优化后</td>
+<td style="text-align:center">496ms</td>
+<td style="text-align:center">507ms</td>
+<td style="text-align:center">496ms</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>FCP（First Contentful Paint）</li>
+<li>LCP（Largest Contentful Paint）</li>
+</ul>
+<h2 id="检测工具" tabindex="-1">检测工具 <a class="header-anchor" href="#检测工具" aria-label="Permalink to &quot;检测工具&quot;">&ZeroWidthSpace;</a></h2>
+<p>使用 Chrome 自带的 lighthouse 和 性能面板进行测试。</p>
+<table tabindex="0">
+<thead>
+<tr>
+<th style="text-align:center">性能面板</th>
+<th style="text-align:center">lighthouse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/ee2e46cd895e2773a22671fe99571bd3" alt="" loading="lazy"></td>
+<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/c35d5a583f80ccbeae74544644fbc236" alt="" loading="lazy"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="发现问题" tabindex="-1">发现问题 <a class="header-anchor" href="#发现问题" aria-label="Permalink to &quot;发现问题&quot;">&ZeroWidthSpace;</a></h2>
+<h3 id="性能面板-performance" tabindex="-1">性能面板 | Performance <a class="header-anchor" href="#性能面板-performance" aria-label="Permalink to &quot;性能面板 | Performance&quot;">&ZeroWidthSpace;</a></h3>
+<p><em>通过截图可以观察到每个时间的页面变化</em></p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/1d59bbd832442846c5e15bd05a0fb41a" alt="" loading="lazy"></p>
+<p>发现的问题：</p>
+<ol>
+<li>文章列表渲染后，文章封面图加载缓慢</li>
+<li>图片完成加载时间过长（封面，头像图片）</li>
+<li>布局渲染期间发生明显变化</li>
+</ol>
+<ul>
+<li>友链列表加载完成后</li>
+<li>左上头像加载完成</li>
+</ul>
+<h3 id="lighthouse" tabindex="-1">lighthouse <a class="header-anchor" href="#lighthouse" aria-label="Permalink to &quot;lighthouse&quot;">&ZeroWidthSpace;</a></h3>
+<p>测试后会给到优化建议。</p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/564a5318bef5fe8f9318e205a946ed5d" alt="" loading="lazy"></p>
+<p>这里挑一些后面用到的</p>
+<ol start="4">
+<li>使用新的图片格式（WebP and AVIF）</li>
+<li>减少没用到的CSS文件大小</li>
+<li>img 没有明确的宽高属性</li>
+<li>资源传输压缩（gzip, brotli 等）</li>
+<li>加载适当大小的图片（避免超过要展示的大小）</li>
+<li>避免超大的资源加载阻塞网络（主要是一些超大的图片和js）</li>
+</ol>
+<h2 id="优化过程" tabindex="-1">优化过程 <a class="header-anchor" href="#优化过程" aria-label="Permalink to &quot;优化过程&quot;">&ZeroWidthSpace;</a></h2>
+<h3 id="图片优化" tabindex="-1">图片优化 <a class="header-anchor" href="#图片优化" aria-label="Permalink to &quot;图片优化&quot;">&ZeroWidthSpace;</a></h3>
+<p><em>解决：1，2，4，8，9</em></p>
+<p>① 裁剪为渲染的大小</p>
+<p>② 格式调整为WebP格式</p>
+<p>我的图片都是放在图床上的（<a href="https://www.qiniu.com/" target="_blank" rel="noreferrer">七牛云</a>，<a href="https://www.upyun.com/" target="_blank" rel="noreferrer">又拍云</a>，<a href="https://www.bitiful.com/" target="_blank" rel="noreferrer">缤纷云</a>）。</p>
+<p>这一步我直接使用 OSS（对象存储） 提供的图片加载裁剪功能即可。</p>
+<p>配置目标：<code>宽高裁剪为 120px * 80px</code>，格式调整为 <code>WebP</code> 格式。</p>
+<p>配置处理样式示例</p>
+<table tabindex="0">
+<thead>
+<tr>
+<th style="text-align:center">七牛云</th>
+<th style="text-align:center">又拍云</th>
+<th style="text-align:center">缤纷云</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/35a9ae4bce09253ec27336add6d5b113" alt="" loading="lazy"></td>
+<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/71b189c9662ae6ebf6c5cbba026bef9b" alt="" loading="lazy"></td>
+<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/61666d5257abea7242b81f73b841366b" alt="" loading="lazy"></td>
+</tr>
+</tbody>
+</table>
+<p>使用：在原有的资源上添加对应的后置即可</p>
+<ul>
+<li>七牛云：url<code>~cover.webp</code></li>
+<li>又拍云：url<code>-cover</code></li>
+<li>缤纷云：url<code>!style:cover</code></li>
+</ul>
+<p>代码中的体现↓</p>
+<table tabindex="0">
+<thead>
+<tr>
+<th style="text-align:center">封面</th>
+<th style="text-align:center">友链头像</th>
+<th style="text-align:center">头像</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/bea00144a61781f8effd682a43d36af0" alt="" loading="lazy"></td>
+<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/aad8979fe2c73aa37c626d59cdbcb199" alt="" loading="lazy"></td>
+<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/a0bebb4818ac1c4dcd208871c977fd6b" alt="" loading="lazy"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="oml2d模型资源优化" tabindex="-1">oml2d模型资源优化 <a class="header-anchor" href="#oml2d模型资源优化" aria-label="Permalink to &quot;oml2d模型资源优化&quot;">&ZeroWidthSpace;</a></h3>
+<p>博客左下角的看板娘加载优化。</p>
+<p><em>解决：9</em></p>
+<p>① 资源全部放在自己的 OSS 通过CDN加载（有gzip压缩，更快的访问速度）</p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/a54a6ad8b950bcd35881a91a766d9516" alt="" loading="lazy"></p>
+<p>② 将模型用到的PNG图片压缩</p>
+<p>使用之前做的<a href="https://demos.sugarat.top/pages/png-compress/" target="_blank" rel="noreferrer">图片在线压缩工具</a></p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/3a71f093eb7e6a9edd7fc5a44ea5453a" alt="" loading="lazy"></p>
+<p>压缩后减少了 88% 的体积，视觉上看不出变化。</p>
+<h3 id="网络优化" tabindex="-1">网络优化 <a class="header-anchor" href="#网络优化" aria-label="Permalink to &quot;网络优化&quot;">&ZeroWidthSpace;</a></h3>
+<p><em>解决：7，9</em></p>
+<p>① 第三方资源使用 OSS存储 + CDN加载</p>
+<p>② 访问使用 HTTP3/HTTP2</p>
+<p>新的协议加载资源，用上多路复用的特性。</p>
+<p>启用前提资源支持 HTTPS 访问（配置SSL证书），才能启用 HTTP2/3。</p>
+<p>配置 HTTPS 时使用最新的 TLS1.3 版本，更快的加解密速度。</p>
+<p>下面是在各平台开启相关配置示意。</p>
+<table tabindex="0">
+<thead>
+<tr>
+<th style="text-align:center">七牛云</th>
+<th style="text-align:center">又拍云</th>
+<th style="text-align:center">缤纷云</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/bbbd1791fb922ff5a3b93bf767da7077" alt="" loading="lazy"></td>
+<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/cef4e8d57160ce1e15f55a013fb5c48f" alt="" loading="lazy"></td>
+<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/567b27f97e7c8c6d9872d30554ff5aac" alt="" loading="lazy"></td>
+</tr>
+</tbody>
+</table>
+<p>优化前后对比</p>
+<table tabindex="0">
+<thead>
+<tr>
+<th style="text-align:center">优化前</th>
+<th style="text-align:center">优化后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/2589d8a0c951eb52926265296d295300" alt="" loading="lazy"></td>
+<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/d2a595575fffd4894aafb90d242169ae" alt="" loading="lazy"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="布局优化" tabindex="-1">布局优化 <a class="header-anchor" href="#布局优化" aria-label="Permalink to &quot;布局优化&quot;">&ZeroWidthSpace;</a></h3>
+<p><em>解决：3，6</em></p>
+<p><strong>目标：减少触发 “页面回流重绘” 的范围和次数。</strong></p>
+<p>① 针对图片，限定具体渲染的宽高，避免图片加载后布局发生变化</p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/ff09a4dbcd305b2b1fb1811934a1c7c2" alt="" loading="lazy"></p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/67cfbd857a8a3e7e7eefa5aac53f696e" alt="" loading="lazy"></p>
+<p>② 针对后渲染区域，限定其容器的宽度，避免渲染后影响布局</p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/2210f6baef787ab13326a26d02e11783" alt="" loading="lazy"></p>
+<h3 id="减少无用代码" tabindex="-1">减少无用代码 <a class="header-anchor" href="#减少无用代码" aria-label="Permalink to &quot;减少无用代码&quot;">&ZeroWidthSpace;</a></h3>
+<p><em>解决：5</em></p>
+<p>① 移除无用的 js 脚本或者 CSS 资源</p>
+<p>大概看了一下，项目里额外依赖的 element-plus 样式文件占大头。</p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/028e0cf966f7a0b067ce1f3dc26ede32" alt="" loading="lazy"></p>
+<p>将全量引入，手动调整为按需引入。</p>
+<h2 id="最终效果" tabindex="-1">最终效果 <a class="header-anchor" href="#最终效果" aria-label="Permalink to &quot;最终效果&quot;">&ZeroWidthSpace;</a></h2>
+<table tabindex="0">
+<thead>
+<tr>
+<th style="text-align:center">性能面板</th>
+<th style="text-align:center">lighthouse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/5373e67f09e2a349074b0ab0c852d134" alt="" loading="lazy"></td>
+<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/b5bae2c72f1d2aed2c09857c1b9e6b5f" alt="" loading="lazy"></td>
+</tr>
+</tbody>
+</table>
+<p>优化后的性能指标</p>
+<ul>
+<li>FCP（First Contentful Paint）：496ms</li>
+<li>DOMContentLoaded：507ms</li>
+<li>LCP（Largest Contentful Paint）：496ms</li>
+</ul>
+<p>访问 <a href="https://www.dmsrs.org" target="_blank" rel="noreferrer">https://www.dmsrs.org</a> 可以看到效果还是很明显的。</p>
+<h2 id="总结" tabindex="-1">总结 <a class="header-anchor" href="#总结" aria-label="Permalink to &quot;总结&quot;">&ZeroWidthSpace;</a></h2>
+<ol>
+<li>图片：压缩，加载合适尺寸，优先使用 WebP 格式</li>
+<li>网络：HTTPS + HTTP2/3，OSS + CDN</li>
+<li>布局：减少回流重绘范围与次数</li>
+<li>资源：移除无用代码，无用的第三方资源加载</li>
+</ol>
+]]></content:encoded>
+            <enclosure url="https://cdn.upyun.sugarat.top/mdImg/sugar/4d82e4e81e499921a65b73c80034c153" length="0" type="image//mdImg/sugar/4d82e4e81e499921a65b73c80034c153"/>
+        </item>
         <item>
             <title><![CDATA[剑指Offer刷题记录]]></title>
             <link>https://www.dmsrs.org/preview/preview/cnjimbo/cnjimbo.github.io/branch/master/interview/offer/</link>
@@ -87,13 +335,15 @@
         </item>
         <item>
             <title><![CDATA[在提交pr请求后自动部署preview github pages]]></title>
-            <link>https://www.dmsrs.org/preview/preview/cnjimbo/cnjimbo.github.io/branch/master/technology/learn/deploy-preview-pr copy.html</link>
-            <guid>https://www.dmsrs.org/preview/preview/cnjimbo/cnjimbo.github.io/branch/master/technology/learn/deploy-preview-pr copy.html</guid>
+            <link>https://www.dmsrs.org/preview/preview/cnjimbo/cnjimbo.github.io/branch/master/technology/learn/deploy-preview-pr.html</link>
+            <guid>https://www.dmsrs.org/preview/preview/cnjimbo/cnjimbo.github.io/branch/master/technology/learn/deploy-preview-pr.html</guid>
             <pubDate>Tue, 18 Jun 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[# 在提交pr请求后自动部署preview github pages
 
 > ## Excerpt
 > :octocat: 一个GitHub Action，用于为拉取请求（PR）和分支创建GitHub Pages预览 —— EndBug/pages-preview
+
+# Pages Preview
 
 ## Table of contents
 
@@ -103,11 +353,11 @@
 
 ## What does it do?
 
-许多第三方服务允许您创建分支和拉取请求的预览部署，以便您可以利用这些预览来审查和测试您的更改。此操作同样能实现这一功能，但它是直接通过GitHub Pages来完成。
+A lot of third-party services allow you create preview deployments of branches and pull requests, so that you can use them to review and test your changes. This action allows you to do the same thing, but directly with GitHub Pages.
 
-具体而言，此操作会将您的网站部署到一个不同的仓库中，该仓库将会包含您选择应用此操作的所有仓库的预览版本。
+In particular, this action deploys your website to a different repo, which will contain the previews of all the repos you choose to use this on.
 
-如果您对这个操作背后的逻辑感兴趣，您可以查阅[流程图文档](docs/flow_diagram.md)。
+If you're interested in the logic behind this action, you can check out the [flow diagram](docs/flow_diagram.md).
 
 ## Setup
 
@@ -115,24 +365,25 @@
 
 #### Using my template
 
-1. 首先，访问[此模板](https://github.com/EndBug/preview-template)，并从那里生成您的仓库：点击`Use this template`，填写仓库名称和描述，确认已勾选 `Include all branches`，然后创建仓库。
+1. Go to [this template](https://github.com/EndBug/preview-template) and generate your repo from there: click "Use this template", fill in name and description, check that "Include all branches" is ticked, and create the repo.
+  It doesn't matter whether you create it as public or private, but remember that the Pages website will always be public.
 
-2. 接着，进入您的仓库设置，在“Pages”（仓库设置> Pages）选项卡中，将“GitHub Actions”设置为源。这样配置后，每当有新的推送或拉取请求，GitHub Actions将自动部署预览页面。
+2. Go into your repo settings, in the Pages tab (Repo settings > Pages) and set "GitHub Actions" as the source.
 
 #### Manually
 
-1. 创建一个新的存储库以承载你的预览内容。
-   这个存储库将用于来自你所有存储库的预览，因此你只需要一次性设置它。
+1. Create a new repo that will host your previews.
+  This repo will be used for the previews from all your repositories, so you'll need to set this up only once.
 
-2. 确保这个存储库包含两个分支：`main` 和 `gh-pages`（你也可以选择不同的名称）。
-    - `main` 应该是你的默认分支，它仅保存工作流文件（以及你可能想要添加的其他文件，如 README、许可证等）。
-    - `gh-pages` 分支将包含实际的预览内容，初始化时应为空。
+2. Make sure that this repo has two branches: `main` and `gh-pages` (you can also choose different names).
+    - `main` should be your default branch, and it will only hold a workflow (and any additional files you want to add, liKE a README, a license, etc.).
+    - `gh-pages` will be the branch that will contain the actual previews, and it should be empty.
 
-3. 在 `main` 分支中创建一个新文件，并将其命名为 `.github/workflows/preview.yml`。然后，将 `[`dependents/preview-repo.yml`](dependents/preview_repo.yml)` 中的内容复制到该文件中。
-   通常情况下，你无需修改这个文件中的任何内容，所有配置选项都应在源存储库的工作流中设定。
-   如果你更新动作到不同的主要版本，这个文件可能需要进行相应的更新。
+3. Create a new file in the `main` branch, and name it `.github/workflows/preview.yml`. Then copy the contents of [`dependents/preview-repo.yml`](dependents/preview_repo.yml) into it.
+  You shouldn't need to change anything in this file, the config options will all be in the source repo workflow.
+  This file might need to be updated if you update the action to a different major version.
 
-4. 进入你的存储库设置，在“Pages”标签页下（仓库设置 > Pages），并将“GitHub Actions”设为页面发布来源。
+4. Go into your repo settings, in the Pages tab (Repo settings > Pages) and set "GitHub Actions" as the source.
 
 ### Personal Access Token (PAT)
 
@@ -142,7 +393,8 @@ There are currently two types of PATs: fine-grained, which are more secure but s
 
 #### Fine-grained PAT
 
-1. Go to [Account settings > Developer settings > Fine-grained tokens](https://github.com/settings/tokens?type=beta).
+1. If you're using a GitHub organization, you may have to first enable _Personal Access Tokens_ (PAT) on the Organization's (not yours') Settings at `.../settings/personal-access-tokens-onboarding
+1. Go to [Account settings > Developer settings > Fine-grained tokens](https://github.com/settings/tokens?type=beta). For an Org, you must use YOUR (not the Org's) Setttings, and change the _Resource owner_ from you to the Org on this screen.
 2. Click on "Generate new token".
 3. Give it a recognizable name and set an appropriate expiration date.
 4. Make sure that the "Resource owner" is the same user/org that owns the preview repo.
@@ -194,6 +446,7 @@ All done! You're now ready to use the action 🎉
 <h2 id="excerpt" tabindex="-1">Excerpt <a class="header-anchor" href="#excerpt" aria-label="Permalink to &quot;Excerpt&quot;">&ZeroWidthSpace;</a></h2>
 <p>:octocat: 一个GitHub Action，用于为拉取请求（PR）和分支创建GitHub Pages预览 —— EndBug/pages-preview</p>
 </blockquote>
+<h1 id="pages-preview" tabindex="-1">Pages Preview <a class="header-anchor" href="#pages-preview" aria-label="Permalink to &quot;Pages Preview&quot;">&ZeroWidthSpace;</a></h1>
 <h2 id="table-of-contents" tabindex="-1">Table of contents <a class="header-anchor" href="#table-of-contents" aria-label="Permalink to &quot;Table of contents&quot;">&ZeroWidthSpace;</a></h2>
 <ul>
 <li><a href="#what-does-it-do">What does it do?</a></li>
@@ -201,40 +454,41 @@ All done! You're now ready to use the action 🎉
 <li><a href="#inputs">Inputs</a></li>
 </ul>
 <h2 id="what-does-it-do" tabindex="-1">What does it do? <a class="header-anchor" href="#what-does-it-do" aria-label="Permalink to &quot;What does it do?&quot;">&ZeroWidthSpace;</a></h2>
-<p>许多第三方服务允许您创建分支和拉取请求的预览部署，以便您可以利用这些预览来审查和测试您的更改。此操作同样能实现这一功能，但它是直接通过GitHub Pages来完成。</p>
-<p>具体而言，此操作会将您的网站部署到一个不同的仓库中，该仓库将会包含您选择应用此操作的所有仓库的预览版本。</p>
-<p>如果您对这个操作背后的逻辑感兴趣，您可以查阅<a href="./docs/flow_diagram.html">流程图文档</a>。</p>
+<p>A lot of third-party services allow you create preview deployments of branches and pull requests, so that you can use them to review and test your changes. This action allows you to do the same thing, but directly with GitHub Pages.</p>
+<p>In particular, this action deploys your website to a different repo, which will contain the previews of all the repos you choose to use this on.</p>
+<p>If you're interested in the logic behind this action, you can check out the <a href="./docs/flow_diagram.html">flow diagram</a>.</p>
 <h2 id="setup" tabindex="-1">Setup <a class="header-anchor" href="#setup" aria-label="Permalink to &quot;Setup&quot;">&ZeroWidthSpace;</a></h2>
 <h3 id="preview-repo" tabindex="-1">Preview repo <a class="header-anchor" href="#preview-repo" aria-label="Permalink to &quot;Preview repo&quot;">&ZeroWidthSpace;</a></h3>
 <h4 id="using-my-template" tabindex="-1">Using my template <a class="header-anchor" href="#using-my-template" aria-label="Permalink to &quot;Using my template&quot;">&ZeroWidthSpace;</a></h4>
 <ol>
 <li>
-<p>首先，访问<a href="https://github.com/EndBug/preview-template" target="_blank" rel="noreferrer">此模板</a>，并从那里生成您的仓库：点击<code>Use this template</code>，填写仓库名称和描述，确认已勾选 <code>Include all branches</code>，然后创建仓库。</p>
+<p>Go to <a href="https://github.com/EndBug/preview-template" target="_blank" rel="noreferrer">this template</a> and generate your repo from there: click &quot;Use this template&quot;, fill in name and description, check that &quot;Include all branches&quot; is ticked, and create the repo.
+It doesn't matter whether you create it as public or private, but remember that the Pages website will always be public.</p>
 </li>
 <li>
-<p>接着，进入您的仓库设置，在“Pages”（仓库设置&gt; Pages）选项卡中，将“GitHub Actions”设置为源。这样配置后，每当有新的推送或拉取请求，GitHub Actions将自动部署预览页面。</p>
+<p>Go into your repo settings, in the Pages tab (Repo settings &gt; Pages) and set &quot;GitHub Actions&quot; as the source.</p>
 </li>
 </ol>
 <h4 id="manually" tabindex="-1">Manually <a class="header-anchor" href="#manually" aria-label="Permalink to &quot;Manually&quot;">&ZeroWidthSpace;</a></h4>
 <ol>
 <li>
-<p>创建一个新的存储库以承载你的预览内容。
-这个存储库将用于来自你所有存储库的预览，因此你只需要一次性设置它。</p>
+<p>Create a new repo that will host your previews.
+This repo will be used for the previews from all your repositories, so you'll need to set this up only once.</p>
 </li>
 <li>
-<p>确保这个存储库包含两个分支：<code>main</code> 和 <code>gh-pages</code>（你也可以选择不同的名称）。</p>
+<p>Make sure that this repo has two branches: <code>main</code> and <code>gh-pages</code> (you can also choose different names).</p>
 <ul>
-<li><code>main</code> 应该是你的默认分支，它仅保存工作流文件（以及你可能想要添加的其他文件，如 README、许可证等）。</li>
-<li><code>gh-pages</code> 分支将包含实际的预览内容，初始化时应为空。</li>
+<li><code>main</code> should be your default branch, and it will only hold a workflow (and any additional files you want to add, liKE a README, a license, etc.).</li>
+<li><code>gh-pages</code> will be the branch that will contain the actual previews, and it should be empty.</li>
 </ul>
 </li>
 <li>
-<p>在 <code>main</code> 分支中创建一个新文件，并将其命名为 <code>.github/workflows/preview.yml</code>。然后，将 <code>[</code>dependents/preview-repo.yml<code>](dependents/preview_repo.yml)</code> 中的内容复制到该文件中。
-通常情况下，你无需修改这个文件中的任何内容，所有配置选项都应在源存储库的工作流中设定。
-如果你更新动作到不同的主要版本，这个文件可能需要进行相应的更新。</p>
+<p>Create a new file in the <code>main</code> branch, and name it <code>.github/workflows/preview.yml</code>. Then copy the contents of <a href="dependents/preview_repo.yml"><code>dependents/preview-repo.yml</code></a> into it.
+You shouldn't need to change anything in this file, the config options will all be in the source repo workflow.
+This file might need to be updated if you update the action to a different major version.</p>
 </li>
 <li>
-<p>进入你的存储库设置，在“Pages”标签页下（仓库设置 &gt; Pages），并将“GitHub Actions”设为页面发布来源。</p>
+<p>Go into your repo settings, in the Pages tab (Repo settings &gt; Pages) and set &quot;GitHub Actions&quot; as the source.</p>
 </li>
 </ol>
 <h3 id="personal-access-token-pat" tabindex="-1">Personal Access Token (PAT) <a class="header-anchor" href="#personal-access-token-pat" aria-label="Permalink to &quot;Personal Access Token (PAT)&quot;">&ZeroWidthSpace;</a></h3>
@@ -242,7 +496,8 @@ All done! You're now ready to use the action 🎉
 <p>There are currently two types of PATs: fine-grained, which are more secure but still in beta, and classic. I'd suggest to use fine-grained PATs, but if you can't, you can also use classic PATs.</p>
 <h4 id="fine-grained-pat" tabindex="-1">Fine-grained PAT <a class="header-anchor" href="#fine-grained-pat" aria-label="Permalink to &quot;Fine-grained PAT&quot;">&ZeroWidthSpace;</a></h4>
 <ol>
-<li>Go to <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noreferrer">Account settings &gt; Developer settings &gt; Fine-grained tokens</a>.</li>
+<li>If you're using a GitHub organization, you may have to first enable <em>Personal Access Tokens</em> (PAT) on the Organization's (not yours') Settings at `.../settings/personal-access-tokens-onboarding</li>
+<li>Go to <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noreferrer">Account settings &gt; Developer settings &gt; Fine-grained tokens</a>. For an Org, you must use YOUR (not the Org's) Setttings, and change the <em>Resource owner</em> from you to the Org on this screen.</li>
 <li>Click on &quot;Generate new token&quot;.</li>
 <li>Give it a recognizable name and set an appropriate expiration date.</li>
 <li>Make sure that the &quot;Resource owner&quot; is the same user/org that owns the preview repo.</li>
@@ -889,255 +1144,6 @@ Also, make sure to change <code>EndBug/pages-preview</code>'s inputs to match yo
 </ul>
 </details>
 ]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[博客性能优化笔记 | 99分]]></title>
-            <link>https://www.dmsrs.org/preview/preview/cnjimbo/cnjimbo.github.io/branch/master/essay/dev/2024-blog-perf.html</link>
-            <guid>https://www.dmsrs.org/preview/preview/cnjimbo/cnjimbo.github.io/branch/master/essay/dev/2024-blog-perf.html</guid>
-            <pubDate>Thu, 30 May 2024 17:06:44 GMT</pubDate>
-            <description><![CDATA[# 博客性能优化笔记 | 99分
-
-闲着没事，拿 lighthouse 测了一下博客网站的性能评测，发现诊断出的问题还挺多，就顺手优化了一下。
-
-这篇文章将记录这个优化的过程。
-
-
-## 优化前后对比
-lighthouse 检测结果
-
-|                                     优化前                                      |                                     优化后                                      |
-| :]]></description>
-            <content:encoded><![CDATA[<h1 id="博客性能优化笔记-99分" tabindex="-1">博客性能优化笔记 | 99分 <a class="header-anchor" href="#博客性能优化笔记-99分" aria-label="Permalink to &quot;博客性能优化笔记 | 99分&quot;">&ZeroWidthSpace;</a></h1>
-<p>闲着没事，拿 lighthouse 测了一下博客网站的性能评测，发现诊断出的问题还挺多，就顺手优化了一下。</p>
-<p>这篇文章将记录这个优化的过程。</p>
-<h2 id="优化前后对比" tabindex="-1">优化前后对比 <a class="header-anchor" href="#优化前后对比" aria-label="Permalink to &quot;优化前后对比&quot;">&ZeroWidthSpace;</a></h2>
-<p>lighthouse 检测结果</p>
-<table tabindex="0">
-<thead>
-<tr>
-<th style="text-align:center">优化前</th>
-<th style="text-align:center">优化后</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/4d82e4e81e499921a65b73c80034c153" alt="" loading="lazy"></td>
-<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/b5bae2c72f1d2aed2c09857c1b9e6b5f" alt="" loading="lazy"></td>
-</tr>
-</tbody>
-</table>
-<p>性能面板检测结果</p>
-<table tabindex="0">
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">FCP</th>
-<th style="text-align:center">DOMContentLoaded</th>
-<th style="text-align:center">LCP</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">优化前</td>
-<td style="text-align:center">764ms</td>
-<td style="text-align:center">1798ms</td>
-<td style="text-align:center">1864ms</td>
-</tr>
-<tr>
-<td style="text-align:center">优化后</td>
-<td style="text-align:center">496ms</td>
-<td style="text-align:center">507ms</td>
-<td style="text-align:center">496ms</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>FCP（First Contentful Paint）</li>
-<li>LCP（Largest Contentful Paint）</li>
-</ul>
-<h2 id="检测工具" tabindex="-1">检测工具 <a class="header-anchor" href="#检测工具" aria-label="Permalink to &quot;检测工具&quot;">&ZeroWidthSpace;</a></h2>
-<p>使用 Chrome 自带的 lighthouse 和 性能面板进行测试。</p>
-<table tabindex="0">
-<thead>
-<tr>
-<th style="text-align:center">性能面板</th>
-<th style="text-align:center">lighthouse</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/ee2e46cd895e2773a22671fe99571bd3" alt="" loading="lazy"></td>
-<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/c35d5a583f80ccbeae74544644fbc236" alt="" loading="lazy"></td>
-</tr>
-</tbody>
-</table>
-<h2 id="发现问题" tabindex="-1">发现问题 <a class="header-anchor" href="#发现问题" aria-label="Permalink to &quot;发现问题&quot;">&ZeroWidthSpace;</a></h2>
-<h3 id="性能面板-performance" tabindex="-1">性能面板 | Performance <a class="header-anchor" href="#性能面板-performance" aria-label="Permalink to &quot;性能面板 | Performance&quot;">&ZeroWidthSpace;</a></h3>
-<p><em>通过截图可以观察到每个时间的页面变化</em></p>
-<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/1d59bbd832442846c5e15bd05a0fb41a" alt="" loading="lazy"></p>
-<p>发现的问题：</p>
-<ol>
-<li>文章列表渲染后，文章封面图加载缓慢</li>
-<li>图片完成加载时间过长（封面，头像图片）</li>
-<li>布局渲染期间发生明显变化</li>
-</ol>
-<ul>
-<li>友链列表加载完成后</li>
-<li>左上头像加载完成</li>
-</ul>
-<h3 id="lighthouse" tabindex="-1">lighthouse <a class="header-anchor" href="#lighthouse" aria-label="Permalink to &quot;lighthouse&quot;">&ZeroWidthSpace;</a></h3>
-<p>测试后会给到优化建议。</p>
-<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/564a5318bef5fe8f9318e205a946ed5d" alt="" loading="lazy"></p>
-<p>这里挑一些后面用到的</p>
-<ol start="4">
-<li>使用新的图片格式（WebP and AVIF）</li>
-<li>减少没用到的CSS文件大小</li>
-<li>img 没有明确的宽高属性</li>
-<li>资源传输压缩（gzip, brotli 等）</li>
-<li>加载适当大小的图片（避免超过要展示的大小）</li>
-<li>避免超大的资源加载阻塞网络（主要是一些超大的图片和js）</li>
-</ol>
-<h2 id="优化过程" tabindex="-1">优化过程 <a class="header-anchor" href="#优化过程" aria-label="Permalink to &quot;优化过程&quot;">&ZeroWidthSpace;</a></h2>
-<h3 id="图片优化" tabindex="-1">图片优化 <a class="header-anchor" href="#图片优化" aria-label="Permalink to &quot;图片优化&quot;">&ZeroWidthSpace;</a></h3>
-<p><em>解决：1，2，4，8，9</em></p>
-<p>① 裁剪为渲染的大小</p>
-<p>② 格式调整为WebP格式</p>
-<p>我的图片都是放在图床上的（<a href="https://www.qiniu.com/" target="_blank" rel="noreferrer">七牛云</a>，<a href="https://www.upyun.com/" target="_blank" rel="noreferrer">又拍云</a>，<a href="https://www.bitiful.com/" target="_blank" rel="noreferrer">缤纷云</a>）。</p>
-<p>这一步我直接使用 OSS（对象存储） 提供的图片加载裁剪功能即可。</p>
-<p>配置目标：<code>宽高裁剪为 120px * 80px</code>，格式调整为 <code>WebP</code> 格式。</p>
-<p>配置处理样式示例</p>
-<table tabindex="0">
-<thead>
-<tr>
-<th style="text-align:center">七牛云</th>
-<th style="text-align:center">又拍云</th>
-<th style="text-align:center">缤纷云</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/35a9ae4bce09253ec27336add6d5b113" alt="" loading="lazy"></td>
-<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/71b189c9662ae6ebf6c5cbba026bef9b" alt="" loading="lazy"></td>
-<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/61666d5257abea7242b81f73b841366b" alt="" loading="lazy"></td>
-</tr>
-</tbody>
-</table>
-<p>使用：在原有的资源上添加对应的后置即可</p>
-<ul>
-<li>七牛云：url<code>~cover.webp</code></li>
-<li>又拍云：url<code>-cover</code></li>
-<li>缤纷云：url<code>!style:cover</code></li>
-</ul>
-<p>代码中的体现↓</p>
-<table tabindex="0">
-<thead>
-<tr>
-<th style="text-align:center">封面</th>
-<th style="text-align:center">友链头像</th>
-<th style="text-align:center">头像</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/bea00144a61781f8effd682a43d36af0" alt="" loading="lazy"></td>
-<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/aad8979fe2c73aa37c626d59cdbcb199" alt="" loading="lazy"></td>
-<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/a0bebb4818ac1c4dcd208871c977fd6b" alt="" loading="lazy"></td>
-</tr>
-</tbody>
-</table>
-<h3 id="oml2d模型资源优化" tabindex="-1">oml2d模型资源优化 <a class="header-anchor" href="#oml2d模型资源优化" aria-label="Permalink to &quot;oml2d模型资源优化&quot;">&ZeroWidthSpace;</a></h3>
-<p>博客左下角的看板娘加载优化。</p>
-<p><em>解决：9</em></p>
-<p>① 资源全部放在自己的 OSS 通过CDN加载（有gzip压缩，更快的访问速度）</p>
-<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/a54a6ad8b950bcd35881a91a766d9516" alt="" loading="lazy"></p>
-<p>② 将模型用到的PNG图片压缩</p>
-<p>使用之前做的<a href="https://demos.sugarat.top/pages/png-compress/" target="_blank" rel="noreferrer">图片在线压缩工具</a></p>
-<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/3a71f093eb7e6a9edd7fc5a44ea5453a" alt="" loading="lazy"></p>
-<p>压缩后减少了 88% 的体积，视觉上看不出变化。</p>
-<h3 id="网络优化" tabindex="-1">网络优化 <a class="header-anchor" href="#网络优化" aria-label="Permalink to &quot;网络优化&quot;">&ZeroWidthSpace;</a></h3>
-<p><em>解决：7，9</em></p>
-<p>① 第三方资源使用 OSS存储 + CDN加载</p>
-<p>② 访问使用 HTTP3/HTTP2</p>
-<p>新的协议加载资源，用上多路复用的特性。</p>
-<p>启用前提资源支持 HTTPS 访问（配置SSL证书），才能启用 HTTP2/3。</p>
-<p>配置 HTTPS 时使用最新的 TLS1.3 版本，更快的加解密速度。</p>
-<p>下面是在各平台开启相关配置示意。</p>
-<table tabindex="0">
-<thead>
-<tr>
-<th style="text-align:center">七牛云</th>
-<th style="text-align:center">又拍云</th>
-<th style="text-align:center">缤纷云</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/bbbd1791fb922ff5a3b93bf767da7077" alt="" loading="lazy"></td>
-<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/cef4e8d57160ce1e15f55a013fb5c48f" alt="" loading="lazy"></td>
-<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/567b27f97e7c8c6d9872d30554ff5aac" alt="" loading="lazy"></td>
-</tr>
-</tbody>
-</table>
-<p>优化前后对比</p>
-<table tabindex="0">
-<thead>
-<tr>
-<th style="text-align:center">优化前</th>
-<th style="text-align:center">优化后</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/2589d8a0c951eb52926265296d295300" alt="" loading="lazy"></td>
-<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/d2a595575fffd4894aafb90d242169ae" alt="" loading="lazy"></td>
-</tr>
-</tbody>
-</table>
-<h3 id="布局优化" tabindex="-1">布局优化 <a class="header-anchor" href="#布局优化" aria-label="Permalink to &quot;布局优化&quot;">&ZeroWidthSpace;</a></h3>
-<p><em>解决：3，6</em></p>
-<p><strong>目标：减少触发 “页面回流重绘” 的范围和次数。</strong></p>
-<p>① 针对图片，限定具体渲染的宽高，避免图片加载后布局发生变化</p>
-<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/ff09a4dbcd305b2b1fb1811934a1c7c2" alt="" loading="lazy"></p>
-<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/67cfbd857a8a3e7e7eefa5aac53f696e" alt="" loading="lazy"></p>
-<p>② 针对后渲染区域，限定其容器的宽度，避免渲染后影响布局</p>
-<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/2210f6baef787ab13326a26d02e11783" alt="" loading="lazy"></p>
-<h3 id="减少无用代码" tabindex="-1">减少无用代码 <a class="header-anchor" href="#减少无用代码" aria-label="Permalink to &quot;减少无用代码&quot;">&ZeroWidthSpace;</a></h3>
-<p><em>解决：5</em></p>
-<p>① 移除无用的 js 脚本或者 CSS 资源</p>
-<p>大概看了一下，项目里额外依赖的 element-plus 样式文件占大头。</p>
-<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/028e0cf966f7a0b067ce1f3dc26ede32" alt="" loading="lazy"></p>
-<p>将全量引入，手动调整为按需引入。</p>
-<h2 id="最终效果" tabindex="-1">最终效果 <a class="header-anchor" href="#最终效果" aria-label="Permalink to &quot;最终效果&quot;">&ZeroWidthSpace;</a></h2>
-<table tabindex="0">
-<thead>
-<tr>
-<th style="text-align:center">性能面板</th>
-<th style="text-align:center">lighthouse</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/5373e67f09e2a349074b0ab0c852d134" alt="" loading="lazy"></td>
-<td style="text-align:center"><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/b5bae2c72f1d2aed2c09857c1b9e6b5f" alt="" loading="lazy"></td>
-</tr>
-</tbody>
-</table>
-<p>优化后的性能指标</p>
-<ul>
-<li>FCP（First Contentful Paint）：496ms</li>
-<li>DOMContentLoaded：507ms</li>
-<li>LCP（Largest Contentful Paint）：496ms</li>
-</ul>
-<p>访问 <a href="https://www.dmsrs.org" target="_blank" rel="noreferrer">https://www.dmsrs.org</a> 可以看到效果还是很明显的。</p>
-<h2 id="总结" tabindex="-1">总结 <a class="header-anchor" href="#总结" aria-label="Permalink to &quot;总结&quot;">&ZeroWidthSpace;</a></h2>
-<ol>
-<li>图片：压缩，加载合适尺寸，优先使用 WebP 格式</li>
-<li>网络：HTTPS + HTTP2/3，OSS + CDN</li>
-<li>布局：减少回流重绘范围与次数</li>
-<li>资源：移除无用代码，无用的第三方资源加载</li>
-</ol>
-]]></content:encoded>
-            <enclosure url="https://cdn.upyun.sugarat.top/mdImg/sugar/4d82e4e81e499921a65b73c80034c153" length="0" type="image//mdImg/sugar/4d82e4e81e499921a65b73c80034c153"/>
         </item>
         <item>
             <title><![CDATA[使用Pagefind为VitePress文档添加离线全文搜索能力]]></title>
@@ -3236,7 +3242,7 @@ const ]]></description>
 <p><img src="https://img.cdn.sugarat.top/mdImg/MTY4ODMwOTkwMzgwOA==688309903808" alt="" loading="lazy"></p>
 <p>下面实操使用一下上面的提示词</p>
 <p>我这里把步数调成了30</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-meWPj" id="tab-L6kUk9U" checked><label for="tab-L6kUk9U">① 提示词</label><input type="radio" name="group-meWPj" id="tab-dfEwInp" ><label for="tab-dfEwInp">② 反向提示词</label><input type="radio" name="group-meWPj" id="tab-iATD5Yc" ><label for="tab-iATD5Yc">③ 采样器</label><input type="radio" name="group-meWPj" id="tab-5a-R53M" ><label for="tab-5a-R53M">④ 步数</label><input type="radio" name="group-meWPj" id="tab-N_MJ3IZ" ><label for="tab-N_MJ3IZ">⑤ 引导系数</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-Rubdf" id="tab-x9kjwvi" checked><label for="tab-x9kjwvi">① 提示词</label><input type="radio" name="group-Rubdf" id="tab-N8IRZai" ><label for="tab-N8IRZai">② 反向提示词</label><input type="radio" name="group-Rubdf" id="tab-6Mkh4WS" ><label for="tab-6Mkh4WS">③ 采样器</label><input type="radio" name="group-Rubdf" id="tab-kwOk1mo" ><label for="tab-kwOk1mo">④ 步数</label><input type="radio" name="group-Rubdf" id="tab-MPRe-QL" ><label for="tab-MPRe-QL">⑤ 引导系数</label></div><div class="blocks">
 <div class="language-txt vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>extremely detailed CG uniform 8k illustrations, high color substitution, sketches graffiti art, illustrations photo, masterpiece, hyper detailed, best quality, ultra high res, high resolution, (intricate details), perfect lighting, best shadow, (graffiti wall:1.4), 1 girl, (extremely detailed face and eyes), (shiny big eyes), (shiny graffiti long hair:1.2), ((colorful)), ((colorful illustrations)), face focus, lip gloss, random eyes color,</span></span></code></pre>
 </div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>by bad-picture-chill-75v, nude, porn, nipples, pussy, pornography, canvas frame, cartoon, 3d, ((disfigured)), ((bad art)), ((deformed)),((extra limbs)),((close up)),((b&#x26;w)), wierd colors, blurry, (((duplicate))), ((morbid)), ((mutilated)), [out of frame], extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))), Photoshop, video game, ugly, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of frame, mutation, mutated, extra limbs, extra legs, extra arms, disfigured, deformed, cross-eye, body out of frame, blurry, bad art, bad anatomy, 3d render, background blur, (blurred background),  (briefs), (triangle pants), watermark, astigmatism, scattered light, lens astigmatism, chest light, shiny boobs, glowing boobs, halo, fog, hazy,</span></span></code></pre>
 </div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>DPM++ SDE Karras</span></span></code></pre>
@@ -3356,20 +3362,20 @@ const ]]></description>
 <h2 id="快速体验" tabindex="-1">快速体验 <a class="header-anchor" href="#快速体验" aria-label="Permalink to &quot;快速体验&quot;">&ZeroWidthSpace;</a></h2>
 <p>只需3步，即可体验</p>
 <p>① 拉取 Github 模板</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-esSjx" id="tab-9L6eU4N" checked><label for="tab-9L6eU4N">npm</label><input type="radio" name="group-esSjx" id="tab-Kzm_40V" ><label for="tab-Kzm_40V">yarn</label><input type="radio" name="group-esSjx" id="tab-YDI3DL7" ><label for="tab-YDI3DL7">pnpm</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-1rwAo" id="tab-2C3SVi_" checked><label for="tab-2C3SVi_">npm</label><input type="radio" name="group-1rwAo" id="tab-X3PSNgo" ><label for="tab-X3PSNgo">yarn</label><input type="radio" name="group-1rwAo" id="tab-JKAcicu" ><label for="tab-JKAcicu">pnpm</label></div><div class="blocks">
 <div class="language-bash vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme@latest</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span></span></code></pre>
 </div></div></div>
 <p>也可以指定项目名</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-JzSFJ" id="tab-ZMs8eMP" checked><label for="tab-ZMs8eMP">npm</label><input type="radio" name="group-JzSFJ" id="tab-7-xlycB" ><label for="tab-7-xlycB">yarn</label><input type="radio" name="group-JzSFJ" id="tab-9ZZUjit" ><label for="tab-9ZZUjit">pnpm</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-LN-hX" id="tab-Qkyp0SV" checked><label for="tab-Qkyp0SV">npm</label><input type="radio" name="group-LN-hX" id="tab-i9WFbYU" ><label for="tab-i9WFbYU">yarn</label><input type="radio" name="group-LN-hX" id="tab-p0Lh-VY" ><label for="tab-p0Lh-VY">pnpm</label></div><div class="blocks">
 <div class="language-bash vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme@latest</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div></div></div>
 <p><img src="https://img.cdn.sugarat.top/mdImg/MTY4OTQyMDE1NTcxMA==689420155710" alt="" loading="lazy"></p>
 <p>② 安装依赖</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-k6p2J" id="tab-QE-EWiA" checked><label for="tab-QE-EWiA">pnpm</label><input type="radio" name="group-k6p2J" id="tab-XZEN-29" ><label for="tab-XZEN-29">安装 PNPM</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-tWlAi" id="tab-2tmYgvY" checked><label for="tab-2tmYgvY">pnpm</label><input type="radio" name="group-tWlAi" id="tab-vSgQzkD" ><label for="tab-vSgQzkD">安装 PNPM</label></div><div class="blocks">
 <div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 如果你没有 PNPM 请先安装</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> i</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -g</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span></span></code></pre>
