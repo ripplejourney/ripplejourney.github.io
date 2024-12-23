@@ -4,7 +4,7 @@
         <title>代码收容所</title>
         <link>https://www.dmsrs.org/preview/cnjimbo/cnjimbo.github.io/pr/215</link>
         <description>天道酬勤，恒以致遠（大前端相关技术分享）</description>
-        <lastBuildDate>Fri, 25 Oct 2024 05:00:09 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 23 Dec 2024 04:01:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -14,6 +14,68 @@
             <link>https://www.dmsrs.org/preview/cnjimbo/cnjimbo.github.io/pr/215</link>
         </image>
         <copyright>Copyright (c) 2018-present, 代码收容所</copyright>
+        <item>
+            <title><![CDATA[dotnet开发]]></title>
+            <link>https://www.dmsrs.org/preview/cnjimbo/cnjimbo.github.io/pr/215/preview/cnjimbo/cnjimbo.github.io/pr/215/coding/dotnet/</link>
+            <guid>https://www.dmsrs.org/preview/cnjimbo/cnjimbo.github.io/pr/215/preview/cnjimbo/cnjimbo.github.io/pr/215/coding/dotnet/</guid>
+            <pubDate>Thu, 21 Nov 2024 05:28:38 GMT</pubDate>
+            <description><![CDATA[dotnet开发相关
+ 目录
+* 大数相加&nuget 修改 package存储位置]]></description>
+            <content:encoded><![CDATA[<h1 id="dotnet开发" tabindex="-1">dotnet开发 <a class="header-anchor" href="#dotnet开发" aria-label="Permalink to &quot;dotnet开发&quot;"></a></h1>
+<p>dotnet开发相关</p>
+<h2 id="目录" tabindex="-1">目录 <a class="header-anchor" href="#目录" aria-label="Permalink to &quot;目录&quot;"></a></h2>
+<ul>
+<li><a href="./dotnetViaVscode.html">大数相加&amp;nuget 修改 package存储位置</a></li>
+</ul>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[nuget 修改 package存储位置]]></title>
+            <link>https://www.dmsrs.org/preview/cnjimbo/cnjimbo.github.io/pr/215/preview/cnjimbo/cnjimbo.github.io/pr/215/coding/dotnet/dotnetViaVscode.html</link>
+            <guid>https://www.dmsrs.org/preview/cnjimbo/cnjimbo.github.io/pr/215/preview/cnjimbo/cnjimbo.github.io/pr/215/coding/dotnet/dotnetViaVscode.html</guid>
+            <pubDate>Thu, 21 Nov 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[方法一：修改 NuGet 配置文件
+1. 打开 NuGet 配置文件。配置文件通常位于以下位置：
+   - Windows: `%AppData%\NuGet\NuGet.Config`
+   - m]]></description>
+            <content:encoded><![CDATA[<h1 id="要修改-nuget-包存储位置-您需要更改-nuget-配置文件或使用命令行参数。以下是如何执行此操作的步骤" tabindex="-1">要修改 NuGet 包存储位置，您需要更改 NuGet 配置文件或使用命令行参数。以下是如何执行此操作的步骤： <a class="header-anchor" href="#要修改-nuget-包存储位置-您需要更改-nuget-配置文件或使用命令行参数。以下是如何执行此操作的步骤" aria-label="Permalink to &quot;要修改 NuGet 包存储位置，您需要更改 NuGet 配置文件或使用命令行参数。以下是如何执行此操作的步骤：&quot;"></a></h1>
+<h3 id="方法一-修改-nuget-配置文件" tabindex="-1">方法一：修改 NuGet 配置文件 <a class="header-anchor" href="#方法一-修改-nuget-配置文件" aria-label="Permalink to &quot;方法一：修改 NuGet 配置文件&quot;"></a></h3>
+<ol>
+<li>
+<p>打开 NuGet 配置文件。配置文件通常位于以下位置：</p>
+<ul>
+<li>Windows: <code>%AppData%\NuGet\NuGet.Config</code></li>
+<li>macOS/Linux: <code>$HOME/.config/NuGet/NuGet.Config</code></li>
+</ul>
+<p>如果您找不到配置文件，可以在命令行中使用 <code>nuget config -list</code> 命令查看当前的 NuGet 配置。</p>
+</li>
+<li>
+<p>在配置文件中添加或修改 <code>&lt;packageSources&gt;</code> 部分，指定新的存储位置。例如，要将包存储位置更改为 <code>D:\NuGetPackages</code>，请添加或修改以下内容：</p>
+<div class="language-xml vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">xml</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">&#x3C;</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">configuration</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">></span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  &#x3C;</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">packageSources</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">></span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    &#x3C;</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">add</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> key</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"MyCustomPackages"</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> value</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"D:\NuGetPackages"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> /></span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  &#x3C;/</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">packageSources</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">></span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">&#x3C;/</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">configuration</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">></span></span></code></pre>
+</div><p>这里的 <code>key</code> 是您自定义的源名称，<code>value</code> 是新的存储位置。</p>
+</li>
+<li>
+<p>保存并关闭配置文件。</p>
+</li>
+</ol>
+<h3 id="方法二-使用命令行参数" tabindex="-1">方法二：使用命令行参数 <a class="header-anchor" href="#方法二-使用命令行参数" aria-label="Permalink to &quot;方法二：使用命令行参数&quot;"></a></h3>
+<p>您还可以在安装或更新 NuGet 包时使用 <code>-Source</code> 参数指定新的存储位置。例如：</p>
+<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">dotnet</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> nuget</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">package_nam</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">e</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -Source</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> D:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">\N</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">uGetPackages</span></span></code></pre>
+</div><p>或者，在更新 NuGet 包时：</p>
+<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">dotnet</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> nuget</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> update</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">package_nam</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">e</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -Source</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> D:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">\N</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">uGetPackages</span></span></code></pre>
+</div><h3 id="方法三-设置全局默认源" tabindex="-1">方法三：设置全局默认源 <a class="header-anchor" href="#方法三-设置全局默认源" aria-label="Permalink to &quot;方法三：设置全局默认源&quot;"></a></h3>
+<p>如果您希望将新的存储位置设置为全局默认源，可以使用以下命令：</p>
+<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">dotnet</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> nuget</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> config</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -set</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> globalPackagesFolder=D:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">\N</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">uGetPackages</span></span></code></pre>
+</div><p>这会将全局包文件夹设置为 <code>D:\NuGetPackages</code>。</p>
+<h3 id="总结" tabindex="-1">总结 <a class="header-anchor" href="#总结" aria-label="Permalink to &quot;总结&quot;"></a></h3>
+<p>通过以上方法，您可以轻松地修改 NuGet 包的存储位置。根据您的需求和偏好，您可以选择修改配置文件或使用命令行参数来实现这一目标。</p>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[NodeJS]]></title>
             <link>https://www.dmsrs.org/preview/cnjimbo/cnjimbo.github.io/pr/215/preview/cnjimbo/cnjimbo.github.io/pr/215/bigWeb/node/</link>
@@ -612,7 +674,7 @@ Github项目地址：<a href="https://github.com/typicode/json-server" target="_
 <p><img src="./mac-install/MTY4ODMwOTkwMzgwOA==688309903808.png" alt="" loading="lazy"></p>
 <p>下面实操使用一下上面的提示词</p>
 <p>我这里把步数调成了30</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-Nj3e4" id="tab-czhgBU-" checked="checked"><label for="tab-czhgBU-">① 提示词</label><input type="radio" name="group-Nj3e4" id="tab-Fb_78TW" ><label for="tab-Fb_78TW">② 反向提示词</label><input type="radio" name="group-Nj3e4" id="tab-zZix1Dm" ><label for="tab-zZix1Dm">③ 采样器</label><input type="radio" name="group-Nj3e4" id="tab-gk2k_kx" ><label for="tab-gk2k_kx">④ 步数</label><input type="radio" name="group-Nj3e4" id="tab-pprR6oW" ><label for="tab-pprR6oW">⑤ 引导系数</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-rZqeR" id="tab-kxi7saM" checked="checked"><label for="tab-kxi7saM">① 提示词</label><input type="radio" name="group-rZqeR" id="tab-cNx2JHX" ><label for="tab-cNx2JHX">② 反向提示词</label><input type="radio" name="group-rZqeR" id="tab-ipUMbsl" ><label for="tab-ipUMbsl">③ 采样器</label><input type="radio" name="group-rZqeR" id="tab-deGwpM6" ><label for="tab-deGwpM6">④ 步数</label><input type="radio" name="group-rZqeR" id="tab-2eweUmf" ><label for="tab-2eweUmf">⑤ 引导系数</label></div><div class="blocks">
 <div class="language-txt vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span>extremely detailed CG uniform 8k illustrations, high color substitution, sketches graffiti art, illustrations photo, masterpiece, hyper detailed, best quality, ultra high res, high resolution, (intricate details), perfect lighting, best shadow, (graffiti wall:1.4), 1 girl, (extremely detailed face and eyes), (shiny big eyes), (shiny graffiti long hair:1.2), ((colorful)), ((colorful illustrations)), face focus, lip gloss, random eyes color,</span></span></code></pre>
 </div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span>by bad-picture-chill-75v, nude, porn, nipples, pussy, pornography, canvas frame, cartoon, 3d, ((disfigured)), ((bad art)), ((deformed)),((extra limbs)),((close up)),((b&#x26;w)), wierd colors, blurry, (((duplicate))), ((morbid)), ((mutilated)), [out of frame], extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))), Photoshop, video game, ugly, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of frame, mutation, mutated, extra limbs, extra legs, extra arms, disfigured, deformed, cross-eye, body out of frame, blurry, bad art, bad anatomy, 3d render, background blur, (blurred background),  (briefs), (triangle pants), watermark, astigmatism, scattered light, lens astigmatism, chest light, shiny boobs, glowing boobs, halo, fog, hazy,</span></span></code></pre>
 </div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span>DPM++ SDE Karras</span></span></code></pre>
@@ -4665,20 +4727,20 @@ Also, make sure to change <code>EndBug/pages-preview</code>'s inputs to match yo
 <h2 id="快速体验" tabindex="-1">快速体验 <a class="header-anchor" href="#快速体验" aria-label="Permalink to &quot;快速体验&quot;"></a></h2>
 <p>只需3步，即可体验</p>
 <p>① 拉取 Github 模板</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-PTFVt" id="tab-pOKloia" checked="checked"><label for="tab-pOKloia">npm</label><input type="radio" name="group-PTFVt" id="tab-taobLx6" ><label for="tab-taobLx6">yarn</label><input type="radio" name="group-PTFVt" id="tab-yRepUDO" ><label for="tab-yRepUDO">pnpm</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-i3dz8" id="tab-C_6Yeo6" checked="checked"><label for="tab-C_6Yeo6">npm</label><input type="radio" name="group-i3dz8" id="tab-6BujNp2" ><label for="tab-6BujNp2">yarn</label><input type="radio" name="group-i3dz8" id="tab-u-I8f-X" ><label for="tab-u-I8f-X">pnpm</label></div><div class="blocks">
 <div class="language-bash vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme@latest</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span></span></code></pre>
 </div></div></div>
 <p>也可以指定项目名</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-85I6a" id="tab-gK-e-ac" checked="checked"><label for="tab-gK-e-ac">npm</label><input type="radio" name="group-85I6a" id="tab-iT2Trbe" ><label for="tab-iT2Trbe">yarn</label><input type="radio" name="group-85I6a" id="tab-jzCiU3Y" ><label for="tab-jzCiU3Y">pnpm</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-EC2Vj" id="tab-RQn8yIH" checked="checked"><label for="tab-RQn8yIH">npm</label><input type="radio" name="group-EC2Vj" id="tab-t_Kh3LV" ><label for="tab-t_Kh3LV">yarn</label><input type="radio" name="group-EC2Vj" id="tab-gXe9jrI" ><label for="tab-gXe9jrI">pnpm</label></div><div class="blocks">
 <div class="language-bash vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme@latest</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div></div></div>
 <p><img src="./theme/MTY4OTQyMDE1NTcxMA==689420155710.png" alt="" loading="lazy"></p>
 <p>② 安装依赖</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-8ykov" id="tab-JdMhA8d" checked="checked"><label for="tab-JdMhA8d">pnpm</label><input type="radio" name="group-8ykov" id="tab-0GhN_HK" ><label for="tab-0GhN_HK">安装 PNPM</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-uXSyS" id="tab-TQx-Cbc" checked="checked"><label for="tab-TQx-Cbc">pnpm</label><input type="radio" name="group-uXSyS" id="tab-9oberKZ" ><label for="tab-9oberKZ">安装 PNPM</label></div><div class="blocks">
 <div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 如果你没有 PNPM 请先安装</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> i</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -g</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span></span></code></pre>
@@ -13041,501 +13103,6 @@ if (!name) {
 <li><a href="https://github.com/ATQQ/time-control" target="_blank" rel="noreferrer">仓库地址</a></li>
 </ul>
 ]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[做一个CL版的时间管理工具（六）]]></title>
-            <link>https://www.dmsrs.org/preview/cnjimbo/cnjimbo.github.io/pr/215/preview/cnjimbo/cnjimbo.github.io/pr/215/works/time-tools/time-tools-6.html</link>
-            <guid>https://www.dmsrs.org/preview/cnjimbo/cnjimbo.github.io/pr/215/preview/cnjimbo/cnjimbo.github.io/pr/215/works/time-tools/time-tools-6.html</guid>
-            <pubDate>Sat, 07 Aug 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[前言
-上一篇文章主要阐述了生成一段时间内的报告指令：
-* `timec -or --range &lt;startTime
-有时候期望直接导出的某一天，某一月，甚至某一年的数据，为此将会拓展几个日期相]]></description>
-            <content:encoded><![CDATA[<h1 id="做一个cli版的时间管理工具-六" tabindex="-1">做一个CLI版的时间管理工具（六） <a class="header-anchor" href="#做一个cli版的时间管理工具-六" aria-label="Permalink to &quot;做一个CLI版的时间管理工具（六）&quot;"></a></h1>
-<h2 id="前言" tabindex="-1">前言 <a class="header-anchor" href="#前言" aria-label="Permalink to &quot;前言&quot;"></a></h2>
-<p><a href="./time-tools-5.html">上一篇文章</a>主要阐述了生成一段时间内的报告指令：</p>
-<ul>
-<li><code>timec -or --range &lt;startTime&gt;_&lt;endTime&gt; &lt;filename1&gt; &lt;filename1&gt; .....</code></li>
-</ul>
-<p>有时候期望直接导出的某一天，某一月，甚至某一年的数据，为此将会拓展几个日期相关的指令</p>
-<ul>
-<li>某一天：<code>timec -or --day [date]</code></li>
-<li>某一月：<code>timec -or --month [month]</code>
-<ul>
-<li>将默认为今年</li>
-</ul>
-</li>
-<li>某一年：<code>timec -or --year [year]</code></li>
-<li>某年某月：<code>timec -or -Y [year] -M [month]</code>
-<ul>
-<li><code>--month</code> 与 <code>--year</code>组合使用</li>
-<li>其中<code>-M</code>，<code>-Y</code>分别是上述两个指令的缩写</li>
-</ul>
-</li>
-</ul>
-<p>除了这部分内容，本节也将会进入新的篇章，开始开发<strong>使用指令管理任务与事务</strong></p>
-<p>本文将会涉及任务相关的指令开发：<code>timec task [name]</code></p>
-<h2 id="本期效果" tabindex="-1">本期效果 <a class="header-anchor" href="#本期效果" aria-label="Permalink to &quot;本期效果&quot;"></a></h2>
-<p>![图片](./time-tools-6/MTYyODM0OTA5MTk2NQ==Kapture 2021-08-07 at 23.10.56.gif?s1=https%3A//img.cdn.sugarat.top/mdImg/MTYyODM0OTA5MTk2NQ%3D%3DKapture%25202021-08-07%2520at%252023.10.56.gif)</p>
-<h2 id="功能开发" tabindex="-1">功能开发 <a class="header-anchor" href="#功能开发" aria-label="Permalink to &quot;功能开发&quot;"></a></h2>
-<blockquote>
-<p>本部分将会省略五官代码(前几篇文章已出现过)</p>
-</blockquote>
-<h3 id="日期相关指令" tabindex="-1">日期相关指令 <a class="header-anchor" href="#日期相关指令" aria-label="Permalink to &quot;日期相关指令&quot;"></a></h3>
-<h4 id="具体到天" tabindex="-1">具体到天 <a class="header-anchor" href="#具体到天" aria-label="Permalink to &quot;具体到天&quot;"></a></h4>
-<p>首先是指定到某一天:</p>
-<ul>
-<li>通过<code>option</code>注册可选参数</li>
-<li>通过<code>cmdObj</code>的day属性拿到用户传入的值</li>
-</ul>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">option</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'-D, --day [date]'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'One day'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// 省略actions code</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> { </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">day</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> } </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> cmdObj</span></span></code></pre>
-</div><p>对输出报告的函数进行改造封装:</p>
-<ul>
-<li>参数分别是<code>开始时间</code>与<code>结束时间</code>
-<ul>
-<li>这样其余几个可选参数指令也可直接复用</li>
-</ul>
-</li>
-</ul>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> output</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">s</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">e</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">  const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> outPutPath</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> getFilePath</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(cwd, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`report-${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">outFileName</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}.md`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">  const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> json</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> getJSONByRange</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(content, s, e)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">  if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (json.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">length</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> ===</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      console.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">log</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'没有符合条件的数据'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">      return</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  }</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">  const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> data</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> outPutReport</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(json)</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">  createFile</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(outPutPath, data, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">false</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  console.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">log</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`导出成功`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><p>判断日期是否存在，存在则直接导出</p>
-<ul>
-<li>开始与结束时间都是传入的日期</li>
-</ul>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (day) {</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    return</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> output</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(day, day)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><h4 id="具体到月" tabindex="-1">具体到月 <a class="header-anchor" href="#具体到月" aria-label="Permalink to &quot;具体到月&quot;"></a></h4>
-<p>老规矩先注册相关指令</p>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">option</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'-M, --month [month]'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'One month'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
-</div><p>如果只有月，那么默认年就是今年，起止时间分别是</p>
-<ul>
-<li><code>nowYear-month-01</code></li>
-<li><code>nowYear-month-days</code></li>
-</ul>
-<p><strong>插播一条技巧</strong>：如何快速获取某年某月的天数:</p>
-<ol>
-<li><code>Date</code>构造函数支持传入年,月,日三个参数的函数重载</li>
-<li>其中月是<code>从0开始计算</code>：&quot;1-12&quot;分别对应&quot;0-11&quot;</li>
-<li>当日部分的参数传入0时，表示上月最后一天的日期</li>
-<li>此时再调用<code>getDate</code>方法获取日期，则获取到目标月份的天数</li>
-</ol>
-<p>例如：2021-08月的天数：</p>
-<ul>
-<li><code>new Date(2021,8,0)</code></li>
-<li>标识<code>2021年9月</code>开始的前一天日期，即<code>2021年8月31日</code></li>
-<li><code>getDate</code>返回结果即为<code>31</code></li>
-</ul>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> days</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> new</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> Date</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(year,month,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">).</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">getDate</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">()</span></span></code></pre>
-</div><p>导出逻辑如下：</p>
-<ul>
-<li>今年的年份通过<code>new Date().getFullYear()</code>获取</li>
-</ul>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (month) {</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> year</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> new</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> Date</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">().</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">getFullYear</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">()</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    return</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> output</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">year</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}-${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">month</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}-01`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">year</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}-${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">month</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}-${</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">new</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> Date</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">(</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">year</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">, </span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">month</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">).</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">getDate</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">()</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><h4 id="具体到年" tabindex="-1">具体到年 <a class="header-anchor" href="#具体到年" aria-label="Permalink to &quot;具体到年&quot;"></a></h4>
-<p>如果是年，那么起止时间分别就是：</p>
-<ul>
-<li><code>year-01-01</code></li>
-<li><code>year-12-31</code></li>
-</ul>
-<p>这个没得太多说法，轻车熟路写好</p>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">option</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'-Y, --year [year]'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'One year'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// ...more code</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (year) {</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    return</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> output</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">year</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}-01-01`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">year</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}-12-31`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><h4 id="具体到某年某月" tabindex="-1">具体到某年某月 <a class="header-anchor" href="#具体到某年某月" aria-label="Permalink to &quot;具体到某年某月&quot;"></a></h4>
-<p>这个就是-M与-Y参数组合使用时的场景</p>
-<p>只需要将上述两种导出方式的逻辑做一个合并即可，逻辑简单</p>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (year </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">&#x26;&#x26;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> month) {</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    return</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> output</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">year</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}-${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">month</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}-01`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">year</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}-${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">month</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}-${</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">new</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> Date</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">(</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">year</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">, </span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">month</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">).</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">getDate</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">()</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><p>几个日期相关的指令搞完，接着就开始整任务相关的指令</p>
-<h3 id="任务管理指令" tabindex="-1">任务管理指令 <a class="header-anchor" href="#任务管理指令" aria-label="Permalink to &quot;任务管理指令&quot;"></a></h3>
-<p>指令格式如下</p>
-<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">timec</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> task</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> [name]</span></span></code></pre>
-</div><p><code>name</code>参数是可选的，有如下几种逻辑:</p>
-<ul>
-<li>当name为空时，展示所有的任务，并标记正在进行中的任务</li>
-<li>当name不存在时，将其添加进任务列表</li>
-<li>当name存在时，将其设置为正在进行中的任务</li>
-</ul>
-<p>理清逻辑后，进入开发</p>
-<h4 id="初始化配置文件" tabindex="-1">初始化配置文件 <a class="header-anchor" href="#初始化配置文件" aria-label="Permalink to &quot;初始化配置文件&quot;"></a></h4>
-<p>在项目工程的根目录创建一个<code>.config/record.json</code>文件</p>
-<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">/Users/sugar/Documents/fe-project/time-control</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">├──</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> bin</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">├──</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> src</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">├──</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> test</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">├──</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> .config</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">├────└──record.json</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">└──</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> test2.md</span></span></code></pre>
-</div><p>配置文件结构如下：</p>
-<div class="language-json vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">json</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "recordFilepath"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">""</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "tasks"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: [],</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "defaultTaskIdx"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">-1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "thing"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: {</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "name"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">""</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "startTime"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"2021-01-01"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "endTime"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"2021-12-31"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "pauseTime"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"2021-12-26"</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><p>这里将主要用到<code>tasks</code>与<code>defaultTaskIdx</code>两个属性，前者记录所有的任务，后者记录当前正在进行的任务</p>
-<h4 id="注册指令" tabindex="-1">注册指令 <a class="header-anchor" href="#注册指令" aria-label="Permalink to &quot;注册指令&quot;"></a></h4>
-<p>使用<code>commander.command</code>注册指令：</p>
-<ul>
-<li>其中使用<code>[]</code>包裹的参数标识可选参数</li>
-</ul>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">/**</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> * 创建任务、切换任务、查看任务列表</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"> */</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">commander.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">command</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"task [name]"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">alias</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'t'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">description</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'check tasks/add task/checkout task'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">action</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">((</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">name</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">        // ...code 后文介绍</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    })</span></span></code></pre>
-</div><p>配置文件的路径</p>
-<ul>
-<li>通过<code>__dirname</code>与配置文件的相对路径定位配置文件</li>
-</ul>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> configPath</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> path.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">join</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(__dirname, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'../.config/record.json'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
-</div><p>通过<code>require</code>方法引入json配置文件</p>
-<ul>
-<li>引入的内容就是一个对象，无需调用<code>JSON.parse</code>进行转换</li>
-</ul>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> config</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> require</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(configPath)</span></span></code></pre>
-</div><p>下面就到具体的业务逻辑代码</p>
-<ul>
-<li>先判断是否传入任务名<code>name</code>
-<ul>
-<li>没有，判断是否有任务，有则顺序打印，无则打印提示信息</li>
-</ul>
-</li>
-<li>如果任务名不存在，则加入任务列表<code>tasks</code>
-<ul>
-<li>存在，则将这个任务设置为正在进行的任务，即更新<code>defaultTaskIdx</code>的值</li>
-</ul>
-</li>
-<li>最后更新配置文件的内容</li>
-</ul>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> { </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">tasks</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">defaultTaskIdx</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> } </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> config</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> idx</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> tasks.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">findIndex</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">v</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> v </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">===</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> name)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">!</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">name){</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(tasks.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">length</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">===</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">){</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        console.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">log</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'no tasks, you can use command add task'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        console.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">log</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'timec task [name]'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        return</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    tasks.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">forEach</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">((</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">v</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">i</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        let</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> mark </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> '[ ]'</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(i</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">===+</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">defaultTaskIdx){</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">            mark </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> '[*]'</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        console.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">log</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(mark,v);</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    })</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    return</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (idx </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">===</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> -</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    tasks.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">push</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(name)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(tasks.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">length</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">===</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">){</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        config.defaultTaskIdx </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    console.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">log</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'add task success'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">else</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    config.defaultTaskIdx </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> idx</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    console.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">log</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'now use task：'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,tasks[idx]);</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">writeFileSync</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(configPath,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">JSON</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">stringify</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(config))</span></span></code></pre>
-</div><p>这个指令就开发完了，时间仓促，代码质量可能不会太高</p>
-<p>TODO：后续优化</p>
-<h3 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;"></a></h3>
-<p>到目前为止已经支持如下指令：</p>
-<p><img src="./time-tools-6/MTYyODM0NzIwOTYxMw==628347209613.png" alt="图片" loading="lazy"></p>
-<p>这些指令都还不是最终版本，由于时间太紧凑，设计时间也较短，后期会不断完善</p>
-<h2 id="其它" tabindex="-1">其它 <a class="header-anchor" href="#其它" aria-label="Permalink to &quot;其它&quot;"></a></h2>
-<p>由于每天空闲时间有限，本文就先到这</p>
-<p>如果读者还感觉意犹未尽，敬请期待后续更新，或持续关注一下<a href="https://github.com/ATQQ/time-control" target="_blank" rel="noreferrer">仓库</a>的状态</p>
-<p>欢迎评论区提需求，交流探讨</p>
-<p>本系列会不断的更新迭代，直至产品初代完成</p>
-<ul>
-<li><a href="https://github.com/ATQQ/time-control" target="_blank" rel="noreferrer">仓库地址</a></li>
-</ul>
-]]></content:encoded>
-            <enclosure url="https://www.dmsrs.org/preview/cnjimbo/cnjimbo.github.io/pr/time-tools-6/MTYyODM0OTA5MTk2NQ==Kapture%202021-08-07%20at%2023.10.56.gif?s1=https%3A//img.cdn.sugarat.top/mdImg/MTYyODM0OTA5MTk2NQ%3D%3DKapture%25202021-08-07%2520at%252023.10.56.gif" length="0" type="image/gif"/>
-        </item>
-        <item>
-            <title><![CDATA[做一个CL版的时间管理工具（五）]]></title>
-            <link>https://www.dmsrs.org/preview/cnjimbo/cnjimbo.github.io/pr/215/preview/cnjimbo/cnjimbo.github.io/pr/215/works/time-tools/time-tools-5.html</link>
-            <guid>https://www.dmsrs.org/preview/cnjimbo/cnjimbo.github.io/pr/215/preview/cnjimbo/cnjimbo.github.io/pr/215/works/time-tools/time-tools-5.html</guid>
-            <pubDate>Fri, 06 Aug 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[前言
-上一篇文章主要阐述了两个指令的开发：
-* 初始化项目模板指令：`timec init &lt;projectName
-* 初始化记录模板指令：`timec create &lt;filename]]></description>
-            <content:encoded><![CDATA[<h1 id="做一个cli版的时间管理工具-五" tabindex="-1">做一个CLI版的时间管理工具（五） <a class="header-anchor" href="#做一个cli版的时间管理工具-五" aria-label="Permalink to &quot;做一个CLI版的时间管理工具（五）&quot;"></a></h1>
-<h2 id="前言" tabindex="-1">前言 <a class="header-anchor" href="#前言" aria-label="Permalink to &quot;前言&quot;"></a></h2>
-<p><a href="./time-tools-4.html">上一篇文章</a>主要阐述了两个指令的开发：</p>
-<ul>
-<li>初始化项目模板指令：<code>timec init &lt;projectName&gt;</code></li>
-<li>初始化记录模板指令：<code>timec create &lt;filename&gt;</code></li>
-</ul>
-<p>本节将主要介绍：<strong>自动生成一段时间内的报告</strong></p>
-<p>期望效果的指令为：<code>timec -or --range &lt;startTime&gt;_&lt;endTime&gt; &lt;filename1&gt; &lt;filename1&gt; .....</code></p>
-<h2 id="本期效果" tabindex="-1">本期效果 <a class="header-anchor" href="#本期效果" aria-label="Permalink to &quot;本期效果&quot;"></a></h2>
-<p><img src="./time-tools-5/MTYyODI2NDU4MDE2Ng==time-control5.gif?s1=https://img.cdn.sugarat.top/mdImg/MTYyODI2NDU4MDE2Ng==time-control5.gif" alt="图片" loading="lazy"></p>
-<h2 id="功能开发" tabindex="-1">功能开发 <a class="header-anchor" href="#功能开发" aria-label="Permalink to &quot;功能开发&quot;"></a></h2>
-<h3 id="一定时间范围内的报告生成" tabindex="-1">一定时间范围内的报告生成 <a class="header-anchor" href="#一定时间范围内的报告生成" aria-label="Permalink to &quot;一定时间范围内的报告生成&quot;"></a></h3>
-<p>可用于周报，日报，月报的统计数据生成，方便自己复盘一周所做的事情</p>
-<h4 id="指令注册" tabindex="-1">指令注册 <a class="header-anchor" href="#指令注册" aria-label="Permalink to &quot;指令注册&quot;"></a></h4>
-<blockquote>
-<p>注意：省略了前几篇里已经出现过的指令逻辑</p>
-</blockquote>
-<p>轻车熟路，使用option方法注册新的可选参数：</p>
-<ul>
-<li>-r：代表要输出报告</li>
-<li>-R：代表要输出的事件范围</li>
-</ul>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// 导出</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">commander.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">arguments</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'&#x3C;filenames...>'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// 多个文件/目录</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">option</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'-o, --output'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'Export analysis results'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">option</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'-r, --report'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'Export the result as a md report'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">option</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'-R, --range [startDate_endDate]'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'A time period'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    // .action</span></span></code></pre>
-</div><p>再添加简单的判断逻辑：</p>
-<ul>
-<li><code>-r</code>对应的是<code>report</code>属性，为<code>true</code>表明启用了这个option</li>
-<li><code>-R</code>对应<code>range</code>属性，其值为<code>string</code>类型
-<ul>
-<li>开始与结束时间使用下划线<code>_</code>分割</li>
-</ul>
-</li>
-<li>主要关注<code>getJSONByRange</code>与<code>outPutReport</code>这两个方法的实现</li>
-<li>内容的读取逻辑(<code>content</code>)，在前几篇的文章已经详细介绍过了，这里就不再赘述</li>
-</ul>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">action</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">((</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">filenames</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">cmdObj</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        const</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> { </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">output</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">report</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> } </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> cmdObj</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">        // 导出</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (output) {</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">            let</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> outFileName </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 'res'</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">            if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(report){</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">                const</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">range</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">} </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> cmdObj</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">                if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(range){</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">                    const</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">startTime</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">endTime</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">] </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> range.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">split</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'_'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">                    // createFile(getFilePath(cwd, `report-${outFileName}.md`),outPutReport(getJSONByRange(content,startTime,endTime)),false)</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">                    // 方便观察调用结构，展开如下</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">                    const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> outPutPath</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> getFilePath</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(cwd, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`report-${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">outFileName</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}.md`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">                    const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> json</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> getJSONByRange</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(content,startTime,endTime)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">                    const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> data</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> outPutReport</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(json)</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">                    createFile</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(outPutPath,data,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">false</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">                }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">            }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    })</span></span></code></pre>
-</div><h4 id="范围内的json获取" tabindex="-1">范围内的json获取 <a class="header-anchor" href="#范围内的json获取" aria-label="Permalink to &quot;范围内的json获取&quot;"></a></h4>
-<p>这个逻辑相对简单：</p>
-<ol>
-<li>先调用<code>getJSON</code>方法将传入的内容转为json对象
-<ul>
-<li>其中每一项数据的<code>title</code>为<code>yyyy-mm-dd</code>的日期</li>
-</ul>
-</li>
-<li>先调用<code>sort</code>方法对数据按时间从小到大排序</li>
-<li>在使用<code>filter</code>方法对数据按照传入的起止时间进行过滤筛选</li>
-<li>最后便产生了所需要的结果</li>
-</ol>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">function</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> getJSONByRange</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">fileContent</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">startTime</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">endTime</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    let</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> jsonSchema </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> getJSON</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(fileContent)</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    // 从小到大排</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    jsonSchema </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> jsonSchema.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sort</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">((</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">a</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">b</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> d1</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> new</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> Date</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(a.title)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> d2</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> new</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> Date</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(b.title)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        return</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> d1 </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> d2</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }).</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">filter</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">v</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> d</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> new</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> Date</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(v.title)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> s</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> new</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> Date</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(startTime)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> e</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> new</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> Date</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(endTime)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        return</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> d </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">>=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> s </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">&#x26;&#x26;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> d </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">&#x3C;=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> e</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    })</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    return</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> jsonSchema</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><h4 id="json转报告内容" tabindex="-1">JSON转报告内容 <a class="header-anchor" href="#json转报告内容" aria-label="Permalink to &quot;JSON转报告内容&quot;"></a></h4>
-<p>期望的报告内容格式如下</p>
-<div class="language-markdown vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">markdown</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;--shiki-light-font-weight:bold;--shiki-dark-font-weight:bold"># 开始时间 - 结束时间</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;--shiki-light-font-weight:bold;--shiki-dark-font-weight:bold">**总耗时**</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> xxx</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;--shiki-light-font-weight:bold;--shiki-dark-font-weight:bold">## 任务名</span></span>
-<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">>耗时：yyyy</span></span>
-<span class="line"><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> 事件1</span></span>
-<span class="line"><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> 事件2</span></span>
-<span class="line"><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> 事件3</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;--shiki-light-font-weight:bold;--shiki-dark-font-weight:bold">## 任务名</span></span>
-<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">>耗时：yyyy</span></span>
-<span class="line"><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> 事件1</span></span>
-<span class="line"><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> 事件2</span></span>
-<span class="line"><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> 事件3</span></span></code></pre>
-</div><p>结构定下来后，咱们开始对json数据进行操刀</p>
-<p>JSON数据结构如下（复习一下）</p>
-<div class="language-json vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">json</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">[</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "title"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"2021-08-03"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "tasks"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: [</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      {</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "title"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"任务1"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "things"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: [</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">          {</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">            "time"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"0.2"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">            "content"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"a组件"</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">          },</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">          {</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">            "time"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"0.3"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">            "content"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"b组件"</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">          }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        ]</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      },</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    ]</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span></code></pre>
-</div><p>首先使用一个数组存放每一行的数据的结果（最终md的每一行）</p>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> res</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> []</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// 记录总耗时</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">let</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> sumTime </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0</span></span></code></pre>
-</div><p>开始结束时间分别为<code>json</code>对象的第一项和最后一项的title</p>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> startDate</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> jsonSchema[</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">].title</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> endDate</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> jsonSchema[jsonSchema.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">length</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">].title</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// 时间</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">res.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">push</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`# ${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">startDate</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">} 至 ${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">endDate</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
-</div><p>确定时间之后，就是任务的归类</p>
-<blockquote>
-<p>后面大部分操作都是使用<code>Array.prototype.reduce</code>，不熟悉的同学可以MDN查询一下</p>
-</blockquote>
-<p>先将所有任务收进同一个数组里：</p>
-<ul>
-<li>遍历然后用<code>concat</code>链接这些数组</li>
-</ul>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// 过滤出所有的tasks</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> allTasks</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> jsonSchema.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">reduce</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">((</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">pre</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">current</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    return</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> pre.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">concat</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(current.tasks)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">},[])</span></span></code></pre>
-</div><p>合并相同任务(task)的事务(things)</p>
-<p>合并前</p>
-<div class="language-json vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">json</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">[</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "title"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"任务1"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "things"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: [</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      {</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "time"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"0.2"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "content"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"a组件"</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      },</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    ]</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    {</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "title"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"任务1"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "things"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: [</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      {</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "time"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"0.3"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "content"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"b组件"</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    ]</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span></code></pre>
-</div><p>合并后</p>
-<div class="language-json vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">json</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">[</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "title"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"任务1"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">    "things"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: [</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      {</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "time"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"0.2"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "content"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"a组件"</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      },</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      {</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "time"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"0.3"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "content"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"b组件"</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    ]</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span></code></pre>
-</div><p>确定好前后的结构后，逻辑代码就容易书写了:</p>
-<ul>
-<li>如果<code>pre</code>为空数组则直接存入</li>
-<li>遍历已经存入的内容，判断是否存在相同的任务
-<ul>
-<li>不存在，则加入<code>pre</code></li>
-<li>存在，则将其things加入<code>pre.things</code></li>
-</ul>
-</li>
-</ul>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// 合并相同的任务</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> tasks</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> allTasks.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">reduce</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">((</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">pre</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">current</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(pre.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">length</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">===</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">){</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        pre.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">push</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(current)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        return</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> pre</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    let</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> sameTask </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> pre.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">find</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">v</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">v.title</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">===</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">current.title)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">!</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">sameTask){</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        pre.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">push</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(current)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        return</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> pre</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    sameTask.things.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">push</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">...</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">current.things)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    return</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> pre</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">},[])</span></span></code></pre>
-</div><p>结构整理完毕，接着就是内容的生成了:</p>
-<ul>
-<li>使用<code>for...of</code> 遍历每一个任务</li>
-<li>内部使用<code>Array.prototype.map</code>遍历事务
-<ul>
-<li>遍历的同时将任务时间计算出来</li>
-</ul>
-</li>
-<li>一个任务遍历完，先添加任务耗时，再添加事务列表</li>
-<li>最后，将所有任务使用的总时间利用数组的<code>splice</code>方法，将其插入结果第二项</li>
-</ul>
-<p>到此，生成范围报告的逻辑就完成了</p>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">for</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> taskItem</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> of</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> tasks) {</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    res.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">push</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">''</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    res.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">push</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`## ${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">taskItem</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">title</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    let</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> taskTime </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    let</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> things </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> taskItem.things.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">map</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">thing</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        const</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">time</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">content</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">} </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> thing</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        taskTime </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">+=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">+</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">time)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        return</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `* ${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">content</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}`</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    })</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    res.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">push</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`>耗时：${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">taskTime</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">toFixed</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">2</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">)</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    res.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">push</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">...</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">things)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    sumTime </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">+=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> taskTime</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">res.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">splice</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`**总耗时** ${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">sumTime</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">toFixed</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">2</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">)</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
-</div><p><a href="https://github.com/ATQQ/time-control/pull/2/files" target="_blank" rel="noreferrer">本部分的完整代码地址</a></p>
-<h2 id="其它" tabindex="-1">其它 <a class="header-anchor" href="#其它" aria-label="Permalink to &quot;其它&quot;"></a></h2>
-<p>由于每天空闲时间有限，本文就先到这</p>
-<p>如果读者还感觉意犹未尽，敬请期待后续更新，或先关注一下<a href="https://github.com/ATQQ/time-control" target="_blank" rel="noreferrer">仓库</a></p>
-<p>欢迎评论区提需求，交流探讨</p>
-<p>本系列会不断的更新迭代，直至产品初代完成</p>
-<ul>
-<li><a href="https://github.com/ATQQ/time-control" target="_blank" rel="noreferrer">仓库地址</a></li>
-</ul>
-]]></content:encoded>
-            <enclosure url="https://www.dmsrs.org/preview/cnjimbo/cnjimbo.github.io/pr/time-tools-5/MTYyODI2NDU4MDE2Ng==time-control5.gif?s1=https%3A//img.cdn.sugarat.top/mdImg/MTYyODI2NDU4MDE2Ng%3D%3Dtime-control5.gif" length="0" type="image/gif"/>
         </item>
     </channel>
 </rss>
