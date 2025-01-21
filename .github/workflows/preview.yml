@@ -55,7 +55,7 @@ jobs:
         with:
           ref: ${{ inputs.ref }}
       - uses: actions/configure-pages@v2
-      - uses: actions/upload-pages-artifact@v1
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
       - id: deployment
