@@ -9,7 +9,7 @@ on:
 
 jobs:
   create-pr:
-    if: ${{ !contains(github.ref, github.env.MAIN_BRANCH || 'master')}}
+    if: ${{ !contains(github.ref, vars.MAIN_BRANCH || 'master')}}
     runs-on: ubuntu-latest
     env:
       default_branch: ${{ github.repository.default_branch }}
