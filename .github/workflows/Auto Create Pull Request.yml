@@ -9,10 +9,9 @@ on:
 
 jobs:
   create-pr:
-    if: ${{ !contains(github.ref, 'master') && !contains(github.ref, 'main') }}
+    if: ${{ !contains(github.ref, github.env.MAIN_BRANCH || 'master')}}
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       default_branch: ${{ github.repository.default_branch }}
     steps:
       - name: Checkout repository
