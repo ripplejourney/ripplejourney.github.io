@@ -18,14 +18,17 @@ on:
         type: string
 
 
-permissions: write-all
-  # contents: read
-  # pages: write
-  # id-token: write
+# permissions: write-all
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  #group: "pages"
+  #cancel-in-progress: false
+  group: pages-${{ github.event_name }}-${{ github.event.number || github.ref_name }}
+  cancel-in-progress: true
 
 jobs:
   # VERSION: update before changing the major version
