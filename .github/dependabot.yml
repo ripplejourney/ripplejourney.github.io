@@ -1,0 +1,17 @@
+version: 2
+updates:
+- package-ecosystem: "github-actions"
+  directory: "/"
+  schedule:
+    interval: "daily"
+  commit-message:
+    prefix: "actions"
+    include: "scope"
+  open-pull-requests-limit: 5
+  # assignees:
+  # - "calm"
+  # reviewers:
+  # - "calm"
+  labels:
+  - "actions"
+  - "automated-update"
