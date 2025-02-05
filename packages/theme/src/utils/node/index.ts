@@ -8,7 +8,7 @@ export function aliasObjectToArray(obj: Record<string, string>) {
   }))
 }
 
-function isBase64ImageURL(url: string) {
+export function isBase64ImageURL(url: string) {
   // Base64 图片链接的格式为 data:image/[image format];base64,[Base64 编码的数据]
   const regex = /^data:image\/[a-z]+;base64,/
   return regex.test(url)

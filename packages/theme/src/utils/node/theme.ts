@@ -1,10 +1,10 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { getDefaultTitle, getFileLastModifyTime, getTextSummary, getVitePressPages, grayMatter, normalizePath, renderDynamicMarkdown } from '@sugarat/theme-shared'
+import { getDefaultTitle, getFileLastModifyTime, getTextSummary,slash, getVitePressPages, grayMatter, joinPath, normalizePath, renderDynamicMarkdown } from '@sugarat/theme-shared'
 import type { SiteConfig } from 'vitepress'
 import type { Theme } from '../../composables/config/index'
 import { formatDate } from '../client'
-import { getFirstImagURLFromMD } from './index'
+import { getFirstImagURLFromMD, isBase64ImageURL } from './index'
 
 export function patchDefaultThemeSideBar(cfg?: Partial<Theme.BlogConfig>) {
   return cfg?.blog !== false && cfg?.recommend !== false
@@ -68,9 +68,14 @@ export async function getArticleMeta(filepath: string, route: string, timeZone =
 
   // 获取封面图
   // TODO: 耦合信息优化
-  meta.cover
-    = meta.cover
-    ?? (getFirstImagURLFromMD(fileContent, route))
+  if (meta.cover) {
+    meta.cover = meta.cover.replace(/\\/g, '/').replace(/\/+/g, '/')
+    console.log('meta.cover', meta.cover)
+    // sleepSync(5000)
+  }
+  else {
+    meta.cover = getFirstImagURLFromMD(fileContent, route)
+  }
 
   // 是否发布 默认发布
   if (meta.publish === false) {
