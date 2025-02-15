@@ -42,7 +42,7 @@
     "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "4.1.0",
+    "@antfu/eslint-config": "4.2.1",
     "@changesets/cli": "^2.27.12",
     "@types/bun": "^1.2.0",
     "@types/node": "^22.10.10",
