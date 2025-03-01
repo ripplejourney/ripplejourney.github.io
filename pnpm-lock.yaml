@@ -4,8 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-pnpmfileChecksum: sha256-3NiSAOZAegMczpK0OclDdAK05B7VXi/xTWTYy2/tHLw=
-
 importers:
 
   .:
@@ -28,18 +26,12 @@ importers:
       eslint-plugin-todo-ddl:
         specifier: ^1.1.1
         version: 1.1.1
-      json5:
-        specifier: ^2.2.3
-        version: 2.2.3
       lint-staged:
         specifier: ^15.4.3
         version: 15.4.3
       prettier:
         specifier: ^3.5.2
         version: 3.5.2
-      radash:
-        specifier: ^12.1.0
-        version: 12.1.0
       simple-git-hooks:
         specifier: ^2.11.1
         version: 2.11.1
@@ -189,8 +181,8 @@ importers:
         specifier: ^5.4.5
         version: 5.7.3
       vite:
-        specifier: ^5.4.9
-        version: 5.4.14(@types/node@22.13.5)(sass@1.85.1)
+        specifier: ^6.0.0
+        version: 6.2.0(@types/node@22.13.5)(sass@1.85.1)(yaml@2.7.0)
       vitepress:
         specifier: 1.6.3
         version: 1.6.3(@algolia/client-search@5.20.3)(@types/node@22.13.5)(async-validator@4.2.5)(axios@1.8.1)(postcss@8.5.3)(sass@1.85.1)(search-insights@2.13.0)(typescript@5.7.3)
@@ -2700,11 +2692,6 @@ packages:
   json-stable-stringify-without-jsonify@1.0.1:
     resolution: {integrity: sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==}
 
-  json5@2.2.3:
-    resolution: {integrity: sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==}
-    engines: {node: '>=6'}
-    hasBin: true
-
   jsonc-eslint-parser@2.4.0:
     resolution: {integrity: sha512-WYDyuc/uFcGp6YtM2H0uKmUwieOuzeE/5YocFJLnLfclZ4inf3mRn8ZVy1s7Hxji7Jxm6Ss8gqpexD/GlKoGgg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -3367,10 +3354,6 @@ packages:
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
-
-  radash@12.1.0:
-    resolution: {integrity: sha512-b0Zcf09AhqKS83btmUeYBS8tFK7XL2e3RvLmZcm0sTdF1/UUlHSsjXdCcWNxe7yfmAlPve5ym0DmKGtTzP6kVQ==}
-    engines: {node: '>=14.18.0'}
 
   read-package-up@11.0.0:
     resolution: {integrity: sha512-MbgfoNPANMdb4oRBNg5eqLbB2t2r+o5Ua1pNt8BqGp4I0FJZhuVSOj3PaBPni4azWuSzEdNn2evevzVmEk1ohQ==}
@@ -6514,8 +6497,6 @@ snapshots:
 
   json-stable-stringify-without-jsonify@1.0.1: {}
 
-  json5@2.2.3: {}
-
   jsonc-eslint-parser@2.4.0:
     dependencies:
       acorn: 8.14.0
@@ -7423,8 +7404,6 @@ snapshots:
   punycode@2.3.1: {}
 
   queue-microtask@1.2.3: {}
-
-  radash@12.1.0: {}
 
   read-package-up@11.0.0:
     dependencies:
