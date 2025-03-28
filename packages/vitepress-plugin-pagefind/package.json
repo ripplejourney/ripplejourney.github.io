@@ -47,7 +47,7 @@
     "vue-command-palette": "0.2.3"
   },
   "devDependencies": {
-    "vite": "6.2.2",
+    "vite": "6.2.3",
     "vitepress": "1.6.3"
   }
 }

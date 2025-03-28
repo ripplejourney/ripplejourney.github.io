@@ -42,7 +42,7 @@
     "feed": "^4.2.2"
   },
   "devDependencies": {
-    "vite": "6.2.2",
+    "vite": "6.2.3",
     "vitepress": "1.6.3"
   }
 }
