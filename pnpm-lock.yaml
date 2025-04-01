@@ -53,8 +53,8 @@ importers:
         specifier: 8.0.3
         version: 8.0.3
       zx:
-        specifier: 8.4.1
-        version: 8.4.1
+        specifier: 8.4.2
+        version: 8.4.2
 
   packages/blogpress:
     dependencies:
@@ -4165,8 +4165,8 @@ packages:
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
-  zx@8.4.1:
-    resolution: {integrity: sha512-1Cb+Tfwt/daKV6wckBeDbB6h3IMauqj9KWp+EcbYzi9doeJeIHCktxp/yWspXOXRdoUzBCQSKoUgm3g8r9fz5A==}
+  zx@8.4.2:
+    resolution: {integrity: sha512-bsbnmb6Dk94QDMH4AtnbdBly2Yfm3Masgta21Pg9gmKU4R9444417KJaPpHOTAsQy0DZhiZHtlKtnRaQEeP4gA==}
     engines: {node: '>= 12.17.0'}
     hasBin: true
 
@@ -8339,4 +8339,4 @@ snapshots:
 
   zwitch@2.0.4: {}
 
-  zx@8.4.1: {}
+  zx@8.4.2: {}
