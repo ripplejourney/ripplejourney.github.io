@@ -66,7 +66,7 @@ importers:
         version: link:../theme
       element-plus:
         specifier: ^2.9.5
-        version: 2.9.6(vue@3.5.13(typescript@5.8.2))
+        version: 2.9.7(vue@3.5.13(typescript@5.8.2))
       vitepress:
         specifier: 1.6.3
         version: 1.6.3(@algolia/client-search@5.23.0)(@types/node@22.13.14)(async-validator@4.2.5)(axios@1.8.4)(postcss@8.5.3)(sass@1.86.0)(search-insights@2.17.3)(typescript@5.8.2)
@@ -177,8 +177,8 @@ importers:
         specifier: 2.9.1
         version: 2.9.1(marked@15.0.7)
       element-plus:
-        specifier: 2.9.6
-        version: 2.9.6(vue@3.5.13(typescript@5.8.2))
+        specifier: 2.9.7
+        version: 2.9.7(vue@3.5.13(typescript@5.8.2))
       pagefind:
         specifier: 1.3.0
         version: 1.3.0
@@ -2244,8 +2244,8 @@ packages:
   electron-to-chromium@1.5.128:
     resolution: {integrity: sha512-bo1A4HH/NS522Ws0QNFIzyPcyUUNV/yyy70Ho1xqfGYzPUme2F/xr4tlEOuM6/A538U1vDA7a4XfCd1CKRegKQ==}
 
-  element-plus@2.9.6:
-    resolution: {integrity: sha512-D9zU28Ce0s/9O/Vp3ewemikxzFVA6gdZyMwmWijHijo+t5/9H3sHRTIm1WlfeNpFW2Yq0y8nHXD0fU5YxU6qlQ==}
+  element-plus@2.9.7:
+    resolution: {integrity: sha512-6vjZh5SXBncLhUwJGTVKS5oDljfgGMh6J4zVTeAZK3YdMUN76FgpvHkwwFXocpJpMbii6rDYU3sgie64FyPerQ==}
     peerDependencies:
       vue: ^3.2.0
 
@@ -6106,7 +6106,7 @@ snapshots:
 
   electron-to-chromium@1.5.128: {}
 
-  element-plus@2.9.6(vue@3.5.13(typescript@5.8.2)):
+  element-plus@2.9.7(vue@3.5.13(typescript@5.8.2)):
     dependencies:
       '@ctrl/tinycolor': 3.6.1
       '@element-plus/icons-vue': 2.3.1(vue@3.5.13(typescript@5.8.2))
