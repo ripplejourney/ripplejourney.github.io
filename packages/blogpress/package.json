@@ -20,6 +20,6 @@
   "devDependencies": {
     "pagefind": "1.3.0",
     "sass": "1.87.0",
-    "vite": "6.3.4"
+    "vite": "6.3.5"
   }
 }
