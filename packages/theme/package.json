@@ -74,11 +74,11 @@
     "artalk": "2.9.1",
     "element-plus": "2.9.10",
     "pagefind": "1.3.0",
-    "sass": "1.88.0",
+    "sass": "1.89.0",
     "typescript": "5.8.3",
     "vite": "6.3.5",
     "vitepress": "1.6.3",
     "vitepress-plugin-51la": "workspace:*",
-    "vue": "3.5.13"
+    "vue": "3.5.14"
   }
 }
