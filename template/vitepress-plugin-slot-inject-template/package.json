@@ -50,10 +50,10 @@
     "chokidar": "4.0.3",
     "fs-extra": "11.3.0",
     "tinyglobby": "0.2.13",
-    "tsup": "8.4.0",
+    "tsup": "8.5.0",
     "typescript": "5.8.3",
     "vite": "6.3.5",
     "vitepress": "1.6.3",
-    "vue": "3.5.13"
+    "vue": "3.5.14"
   }
 }

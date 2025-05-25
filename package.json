@@ -42,16 +42,16 @@
     "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "4.13.0",
-    "@changesets/cli": "2.29.3",
-    "@types/bun": "1.2.13",
-    "@types/node": "22.15.17",
-    "eslint": "9.26.0",
+    "@antfu/eslint-config": "4.13.2",
+    "@changesets/cli": "2.29.4",
+    "@types/bun": "1.2.14",
+    "@types/node": "22.15.21",
+    "eslint": "9.27.0",
     "eslint-plugin-todo-ddl": "1.1.1",
     "lint-staged": "16.0.0",
     "prettier": "3.5.3",
     "simple-git-hooks": "2.13.0",
-    "tsup": "8.4.0",
+    "tsup": "8.5.0",
     "typescript": "5.8.3",
     "wait-on": "8.0.3",
     "zx": "8.5.4"
