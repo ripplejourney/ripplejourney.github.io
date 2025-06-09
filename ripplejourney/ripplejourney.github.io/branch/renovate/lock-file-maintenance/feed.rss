@@ -4,7 +4,7 @@
         <title>代码</title>
         <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance</link>
         <description>天道酬勤，恒以致遠（大前端相关技术分享）</description>
-        <lastBuildDate>Mon, 12 May 2025 07:56:31 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 09 Jun 2025 01:59:42 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -17,7 +17,7 @@
         <item>
             <title><![CDATA[实现自动为 VitePress 网站添加 RSS 订阅的插件]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/vitepress-plugin-rss.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/vitepress-plugin-rss.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/vitepress-plugin-rss.html</guid>
             <pubDate>Sun, 02 Feb 2025 20:11:06 GMT</pubDate>
             <description><![CDATA[使用 VitePress 作为个人博客的站点越来越多，RSS支持也是博客上的一个功能点，方便读者订阅，本文将介绍如何通过Vite 插件为 VitePress 站点一键添加RSS支持]]></description>
             <content:encoded><![CDATA[<h1 id="实现自动为-vitepress-网站添加-rss-订阅的插件" tabindex="-1">实现自动为 VitePress 网站添加 RSS 订阅的插件 <a class="header-anchor" href="#实现自动为-vitepress-网站添加-rss-订阅的插件" aria-label="Permalink to &quot;实现自动为 VitePress 网站添加 RSS 订阅的插件&quot;"></a></h1>
@@ -205,7 +205,7 @@
         <item>
             <title><![CDATA[github代码库管理]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/coding/github/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/coding/github/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/coding/github/</guid>
             <pubDate>Sun, 26 Jan 2025 13:21:52 GMT</pubDate>
             <description><![CDATA[目录
 * 大数相加&Git删除当前分支下的所有历史版本与log并同步至GitHub_git如何清除历史版本
@@ -221,7 +221,7 @@
         <item>
             <title><![CDATA[SourceTree SSH密钥缓存问题解决]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/coding/github/SourceTree SSH密钥缓存问题解决.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/coding/github/SourceTree SSH密钥缓存问题解决.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/coding/github/SourceTree SSH密钥缓存问题解决.html</guid>
             <pubDate>Sun, 26 Jan 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[# SourceTree SSH密钥缓存问题解决
 
@@ -403,7 +403,7 @@ Store key in cache? (y/n, Return cancels connection, i for more info) fatal: Cou
         <item>
             <title><![CDATA[使用Pagefind为VitePress文档添加离线全文搜索能力]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/vitepress-plugin-pagefind.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/vitepress-plugin-pagefind.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/vitepress-plugin-pagefind.html</guid>
             <pubDate>Fri, 17 Jan 2025 03:00:01 GMT</pubDate>
             <description><![CDATA[Pagefind是基于Rust实现的离线搜索库，检索生成后的HTML页面内容，然后自动构建索引文件，提供搜索使用的API和组件]]></description>
             <content:encoded><![CDATA[<h1 id="使用pagefind为vitepress文档添加离线全文搜索能力" tabindex="-1">使用Pagefind为VitePress文档添加离线全文搜索能力 <a class="header-anchor" href="#使用pagefind为vitepress文档添加离线全文搜索能力" aria-label="Permalink to &quot;使用Pagefind为VitePress文档添加离线全文搜索能力&quot;"></a></h1>
@@ -591,7 +591,7 @@ Store key in cache? (y/n, Return cancels connection, i for more info) fatal: Cou
         <item>
             <title><![CDATA[dotnet开发]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/coding/dotnet/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/coding/dotnet/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/coding/dotnet/</guid>
             <pubDate>Thu, 21 Nov 2024 05:28:38 GMT</pubDate>
             <description><![CDATA[dotnet开发相关
  目录
@@ -607,7 +607,7 @@ Store key in cache? (y/n, Return cancels connection, i for more info) fatal: Cou
         <item>
             <title><![CDATA[nuget 修改 package存储位置]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/coding/dotnet/dotnetViaVscode.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/coding/dotnet/dotnetViaVscode.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/coding/dotnet/dotnetViaVscode.html</guid>
             <pubDate>Thu, 21 Nov 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[方法一：修改 NuGet 配置文件
 1. 打开 NuGet 配置文件。配置文件通常位于以下位置：
@@ -653,7 +653,7 @@ Store key in cache? (y/n, Return cancels connection, i for more info) fatal: Cou
         <item>
             <title><![CDATA[NodeJS]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/node/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/node/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/node/</guid>
             <pubDate>Tue, 16 Jul 2024 14:31:36 GMT</pubDate>
             <description><![CDATA[记录Node学习与开发的一点心得
  目录
@@ -675,7 +675,7 @@ Store key in cache? (y/n, Return cancels connection, i for more info) fatal: Cou
         <item>
             <title><![CDATA[前端接口神器之 json-server 详细使用指南]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/node/前端接口神器之 json-server 详细使用指南 - MegaSu - 博客园.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/node/前端接口神器之 json-server 详细使用指南 - MegaSu - 博客园.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/node/前端接口神器之 json-server 详细使用指南 - MegaSu - 博客园.html</guid>
             <pubDate>Tue, 16 Jul 2024 14:31:36 GMT</pubDate>
             <description><![CDATA[
 # 前端接口神器之 json-server 详细使用指南
@@ -1005,7 +1005,7 @@ Github项目地址：<a href="https://github.com/typicode/json-server" target="_
         <item>
             <title><![CDATA[我如何使用Coze来分析掘金热榜数据 | Coze插件开发]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/coze/juejin-hot-rank-bot.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/coze/juejin-hot-rank-bot.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/coze/juejin-hot-rank-bot.html</guid>
             <pubDate>Tue, 09 Jul 2024 16:55:35 GMT</pubDate>
             <description><![CDATA[# 我如何使用Coze来分析掘金热榜数据 | Coze插件开发
 
@@ -1154,7 +1154,7 @@ Github项目地址：<a href="https://github.com/typicode/json-server" target="_
         <item>
             <title><![CDATA[Mac 安装 stable-diffusion]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/stable-diffusion/mac-install.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/stable-diffusion/mac-install.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/stable-diffusion/mac-install.html</guid>
             <pubDate>Tue, 09 Jul 2024 16:55:35 GMT</pubDate>
             <description><![CDATA[Mac 实操安装 stable-diffusion，包含环境配置，sd插件安装，模型安装等内容]]></description>
             <content:encoded><![CDATA[<h1 id="mac-安装-stable-diffusion" tabindex="-1">Mac 安装 stable-diffusion <a class="header-anchor" href="#mac-安装-stable-diffusion" aria-label="Permalink to &quot;Mac 安装 stable-diffusion&quot;"></a></h1>
@@ -1248,7 +1248,7 @@ Github项目地址：<a href="https://github.com/typicode/json-server" target="_
 <p><img src="./mac-install/MTY4ODMwOTkwMzgwOA==688309903808.png" alt="" loading="lazy"></p>
 <p>下面实操使用一下上面的提示词</p>
 <p>我这里把步数调成了30</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-9R0xe" id="tab-HSaz9yA" checked><label data-title="① 提示词" for="tab-HSaz9yA">① 提示词</label><input type="radio" name="group-9R0xe" id="tab-n6HzA1q" ><label data-title="② 反向提示词" for="tab-n6HzA1q">② 反向提示词</label><input type="radio" name="group-9R0xe" id="tab-G6dxFON" ><label data-title="③ 采样器" for="tab-G6dxFON">③ 采样器</label><input type="radio" name="group-9R0xe" id="tab-87_BLrA" ><label data-title="④ 步数" for="tab-87_BLrA">④ 步数</label><input type="radio" name="group-9R0xe" id="tab-oj7TCpm" ><label data-title="⑤ 引导系数" for="tab-oj7TCpm">⑤ 引导系数</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-j-RE0" id="tab-pA4guiW" checked><label data-title="① 提示词" for="tab-pA4guiW">① 提示词</label><input type="radio" name="group-j-RE0" id="tab-yGIp4fb" ><label data-title="② 反向提示词" for="tab-yGIp4fb">② 反向提示词</label><input type="radio" name="group-j-RE0" id="tab-KuvQCcJ" ><label data-title="③ 采样器" for="tab-KuvQCcJ">③ 采样器</label><input type="radio" name="group-j-RE0" id="tab-UDgMgZP" ><label data-title="④ 步数" for="tab-UDgMgZP">④ 步数</label><input type="radio" name="group-j-RE0" id="tab-GOT0Waf" ><label data-title="⑤ 引导系数" for="tab-GOT0Waf">⑤ 引导系数</label></div><div class="blocks">
 <div class="language-txt vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>extremely detailed CG uniform 8k illustrations, high color substitution, sketches graffiti art, illustrations photo, masterpiece, hyper detailed, best quality, ultra high res, high resolution, (intricate details), perfect lighting, best shadow, (graffiti wall:1.4), 1 girl, (extremely detailed face and eyes), (shiny big eyes), (shiny graffiti long hair:1.2), ((colorful)), ((colorful illustrations)), face focus, lip gloss, random eyes color,</span></span></code></pre>
 </div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>by bad-picture-chill-75v, nude, porn, nipples, pussy, pornography, canvas frame, cartoon, 3d, ((disfigured)), ((bad art)), ((deformed)),((extra limbs)),((close up)),((b&#x26;w)), wierd colors, blurry, (((duplicate))), ((morbid)), ((mutilated)), [out of frame], extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))), Photoshop, video game, ugly, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of frame, mutation, mutated, extra limbs, extra legs, extra arms, disfigured, deformed, cross-eye, body out of frame, blurry, bad art, bad anatomy, 3d render, background blur, (blurred background),  (briefs), (triangle pants), watermark, astigmatism, scattered light, lens astigmatism, chest light, shiny boobs, glowing boobs, halo, fog, hazy,</span></span></code></pre>
 </div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>DPM++ SDE Karras</span></span></code></pre>
@@ -1264,7 +1264,7 @@ Github项目地址：<a href="https://github.com/typicode/json-server" target="_
         <item>
             <title><![CDATA[译：使用 Bun 执行 Shell 脚本]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/bun/bun-shell.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/bun/bun-shell.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/bun/bun-shell.html</guid>
             <pubDate>Tue, 09 Jul 2024 16:55:35 GMT</pubDate>
             <description><![CDATA[JavaScript 是世界上最流行的脚本语言。那么为什么在 `JavaScript` 中执行 `Shell` 脚本很困难呢？Bun 又是怎么解决这个问题的？]]></description>
             <content:encoded><![CDATA[<h1 id="译-使用-bun-执行-shell-脚本" tabindex="-1">译：使用 Bun 执行 Shell 脚本 <a class="header-anchor" href="#译-使用-bun-执行-shell-脚本" aria-label="Permalink to &quot;译：使用 Bun 执行 Shell 脚本&quot;"></a></h1>
@@ -1407,7 +1407,7 @@ Github项目地址：<a href="https://github.com/typicode/json-server" target="_
         <item>
             <title><![CDATA[安装nvm后终端启动变慢,更快的Node版本管理工具推荐]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/node/nvm-iterm.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/node/nvm-iterm.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/node/nvm-iterm.html</guid>
             <pubDate>Tue, 09 Jul 2024 16:55:35 GMT</pubDate>
             <description><![CDATA[终端启动时总会卡顿一下，没去探究原因，看到咲奈的分享才知道是nvm在作祟]]></description>
             <content:encoded><![CDATA[<h1 id="安装nvm后终端启动变慢-更快的node版本管理工具推荐" tabindex="-1">安装nvm后终端启动变慢,更快的Node版本管理工具推荐 <a class="header-anchor" href="#安装nvm后终端启动变慢-更快的node版本管理工具推荐" aria-label="Permalink to &quot;安装nvm后终端启动变慢,更快的Node版本管理工具推荐&quot;"></a></h1>
@@ -1463,7 +1463,7 @@ Github项目地址：<a href="https://github.com/typicode/json-server" target="_
         <item>
             <title><![CDATA[性能优化笔记]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/performance/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/performance/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/performance/</guid>
             <pubDate>Tue, 09 Jul 2024 16:55:35 GMT</pubDate>
             <description><![CDATA[:::tip 参考
 掘金小册:性能优化
@@ -1502,7 +1502,7 @@ Github项目地址：<a href="https://github.com/typicode/json-server" target="_
         <item>
             <title><![CDATA[博客性能优化笔记 | 99分]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/essay/dev/2024-blog-perf.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/essay/dev/2024-blog-perf.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/essay/dev/2024-blog-perf.html</guid>
             <pubDate>Tue, 09 Jul 2024 16:55:35 GMT</pubDate>
             <description><![CDATA[# 博客性能优化笔记 | 99分
 
@@ -1750,7 +1750,7 @@ lighthouse 检测结果
         <item>
             <title><![CDATA[实现自动扫描工作区npm包并同步cnpm]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/cnnc.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/cnnc.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/cnnc.html</guid>
             <pubDate>Tue, 09 Jul 2024 16:55:35 GMT</pubDate>
             <description><![CDATA[批量且自动的做cnpm的同步，如果你是一个多npm包的项目，那么这个工具非常适合你]]></description>
             <content:encoded><![CDATA[<h1 id="实现自动扫描工作区npm包并同步cnpm" tabindex="-1">实现自动扫描工作区npm包并同步cnpm <a class="header-anchor" href="#实现自动扫描工作区npm包并同步cnpm" aria-label="Permalink to &quot;实现自动扫描工作区npm包并同步cnpm&quot;"></a></h1>
@@ -1838,7 +1838,7 @@ lighthouse 检测结果
         <item>
             <title><![CDATA[如何优雅的复制当前项目分支名]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/copy-branch.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/copy-branch.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/copy-branch.html</guid>
             <pubDate>Tue, 09 Jul 2024 16:55:35 GMT</pubDate>
             <description><![CDATA[本文简单介绍了如何通过`Shell`和`Node.js`实现复制当前分支名到剪贴板]]></description>
             <content:encoded><![CDATA[<h1 id="如何优雅的复制当前项目分支名" tabindex="-1">如何优雅的复制当前项目分支名 <a class="header-anchor" href="#如何优雅的复制当前项目分支名" aria-label="Permalink to &quot;如何优雅的复制当前项目分支名&quot;"></a></h1>
@@ -1938,7 +1938,7 @@ lighthouse 检测结果
         <item>
             <title><![CDATA[ESM中使用CJS模块特有的变量和方法]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/esm-require.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/esm-require.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/esm-require.html</guid>
             <pubDate>Tue, 09 Jul 2024 16:55:35 GMT</pubDate>
             <description><![CDATA[前言
 最近在看 VitePress 的源码时看到了一个`createRequire`方法，如下。
@@ -2041,7 +2041,7 @@ const ]]></description>
         <item>
             <title><![CDATA[纯前端实现 JPG 图片压缩 | canvas]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/jpg-compress.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/jpg-compress.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/jpg-compress.html</guid>
             <pubDate>Tue, 09 Jul 2024 16:55:35 GMT</pubDate>
             <description><![CDATA[在迭代图床应用时，需要用到图片压缩，在之前分享了使用UPNG.js 处理 PNG 图片，这里记录分享一下如何处理JPG图片，并附上完整 Demo。]]></description>
             <content:encoded><![CDATA[<h1 id="纯前端实现-jpg-图片压缩-canvas" tabindex="-1">纯前端实现 JPG 图片压缩 | canvas <a class="header-anchor" href="#纯前端实现-jpg-图片压缩-canvas" aria-label="Permalink to &quot;纯前端实现 JPG 图片压缩 | canvas&quot;"></a></h1>
@@ -2327,7 +2327,7 @@ const ]]></description>
         <item>
             <title><![CDATA[小程序中使用 lottie 动画 | 踩坑经验分享]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/mini-lottie.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/mini-lottie.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/mini-lottie.html</guid>
             <pubDate>Tue, 09 Jul 2024 16:55:35 GMT</pubDate>
             <description><![CDATA[记录分享在小程序中使用 lottie 播放AE动画的方法，以及踩坑经验。]]></description>
             <content:encoded><![CDATA[<h1 id="小程序中使用-lottie-动画-踩坑经验分享" tabindex="-1">小程序中使用 lottie 动画 | 踩坑经验分享 <a class="header-anchor" href="#小程序中使用-lottie-动画-踩坑经验分享" aria-label="Permalink to &quot;小程序中使用 lottie 动画 | 踩坑经验分享&quot;"></a></h1>
@@ -2583,7 +2583,7 @@ const ]]></description>
         <item>
             <title><![CDATA[【免费】Node.js 入门教程]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/nodejs-getting-started.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/nodejs-getting-started.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/nodejs-getting-started.html</guid>
             <pubDate>Tue, 09 Jul 2024 16:55:35 GMT</pubDate>
             <description><![CDATA[# 【免费】Node.js 入门教程
 掘金小册「Node.js 入门教程」课程地址：[<<Node.js 入门教程>>](https://juejin.cn/book/7304230207953567755) 👍🏻
@@ -2658,7 +2658,7 @@ const ]]></description>
         <item>
             <title><![CDATA[纯前端实现 PNG 图片压缩 | UPNG.js]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/png-compress.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/png-compress.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/png-compress.html</guid>
             <pubDate>Tue, 09 Jul 2024 16:55:35 GMT</pubDate>
             <description><![CDATA[最近在迭代应用的时候用到了 UPNG.js 压缩 PNG 图片，这里记录分享一下使用经验，并附上完整 Demo。]]></description>
             <content:encoded><![CDATA[<h1 id="纯前端实现-png-图片压缩-upng-js" tabindex="-1">纯前端实现 PNG 图片压缩 | UPNG.js <a class="header-anchor" href="#纯前端实现-png-图片压缩-upng-js" aria-label="Permalink to &quot;纯前端实现 PNG 图片压缩 | UPNG.js&quot;"></a></h1>
@@ -2822,7 +2822,7 @@ const ]]></description>
         <item>
             <title><![CDATA[使用又拍云极速搭建图床]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/upyun.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/upyun.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/upyun.html</guid>
             <pubDate>Tue, 09 Jul 2024 16:55:35 GMT</pubDate>
             <description><![CDATA[分享一下又拍云的简单用法，以及使用它搭建图床。]]></description>
             <content:encoded><![CDATA[<h1 id="使用又拍云极速搭建图床" tabindex="-1">使用又拍云极速搭建图床 <a class="header-anchor" href="#使用又拍云极速搭建图床" aria-label="Permalink to &quot;使用又拍云极速搭建图床&quot;"></a></h1>
@@ -3007,7 +3007,7 @@ const ]]></description>
         <item>
             <title><![CDATA[使用http-proxy-agent出现ECONNRESET error]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/study/http-proxy-fail.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/study/http-proxy-fail.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/study/http-proxy-fail.html</guid>
             <pubDate>Tue, 09 Jul 2024 16:55:35 GMT</pubDate>
             <description><![CDATA[使用http-proxy-agent出现ECONNRESET error
 之前做了1个下载文件的CLI工具 efst - 原理文章: 从0-1实现文件下载CLI工具
@@ -3031,7 +3031,7 @@ const ]]></description>
         <item>
             <title><![CDATA[stable-diffusion 学习笔记]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/stable-diffusion/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/stable-diffusion/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/stable-diffusion/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[前言
 笔者不会python，也不会机器学习，但是对于SD一直很感兴趣，最近有空闲时间，所以在这里记录一下 stable-diffusion 学习笔记。
@@ -3060,7 +3060,7 @@ const ]]></description>
         <item>
             <title><![CDATA[CSS足迹]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/css/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/css/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/css/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[记录开发中所遇问题及其解法与css学习笔记
  目录
@@ -3094,7 +3094,7 @@ const ]]></description>
         <item>
             <title><![CDATA[ES6 学习笔记]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/es6/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/es6/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/es6/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[此笔记主要记载ES6新增且最常用的一些特性,并书写了对应的demo
 借鉴了官方的文档和互联网上的一些博客与电子书，然后结合个人经验写成。由于经验有限，难免存在诸多疏漏或者理解不到位的地方，还请斧正！
@@ -3113,7 +3113,7 @@ const ]]></description>
         <item>
             <title><![CDATA[HTML相关内容]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/html/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/html/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/html/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[目录
 * 语义化标签]]></description>
@@ -3127,7 +3127,7 @@ const ]]></description>
         <item>
             <title><![CDATA[javascript]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/js/index copy.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/js/index copy.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/js/index copy.html</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[记录面试所遇的与javascript相关的代码题
  目录
@@ -3162,7 +3162,7 @@ const ]]></description>
         <item>
             <title><![CDATA[简介]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/js/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/js/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/js/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[简介
 此部分记载学习与业务开发中所遇问题及解法和了解到的一些语言特性
@@ -3251,7 +3251,7 @@ const ]]></description>
         <item>
             <title><![CDATA[译：使用现代的 Node.js 构建简单的CLI工具]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/node/standard-node-cli.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/node/standard-node-cli.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/node/standard-node-cli.html</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[只使用 Node.js 的标准库，不安装任何外部依赖，写一个命令行工具]]></description>
             <content:encoded><![CDATA[<h1 id="译-使用现代的-node-js-构建简单的cli工具" tabindex="-1">译：使用现代的 Node.js 构建简单的CLI工具 <a class="header-anchor" href="#译-使用现代的-node-js-构建简单的cli工具" aria-label="Permalink to &quot;译：使用现代的 Node.js 构建简单的CLI工具&quot;"></a></h1>
@@ -3514,7 +3514,7 @@ const ]]></description>
         <item>
             <title><![CDATA[正则表达式]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/regexp/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/regexp/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/regexp/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[# 正则表达式
 
@@ -3722,7 +3722,7 @@ const ]]></description>
         <item>
             <title><![CDATA[Vue知识点记录]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/vue/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/vue/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/vue/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[:::tip 参考
 掘金小册:剖析 Vue.js 内部运行机制
@@ -3759,7 +3759,7 @@ const ]]></description>
         <item>
             <title><![CDATA[Vue源码学习]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/vueResource/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/vueResource/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/vueResource/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[记录Vue源码学习历程,目标是手写一份源码加上注释:smile:
 :::参考
@@ -3777,7 +3777,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[算法与数据结构]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/coding/algorithm/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/coding/algorithm/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/coding/algorithm/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[整理面试所遇到的相关算法题
  目录
@@ -3810,7 +3810,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[网络相关问题]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/computerBase/Internet/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/computerBase/Internet/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/computerBase/Internet/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[目录
 * Content-Length
@@ -3832,7 +3832,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[算法与数据结构]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/computerBase/algorithm/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/computerBase/algorithm/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/computerBase/algorithm/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[目录
 * 排序算法是否稳定]]></description>
@@ -3846,7 +3846,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[简介]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/computerBase/design/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/computerBase/design/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/computerBase/design/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[学习/记录前端经常用到的一些设计模式
 :::tip 参考
@@ -3874,7 +3874,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[力扣刷题记录]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/computerBase/leetcode/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/computerBase/leetcode/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/computerBase/leetcode/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[目录]]></description>
             <content:encoded><![CDATA[<h1 id="力扣刷题记录" tabindex="-1">力扣刷题记录 <a class="header-anchor" href="#力扣刷题记录" aria-label="Permalink to &quot;力扣刷题记录&quot;"></a></h1>
@@ -3884,7 +3884,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[记录操作系统相关知识]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/computerBase/os/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/computerBase/os/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/computerBase/os/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[目录
 * 进程和线程怎么通信
@@ -3906,7 +3906,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[手撕代码]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/code/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/code/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/code/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[记录面试中常遇的手撕代码题目
  目录
@@ -3932,7 +3932,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[网络相关问题]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/internet/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/internet/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/internet/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[目录]]></description>
             <content:encoded><![CDATA[<h1 id="网络相关问题" tabindex="-1">网络相关问题 <a class="header-anchor" href="#网络相关问题" aria-label="Permalink to &quot;网络相关问题&quot;"></a></h1>
@@ -3942,7 +3942,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[小程序相关面试问题]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/mini/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/mini/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/mini/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[目录
 * 与传统移动web的异同
@@ -3960,7 +3960,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[剑指Offer刷题记录]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/offer/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/offer/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/offer/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[目录
 * 面试题50 第一个只出现一次的字符
@@ -3983,7 +3983,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[记录操作系统相关知识]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/os/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/os/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/os/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[目录]]></description>
             <content:encoded><![CDATA[<h1 id="记录操作系统相关知识" tabindex="-1">记录操作系统相关知识 <a class="header-anchor" href="#记录操作系统相关知识" aria-label="Permalink to &quot;记录操作系统相关知识&quot;"></a></h1>
@@ -3993,7 +3993,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[关于前端一些综合知识]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/other/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/other/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/other/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[目录
 * 前端工程化
@@ -4015,7 +4015,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[性能优化面试题]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/performance/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/performance/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/performance/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[目录
 * 如何加快首屏渲染?]]></description>
@@ -4029,7 +4029,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[Vue面试题]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/vue/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/vue/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/interview/vue/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[目录]]></description>
             <content:encoded><![CDATA[<h1 id="vue面试题" tabindex="-1">Vue面试题 <a class="header-anchor" href="#vue面试题" aria-label="Permalink to &quot;Vue面试题&quot;"></a></h1>
@@ -4039,7 +4039,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[精准爆头]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/stocks/PrecisionHeadshot/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/stocks/PrecisionHeadshot/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/stocks/PrecisionHeadshot/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[目录]]></description>
             <content:encoded><![CDATA[<h1 id="精准爆头" tabindex="-1">精准爆头 <a class="header-anchor" href="#精准爆头" aria-label="Permalink to &quot;精准爆头&quot;"></a></h1>
@@ -4049,7 +4049,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[情绪核心]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/stocks/SentimentCore/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/stocks/SentimentCore/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/stocks/SentimentCore/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[目录]]></description>
             <content:encoded><![CDATA[<h1 id="情绪核心" tabindex="-1">情绪核心 <a class="header-anchor" href="#情绪核心" aria-label="Permalink to &quot;情绪核心&quot;"></a></h1>
@@ -4059,7 +4059,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[技术杂文集]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[记录一些开发过程中遇到的一些小问题以及解决方案
 记录一些开发实践
@@ -4107,7 +4107,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[源码学习笔记]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/source/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/source/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/source/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[记录一些源码学习笔记
  目录
@@ -4131,7 +4131,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[学习新知识-分享干货]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/study/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/study/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/study/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[买了一大推课程/书籍,收藏了一大推好文,是时候拿出来品一品了
 ~~摒弃 收藏===学会~~
@@ -4173,7 +4173,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[nvm ls-remote 只有iojs列表]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/study/nvm-ls-remote.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/study/nvm-ls-remote.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/study/nvm-ls-remote.html</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[nvm 镜像地址的问题，修改对应环境变量`NVM_NODEJS_ORG_MIRROR`即可
 可以使用 淘宝源(`https://npmmirror.com/mirrors/node/`)
@@ -4205,7 +4205,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[概念知识-理论干货]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/theory/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/theory/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/theory/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[记录一些大前端发展过程中的一些知识
 * 过去
@@ -4229,7 +4229,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[工程模板搭建]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/tpl/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/tpl/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/tpl/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[记录从0-1的工程模板搭建教程
  目录
@@ -4250,7 +4250,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[个人作品]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[为我造过的轮子与写过的项目,书写传记
 个人精力有限,感兴趣有能力的朋友可以帮忙迭代维护
@@ -4280,7 +4280,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[时光恋人]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-lover/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-lover/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-lover/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[* 实践：给女朋友个性化定制应用-体重记录（一）
 * 实践：给女朋友个性化定制应用-体重记录（二）
@@ -4296,7 +4296,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[时间管理CLI工具]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/</guid>
             <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
             <description><![CDATA[目录
 * 做一个CLI版的时间管理工具（一）
@@ -4328,7 +4328,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[git如何清除历史版本]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/coding/github/Git删除当前分支下的所有历史版本与log并同步至GitHub_git如何清除历史版本.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/coding/github/Git删除当前分支下的所有历史版本与log并同步至GitHub_git如何清除历史版本.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/coding/github/Git删除当前分支下的所有历史版本与log并同步至GitHub_git如何清除历史版本.html</guid>
             <pubDate>Fri, 21 Jun 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[1. Git删除当前分支下的所有历史版本与log并同步至GitHub_git如何清除历史版本-CSDN博客
 
@@ -4412,7 +4412,7 @@ Github:ustbhuangyi
         <item>
             <title><![CDATA[在提交pr请求后自动部署preview github pages]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/deploy-preview-pr.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/deploy-preview-pr.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/deploy-preview-pr.html</guid>
             <pubDate>Tue, 18 Jun 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[# 在提交pr请求后自动部署preview github pages
 
@@ -4656,7 +4656,7 @@ Also, make sure to change <code>EndBug/pages-preview</code>'s inputs to match yo
         <item>
             <title><![CDATA[pnpm install 在github actions中运行的问题]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/pnpm-issue-githubactions.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/pnpm-issue-githubactions.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/pnpm-issue-githubactions.html</guid>
             <pubDate>Tue, 18 Jun 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[&gt; :octocat: pnpm install在CI环境中 `GitHub Action` 的默认参数，用于为拉取请求（PR）和分支创建GitHub Pages预览 —— EndBug/pag]]></description>
             <content:encoded><![CDATA[<h1 id="pnpm-install-在github-actions中运行的问题" tabindex="-1">pnpm install 在github actions中运行的问题 <a class="header-anchor" href="#pnpm-install-在github-actions中运行的问题" aria-label="Permalink to &quot;pnpm install 在github actions中运行的问题&quot;"></a></h1>
@@ -4680,7 +4680,7 @@ Also, make sure to change <code>EndBug/pages-preview</code>'s inputs to match yo
         <item>
             <title><![CDATA[一个简约风的vitepress博客主题]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/theme.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/theme.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/theme.html</guid>
             <pubDate>Sun, 05 Feb 2023 14:00:00 GMT</pubDate>
             <description><![CDATA[简约风的vitepress博客主题介绍]]></description>
             <content:encoded><![CDATA[<h1 id="一个简约风的vitepress博客主题" tabindex="-1">一个简约风的vitepress博客主题 <a class="header-anchor" href="#一个简约风的vitepress博客主题" aria-label="Permalink to &quot;一个简约风的vitepress博客主题&quot;"></a></h1>
@@ -4699,20 +4699,20 @@ Also, make sure to change <code>EndBug/pages-preview</code>'s inputs to match yo
 <h2 id="快速体验" tabindex="-1">快速体验 <a class="header-anchor" href="#快速体验" aria-label="Permalink to &quot;快速体验&quot;"></a></h2>
 <p>只需3步，即可体验</p>
 <p>① 拉取 Github 模板</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-26Ayw" id="tab-Nh6S_Xd" checked><label data-title="npm" for="tab-Nh6S_Xd">npm</label><input type="radio" name="group-26Ayw" id="tab-Z4KPMl-" ><label data-title="yarn" for="tab-Z4KPMl-">yarn</label><input type="radio" name="group-26Ayw" id="tab-z9uxIfH" ><label data-title="pnpm" for="tab-z9uxIfH">pnpm</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-P8Zg2" id="tab-XtB2aD0" checked><label data-title="npm" for="tab-XtB2aD0">npm</label><input type="radio" name="group-P8Zg2" id="tab-o_f4Xo7" ><label data-title="yarn" for="tab-o_f4Xo7">yarn</label><input type="radio" name="group-P8Zg2" id="tab-LwZ7p7-" ><label data-title="pnpm" for="tab-LwZ7p7-">pnpm</label></div><div class="blocks">
 <div class="language-bash vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme@latest</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span></span></code></pre>
 </div></div></div>
 <p>也可以指定项目名</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-UFmlo" id="tab-TJkDJsb" checked><label data-title="npm" for="tab-TJkDJsb">npm</label><input type="radio" name="group-UFmlo" id="tab-UIm3D0l" ><label data-title="yarn" for="tab-UIm3D0l">yarn</label><input type="radio" name="group-UFmlo" id="tab-sNLkCjM" ><label data-title="pnpm" for="tab-sNLkCjM">pnpm</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-Dw3Rv" id="tab-YA1RwHe" checked><label data-title="npm" for="tab-YA1RwHe">npm</label><input type="radio" name="group-Dw3Rv" id="tab-q3hao5k" ><label data-title="yarn" for="tab-q3hao5k">yarn</label><input type="radio" name="group-Dw3Rv" id="tab-jFvWhgc" ><label data-title="pnpm" for="tab-jFvWhgc">pnpm</label></div><div class="blocks">
 <div class="language-bash vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme@latest</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div></div></div>
 <p><img src="./theme/MTY4OTQyMDE1NTcxMA==689420155710.png" alt="" loading="lazy"></p>
 <p>② 安装依赖</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-gJzlz" id="tab-Sqf4d55" checked><label data-title="pnpm" for="tab-Sqf4d55">pnpm</label><input type="radio" name="group-gJzlz" id="tab-FqIp2cZ" ><label data-title="安装 PNPM" for="tab-FqIp2cZ">安装 PNPM</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-OG0PZ" id="tab-B3Eqh9G" checked><label data-title="pnpm" for="tab-B3Eqh9G">pnpm</label><input type="radio" name="group-OG0PZ" id="tab-ZewTUOt" ><label data-title="安装 PNPM" for="tab-ZewTUOt">安装 PNPM</label></div><div class="blocks">
 <div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 如果你没有 PNPM 请先安装</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> i</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -g</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span></span></code></pre>
@@ -4763,7 +4763,7 @@ Also, make sure to change <code>EndBug/pages-preview</code>'s inputs to match yo
         <item>
             <title><![CDATA[从0-1实现文件下载CLI工具]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/fs-cli.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/fs-cli.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/fs-cli.html</guid>
             <pubDate>Wed, 09 Nov 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[前言
 在日常学习/生活中，下载资源时，大部分情况是通过别人分享的资源站点，找到下载入口然后触发下载。
@@ -5374,7 +5374,7 @@ Also, make sure to change <code>EndBug/pages-preview</code>'s inputs to match yo
         <item>
             <title><![CDATA[SourceMap解析CLI工具实现]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/sm-cli.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/sm-cli.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/sm-cli.html</guid>
             <pubDate>Sat, 29 Oct 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[前言
 source-map 大家都不陌生了，通常情况就是产物里的`xx.js.map`文件里的内容。
@@ -5806,7 +5806,7 @@ source-map 大家都不陌生了，通常情况就是产物里的`xx.js.map`文�
         <item>
             <title><![CDATA[内联JS处理(ES语法降级&内容压缩)]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/html-inline-js-transform.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/html-inline-js-transform.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/html-inline-js-transform.html</guid>
             <pubDate>Sat, 22 Oct 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[本文简单介绍一下当前`html`在现代工程中的现状，并阐述内联js代码可能存在的一些问题，同时介绍一系列处理页面内联脚本的方法，以及通过`SWC`如何转换目标代码，通过`CLI工具如何组合这些能力`。]]></description>
             <content:encoded><![CDATA[<h1 id="内联js处理-es语法降级-内容压缩" tabindex="-1">内联JS处理(ES语法降级&amp;内容压缩) <a class="header-anchor" href="#内联js处理-es语法降级-内容压缩" aria-label="Permalink to &quot;内联JS处理(ES语法降级&amp;内容压缩)&quot;"></a></h1>
@@ -6135,7 +6135,7 @@ source-map 大家都不陌生了，通常情况就是产物里的`xx.js.map`文�
         <item>
             <title><![CDATA[NodeCLI工具原理解析]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/node-cli.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/node-cli.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/node-cli.html</guid>
             <pubDate>Mon, 17 Oct 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[本文将主要介绍`CLI相关周边知识`，通过本文读者可以了解到`CLI的基本工作原理`，`注册全局指令`的几种方式、`Node CLI的基本工作原理`。
  前言
@@ -6351,7 +6351,7 @@ source-map 大家都不陌生了，通常情况就是产物里的`xx.js.map`文�
         <item>
             <title><![CDATA[Mac上抓包秒通关羊了个羊]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/yanglegeyang.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/yanglegeyang.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/yanglegeyang.html</guid>
             <pubDate>Mon, 19 Sep 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[最近这游戏是火得不行，睡前玩几把，几天了从未通过。那只能上科技了。。。
  前言
@@ -6439,7 +6439,7 @@ source-map 大家都不陌生了，通常情况就是产物里的`xx.js.map`文�
         <item>
             <title><![CDATA[ESCheck工具原理解析及增强实现]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/escheck.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/escheck.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/escheck.html</guid>
             <pubDate>Mon, 19 Sep 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[# ESCheck工具原理解析及增强实现
 > 本文为稀土掘金技术社区首发签约文章，14天内禁止转载，14天后未获授权禁止转载，侵权必究！
@@ -7125,7 +7125,7 @@ if (errArr.length > 0) {
         <item>
             <title><![CDATA[组装个支持记笔记的CodePen]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/codeNote.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/codeNote.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/codeNote.html</guid>
             <pubDate>Sun, 28 Aug 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[# 组装个支持记笔记的CodePen
 ## 前言
@@ -7479,7 +7479,7 @@ emm...，检索了一圈记忆中除了 `VsCode` 好像还真没有这种东西�
         <item>
             <title><![CDATA[实现一个Web UI检测(视觉走查)工具ing]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/ewuit.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/ewuit.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/ewuit.html</guid>
             <pubDate>Tue, 05 Jul 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[# 实现一个Web UI检测(视觉走查)工具ing
 
@@ -7545,7 +7545,7 @@ emm...，检索了一圈记忆中除了 `VsCode` 好像还真没有这种东西�
         <item>
             <title><![CDATA[实现一个幽灵依赖扫描工具]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/node/phantom-dep-cli.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/node/phantom-dep-cli.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/node/phantom-dep-cli.html</guid>
             <pubDate>Sun, 15 May 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[# 实现一个幽灵依赖扫描工具
 
@@ -7845,7 +7845,7 @@ emm...，检索了一圈记忆中除了 `VsCode` 好像还真没有这种东西�
         <item>
             <title><![CDATA[Node侧实现内容压缩(gzip/br/deflate)介绍与实践]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/node/compress-response.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/node/compress-response.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/node/compress-response.html</guid>
             <pubDate>Sat, 05 Mar 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[背景
 在查看自己的应用日志时，发现进入日志页面后总是要几秒钟才会加载（接口没做分页），于是打开网络面板查看
@@ -8127,7 +8127,7 @@ emm...，检索了一圈记忆中除了 `VsCode` 好像还真没有这种东西�
         <item>
             <title><![CDATA[配置SSH免密登录服务器]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/ssh-no-pwd-login.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/ssh-no-pwd-login.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/ssh-no-pwd-login.html</guid>
             <pubDate>Sat, 12 Feb 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[最近服务器从阿里云换到了腾讯云，需要把服务进行一次整体的迁移
 为了方便资源的部署，需要配置一下SSH的免密登录，避免频繁的输入密码
@@ -8170,7 +8170,7 @@ emm...，检索了一圈记忆中除了 `VsCode` 好像还真没有这种东西�
         <item>
             <title><![CDATA[新年快乐，虎虎生威]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/_configDoc/newyear/2022.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/_configDoc/newyear/2022.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/_configDoc/newyear/2022.html</guid>
             <pubDate>Mon, 31 Jan 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[给大家送上`红包封面`和`红包`
 新的一年祝大家新年快乐，虎年大吉，虎虎生威，如虎添翼，恭喜发财，财源滚滚
@@ -8192,7 +8192,7 @@ emm...，检索了一圈记忆中除了 `VsCode` 好像还真没有这种东西�
         <item>
             <title><![CDATA[移动端阻止弹窗下层页面被滑动]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/fixed-page.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/fixed-page.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/fixed-page.html</guid>
             <pubDate>Sat, 22 Jan 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[移动端阻止弹窗下层页面被滑动
 在做H5开发时，很多场景下都需要弹窗
@@ -8351,7 +8351,7 @@ emm...，检索了一圈记忆中除了 `VsCode` 好像还真没有这种东西�
         <item>
             <title><![CDATA[小技巧：for of中获取index]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/forof-idx.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/forof-idx.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/forof-idx.html</guid>
             <pubDate>Mon, 17 Jan 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[日常开发中在遍历数据时经常使用`for...of`,`forEach`
 前者使用时能够配合`async await`,`continue`,`break`等等
@@ -8409,7 +8409,7 @@ const data = []]></description>
         <item>
             <title><![CDATA[前端校招考点汇总]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/_configDoc/top/campusProblem.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/_configDoc/top/campusProblem.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/_configDoc/top/campusProblem.html</guid>
             <pubDate>Sat, 11 Dec 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[前端校招考点汇总
  措辞
@@ -8430,7 +8430,7 @@ const data = []]></description>
         <item>
             <title><![CDATA[关于自己]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/aboutme.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/aboutme.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/aboutme.html</guid>
             <pubDate>Sat, 11 Dec 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[
 # 关于我
@@ -8483,7 +8483,7 @@ const data = []]></description>
         <item>
             <title><![CDATA[webpack项目接入Vite的通用方案介绍]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/webapck2vite.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/webapck2vite.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/webapck2vite.html</guid>
             <pubDate>Sat, 04 Dec 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[愿景
 希望通过本文，能给读者提供一个存/增量项目（包含但不限于webpack工程）接入Vite的点子，起抛砖引玉的作用，减少这方面能力的建设成本
@@ -9196,7 +9196,7 @@ const data = []]></description>
         <item>
             <title><![CDATA[webpack项目接入Vite的通用方案介绍-草稿]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/webapck2vite2.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/webapck2vite2.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/webapck2vite2.html</guid>
             <pubDate>Sun, 14 Nov 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[愿景
 希望通过此系列文章，能给读者提供一个存/增量项目接入Vite的点子，起抛砖引玉的作用，减少这方面能力的建设成本
@@ -9560,7 +9560,7 @@ const data = []]></description>
         <item>
             <title><![CDATA[ES6+的一些新语法糖和方法整理]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/js/es6+.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/js/es6+.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/js/es6+.html</guid>
             <pubDate>Wed, 13 Oct 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[只列举了比较实用的而又鲜为人知的一些，并不绝对全面
  ESNext
@@ -9821,7 +9821,7 @@ class p{
         <item>
             <title><![CDATA[解决Vite-React项目中js使用jsx语法报错的问题]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/vite-react-js.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/vite-react-js.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/vite-react-js.html</guid>
             <pubDate>Tue, 12 Oct 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[背景
 在做存量项目接入Vite测试时发现，存量（老）项目中很多是直接在js中书写jsx语法，使用Vite启动时就会抛出一堆问题`Failed to parse source`。
@@ -9923,7 +9923,7 @@ class p{
         <item>
             <title><![CDATA[模板工程搭建：Web-SDK/Library]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/tpl/web-sdk-tpl.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/tpl/web-sdk-tpl.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/tpl/web-sdk-tpl.html</guid>
             <pubDate>Tue, 05 Oct 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[此系列会与时俱进的不断更新
 包含Node/Web SDK，单组件，组件库，Eslint插件，Webpack插件，Vite插件，MonoRepo等等工程化相关能力的模板建设
@@ -10341,7 +10341,7 @@ class p{
         <item>
             <title><![CDATA[内容预告-最近准备整理的内容]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/_configDoc/top/notice.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/_configDoc/top/notice.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/_configDoc/top/notice.html</guid>
             <pubDate>Mon, 04 Oct 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[【21年归档】内容预告
 由于砖太烫手，这部分内容鸽了有大办年了，争取21Q4完善其中一部分内容
@@ -10445,7 +10445,7 @@ class p{
         <item>
             <title><![CDATA[为什么'\x1B'.length===1？\x与\u知识延伸]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/ux.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/ux.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/ux.html</guid>
             <pubDate>Mon, 04 Oct 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[背景
 先讲一下背景，再说原因
@@ -10553,7 +10553,7 @@ console.lo]]></description>
         <item>
             <title><![CDATA[Vite插件开发纪实：vite-plugin-monitor（下）]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/vite-plugin-monitor3.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/vite-plugin-monitor3.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/vite-plugin-monitor3.html</guid>
             <pubDate>Fri, 01 Oct 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[前言
 上一篇介绍了Vite启动，HMR等时间的获取。
@@ -10770,7 +10770,7 @@ console.lo]]></description>
         <item>
             <title><![CDATA[Vite插件开发纪实：vite-plugin-monitor（上）]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/vite-plugin-monitor1.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/vite-plugin-monitor1.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/vite-plugin-monitor1.html</guid>
             <pubDate>Mon, 27 Sep 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[背景
 最近在webpack项目里接入了Vite（dev mode），为开发提效。效果是真的猛。
@@ -10898,7 +10898,7 @@ console.lo]]></description>
         <item>
             <title><![CDATA[Vite插件开发纪实：vite-plugin-monitor（中）]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/vite-plugin-monitor2.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/vite-plugin-monitor2.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/vite-plugin-monitor2.html</guid>
             <pubDate>Mon, 27 Sep 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[前言
 上一篇文章主要介绍了开发插件所需的准备工作，以及此次要开发的插件将要解决的问题
@@ -11004,7 +11004,7 @@ console.lo]]></description>
         <item>
             <title><![CDATA[马上中秋了，把鼠标指针变为小玉兔]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/mid-autumn-festival.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/mid-autumn-festival.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/mid-autumn-festival.html</guid>
             <pubDate>Sat, 11 Sep 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[前言
 马上中秋节啦，掘金又开始整活了，恰巧最近准备做的工具会涉及到鼠标指针的变动，就顺手先写个demo蹭蹭活动了。
@@ -11214,7 +11214,7 @@ console.lo]]></description>
         <item>
             <title><![CDATA[优雅的处理挂载window上的函数可能不存在的情况]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/window-var.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/window-var.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/window-var.html</guid>
             <pubDate>Wed, 01 Sep 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[背景
 在做一个Web JS SDK（A）时，内部会用到另一个Web JS SDK（B）的方法。（文中后续用A/B代替两者）
@@ -11361,7 +11361,7 @@ B通常会提供Script和NPM包两种使用方式
         <item>
             <title><![CDATA[实现调用就执行一次的定时器]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/js/immed-setInterval.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/js/immed-setInterval.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/bigWeb/js/immed-setInterval.html</guid>
             <pubDate>Sun, 29 Aug 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[问题描述
 部分场景需要使用定时器延迟或者循环执行
@@ -11411,7 +11411,7 @@ function fn(){}
         <item>
             <title><![CDATA[做一个CL版的时间管理工具（15）]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-15.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-15.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-15.html</guid>
             <pubDate>Mon, 23 Aug 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[前言
 在前一期文章中完善了一个生成Web页面浏览事务进展的`timec page`指令
@@ -11512,7 +11512,7 @@ function fn(){}
         <item>
             <title><![CDATA[Node中require与fs.readFile读取JSON文件的对比]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/node-require-json.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/node-require-json.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/node-require-json.html</guid>
             <pubDate>Thu, 19 Aug 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[背景
 在做时间管理工具出现了一个问题
@@ -11606,7 +11606,7 @@ test.json</li>
         <item>
             <title><![CDATA[做一个CL版的时间管理工具（14）]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-14.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-14.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-14.html</guid>
             <pubDate>Wed, 18 Aug 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[前言
 在前一篇文章中完善了`timec page`指令的前后端交互逻辑,本期将完善这个指令打开页面的功能
@@ -11865,7 +11865,7 @@ test.json</li>
         <item>
             <title><![CDATA[做一个CL版的时间管理工具（13）]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-13.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-13.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-13.html</guid>
             <pubDate>Mon, 16 Aug 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[前言
 在前一篇文章中加入了一个启动Web服务的指令`timec page`
@@ -12022,7 +12022,7 @@ ya]]></description>
         <item>
             <title><![CDATA[做一个CL版的时间管理工具（12）]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-12.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-12.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-12.html</guid>
             <pubDate>Sun, 15 Aug 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[前言
 初版的功能已经完成的差不多了，后续主要是优化一下体验和交互
@@ -12196,7 +12196,7 @@ ya]]></description>
         <item>
             <title><![CDATA[做一个CL版的时间管理工具（11）]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-11.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-11.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-11.html</guid>
             <pubDate>Thu, 12 Aug 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[前言
 通过前面10篇文章的介绍，咱们的第一版差不多迭代完毕
@@ -12314,7 +12314,7 @@ ya]]></description>
         <item>
             <title><![CDATA[做一个CL版的时间管理工具（十）]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-10.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-10.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-10.html</guid>
             <pubDate>Wed, 11 Aug 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[前言
 上一篇文章主要详细介绍了工具的使用，到目前为止已经支持了不少指令了
@@ -12444,7 +12444,7 @@ ya]]></description>
         <item>
             <title><![CDATA[做一个CL版的时间管理工具（九）]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-9.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-9.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-9.html</guid>
             <pubDate>Tue, 10 Aug 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[前言
 上一篇文章主要阐述了自动记录事务的逻辑
@@ -12568,7 +12568,7 @@ ya]]></description>
         <item>
             <title><![CDATA[做一个CL版的时间管理工具（八）]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-8.html</link>
-            <guid>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-8.html</guid>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/works/time-tools/time-tools-8.html</guid>
             <pubDate>Mon, 09 Aug 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[前言
 上一篇文章主要阐述了删除任务与事物管理相关的指令开发
