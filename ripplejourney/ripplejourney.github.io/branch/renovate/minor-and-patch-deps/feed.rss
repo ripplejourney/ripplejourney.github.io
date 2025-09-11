@@ -4,7 +4,7 @@
         <title>代码</title>
         <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/minor-and-patch-deps</link>
         <description>天道酬勤，恒以致遠（大前端相关技术分享）</description>
-        <lastBuildDate>Thu, 11 Sep 2025 06:32:21 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 11 Sep 2025 10:12:44 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -14,6 +14,89 @@
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/minor-and-patch-deps</link>
         </image>
         <copyright>代码 2006 - 2025</copyright>
+        <item>
+            <title><![CDATA[**PostgreSQL 容器启动失败：WSL 配置终极解决方案**]]></title>
+            <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/minor-and-patch-deps/preview/ripplejourney/ripplejourney.github.io/branch/renovate/minor-and-patch-deps/ai/dify/postgresql_wsl_solution.html</link>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/minor-and-patch-deps/preview/ripplejourney/ripplejourney.github.io/branch/renovate/minor-and-patch-deps/ai/dify/postgresql_wsl_solution.html</guid>
+            <pubDate>Thu, 11 Sep 2025 07:30:31 GMT</pubDate>
+            <description><![CDATA[
+
+]]></description>
+            <content:encoded><![CDATA[<hr>
+<h1 id="postgresql-容器启动失败-wsl-配置终极解决方案" tabindex="-1"><strong>PostgreSQL 容器启动失败：WSL 配置终极解决方案</strong> <a class="header-anchor" href="#postgresql-容器启动失败-wsl-配置终极解决方案" aria-label="Permalink to &quot;**PostgreSQL 容器启动失败：WSL 配置终极解决方案**&quot;"></a></h1>
+<h2 id="问题现象" tabindex="-1"><strong>问题现象</strong> <a class="header-anchor" href="#问题现象" aria-label="Permalink to &quot;**问题现象**&quot;"></a></h2>
+<p>在 Windows + WSL 环境下运行 dify\docker&gt; podman compose down &amp;&amp; podman compose up -d, 创建 PostgreSQL 容器时，出现以下错误：</p>
+<div class="language-plaintext vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">plaintext</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>initdb: error: could not change permissions of directory "/var/lib/postgresql/data/pgdata": Operation not permitted</span></span>
+<span class="line"><span>chmod: /var/lib/postgresql/data/pgdata: Operation not permitted</span></span></code></pre>
+</div><hr>
+<h2 id="根本原因" tabindex="-1"><strong>根本原因</strong> <a class="header-anchor" href="#根本原因" aria-label="Permalink to &quot;**根本原因**&quot;"></a></h2>
+<p>Windows 和 WSL 默认的文件系统挂载方式导致：</p>
+<ol>
+<li><strong>权限隔离</strong>：WSL 挂载的 Windows 目录（如 <code>/mnt/c/...</code>）默认禁止修改权限。</li>
+<li><strong>用户冲突</strong>：容器内用户（如 <code>postgres</code>）无法操作挂载目录的权限。</li>
+</ol>
+<hr>
+<h2 id="终极解决方案-调整-wsl-配置" tabindex="-1"><strong>终极解决方案：调整 WSL 配置</strong> <a class="header-anchor" href="#终极解决方案-调整-wsl-配置" aria-label="Permalink to &quot;**终极解决方案：调整 WSL 配置**&quot;"></a></h2>
+<h3 id="_1-修改-wsl-配置文件" tabindex="-1"><strong>1. 修改 WSL 配置文件</strong> <a class="header-anchor" href="#_1-修改-wsl-配置文件" aria-label="Permalink to &quot;**1. 修改 WSL 配置文件**&quot;"></a></h3>
+<p>在 WSL 中运行以下命令：</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> nano</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /etc/wsl.conf</span></span></code></pre>
+</div><p>添加以下内容（如果文件不存在则新建）：</p>
+<div class="language-ini vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">ini</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">[automount]</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">options</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> = </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"metadata,umask=22,fmask=11"</span></span></code></pre>
+</div><p>保存后退出（<code>Ctrl+O</code> → <code>Enter</code> → <code>Ctrl+X</code>）。</p>
+<h3 id="_2-重启-wsl" tabindex="-1"><strong>2. 重启 WSL</strong> <a class="header-anchor" href="#_2-重启-wsl" aria-label="Permalink to &quot;**2. 重启 WSL**&quot;"></a></h3>
+<p>在 Windows PowerShell 中运行：</p>
+<div class="language-powershell vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">powershell</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">wsl </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">--</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">shutdown</span></span></code></pre>
+</div><p>重新启动 WSL 终端使配置生效。</p>
+<h3 id="_3-验证配置" tabindex="-1"><strong>3. 验证配置</strong> <a class="header-anchor" href="#_3-验证配置" aria-label="Permalink to &quot;**3. 验证配置**&quot;"></a></h3>
+<p>在 WSL 中运行：</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">cat</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /etc/wsl.conf</span></span></code></pre>
+</div><p>确认输出包含上述配置。</p>
+<hr>
+<h2 id="辅助步骤-可选" tabindex="-1"><strong>辅助步骤（可选）</strong> <a class="header-anchor" href="#辅助步骤-可选" aria-label="Permalink to &quot;**辅助步骤（可选）**&quot;"></a></h2>
+<h3 id="_1-确保目录存在" tabindex="-1"><strong>1. 确保目录存在</strong> <a class="header-anchor" href="#_1-确保目录存在" aria-label="Permalink to &quot;**1. 确保目录存在**&quot;"></a></h3>
+<p>在 Windows 中创建目标目录：</p>
+<div class="language-powershell vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">powershell</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">mkdir </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">p C:\AppData\code\ai\dify\docker\volumes\db\</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">data</span></span></code></pre>
+</div><h3 id="_2-调整目录权限" tabindex="-1"><strong>2. 调整目录权限</strong> <a class="header-anchor" href="#_2-调整目录权限" aria-label="Permalink to &quot;**2. 调整目录权限**&quot;"></a></h3>
+<p>在 WSL 中运行：</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> chmod</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -R</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 755</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /mnt/c/AppData/code/ai/dify/docker/volumes/db/data</span></span></code></pre>
+</div><h3 id="_3-重新启动容器" tabindex="-1"><strong>3. 重新启动容器</strong> <a class="header-anchor" href="#_3-重新启动容器" aria-label="Permalink to &quot;**3. 重新启动容器**&quot;"></a></h3>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">podman-compose</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> down</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> &#x26;&#x26; </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">podman-compose</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> up</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -d</span></span></code></pre>
+</div><hr>
+<h2 id="为什么这是最佳方案" tabindex="-1"><strong>为什么这是最佳方案？</strong> <a class="header-anchor" href="#为什么这是最佳方案" aria-label="Permalink to &quot;**为什么这是最佳方案？**&quot;"></a></h2>
+<ol>
+<li><strong>一劳永逸</strong>：修改 WSL 配置后，所有容器挂载目录的权限问题自动解决。</li>
+<li><strong>无需硬编码用户</strong>：避免在 <code>docker-compose.yml</code> 中强制指定 <code>user: &quot;1000:1000&quot;</code>。</li>
+<li><strong>兼容性更好</strong>：支持所有需要权限操作的容器（如 MySQL、MongoDB 等）。</li>
+</ol>
+<hr>
+<h2 id="验证方法" tabindex="-1"><strong>验证方法</strong> <a class="header-anchor" href="#验证方法" aria-label="Permalink to &quot;**验证方法**&quot;"></a></h2>
+<ol>
+<li>
+<p><strong>检查目录权限</strong>
+在 WSL 中运行：</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">ls</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -ld</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /mnt/c/AppData/code/ai/dify/docker/volumes/db/data</span></span></code></pre>
+</div><p>正常输出示例：</p>
+<div class="language-plaintext vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">plaintext</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>drwxr-xr-x 1 user user 4096 Sep 11 10:00 /mnt/c/.../data</span></span></code></pre>
+</div></li>
+<li>
+<p><strong>查看容器日志</strong></p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">podman</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> logs</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">container_i</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">d</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span></span></code></pre>
+</div><p>确认无权限错误。</p>
+</li>
+</ol>
+<hr>
+<h2 id="注意事项" tabindex="-1"><strong>注意事项</strong> <a class="header-anchor" href="#注意事项" aria-label="Permalink to &quot;**注意事项**&quot;"></a></h2>
+<ol>
+<li><strong>WSL 版本</strong>：仅 WSL 2 支持此配置（通过 <code>wsl -l -v</code> 检查）。</li>
+<li><strong>安全限制</strong>：<code>umask=22</code> 表示默认权限为 <code>755</code>（可根据需要调整）。</li>
+</ol>
+<hr>
+<h2 id="总结" tabindex="-1"><strong>总结</strong> <a class="header-anchor" href="#总结" aria-label="Permalink to &quot;**总结**&quot;"></a></h2>
+<p>通过调整 WSL 的 <code>automount</code> 配置，从根本上解决了容器挂载目录的权限问题。此方法简单、通用，是 Windows + WSL 环境下运行数据库容器的推荐方案。</p>
+<hr>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[实现自动为 VitePress 网站添加 RSS 订阅的插件]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/minor-and-patch-deps/preview/ripplejourney/ripplejourney.github.io/branch/renovate/minor-and-patch-deps/technology/learn/vitepress-plugin-rss.html</link>
@@ -1248,7 +1331,7 @@ Github项目地址：<a href="https://github.com/typicode/json-server" target="_
 <p><img src="./mac-install/MTY4ODMwOTkwMzgwOA==688309903808.png" alt="" loading="lazy"></p>
 <p>下面实操使用一下上面的提示词</p>
 <p>我这里把步数调成了30</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-qdZ0N" id="tab-wTi2Pqg" checked><label data-title="① 提示词" for="tab-wTi2Pqg">① 提示词</label><input type="radio" name="group-qdZ0N" id="tab-hwJTgFR" ><label data-title="② 反向提示词" for="tab-hwJTgFR">② 反向提示词</label><input type="radio" name="group-qdZ0N" id="tab-_MnReiF" ><label data-title="③ 采样器" for="tab-_MnReiF">③ 采样器</label><input type="radio" name="group-qdZ0N" id="tab-e99b-L6" ><label data-title="④ 步数" for="tab-e99b-L6">④ 步数</label><input type="radio" name="group-qdZ0N" id="tab-KQ-6zob" ><label data-title="⑤ 引导系数" for="tab-KQ-6zob">⑤ 引导系数</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-70onQ" id="tab-Pks772b" checked><label data-title="① 提示词" for="tab-Pks772b">① 提示词</label><input type="radio" name="group-70onQ" id="tab-ktHUY1o" ><label data-title="② 反向提示词" for="tab-ktHUY1o">② 反向提示词</label><input type="radio" name="group-70onQ" id="tab-Bjhghgt" ><label data-title="③ 采样器" for="tab-Bjhghgt">③ 采样器</label><input type="radio" name="group-70onQ" id="tab-YfvMj9H" ><label data-title="④ 步数" for="tab-YfvMj9H">④ 步数</label><input type="radio" name="group-70onQ" id="tab-vlXdDnI" ><label data-title="⑤ 引导系数" for="tab-vlXdDnI">⑤ 引导系数</label></div><div class="blocks">
 <div class="language-txt vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>extremely detailed CG uniform 8k illustrations, high color substitution, sketches graffiti art, illustrations photo, masterpiece, hyper detailed, best quality, ultra high res, high resolution, (intricate details), perfect lighting, best shadow, (graffiti wall:1.4), 1 girl, (extremely detailed face and eyes), (shiny big eyes), (shiny graffiti long hair:1.2), ((colorful)), ((colorful illustrations)), face focus, lip gloss, random eyes color,</span></span></code></pre>
 </div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>by bad-picture-chill-75v, nude, porn, nipples, pussy, pornography, canvas frame, cartoon, 3d, ((disfigured)), ((bad art)), ((deformed)),((extra limbs)),((close up)),((b&#x26;w)), wierd colors, blurry, (((duplicate))), ((morbid)), ((mutilated)), [out of frame], extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))), Photoshop, video game, ugly, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of frame, mutation, mutated, extra limbs, extra legs, extra arms, disfigured, deformed, cross-eye, body out of frame, blurry, bad art, bad anatomy, 3d render, background blur, (blurred background),  (briefs), (triangle pants), watermark, astigmatism, scattered light, lens astigmatism, chest light, shiny boobs, glowing boobs, halo, fog, hazy,</span></span></code></pre>
 </div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>DPM++ SDE Karras</span></span></code></pre>
@@ -4699,20 +4782,20 @@ Also, make sure to change <code>EndBug/pages-preview</code>'s inputs to match yo
 <h2 id="快速体验" tabindex="-1">快速体验 <a class="header-anchor" href="#快速体验" aria-label="Permalink to &quot;快速体验&quot;"></a></h2>
 <p>只需3步，即可体验</p>
 <p>① 拉取 Github 模板</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-RZ9Fk" id="tab-4YVaqVM" checked><label data-title="npm" for="tab-4YVaqVM">npm</label><input type="radio" name="group-RZ9Fk" id="tab-18C9Wdn" ><label data-title="yarn" for="tab-18C9Wdn">yarn</label><input type="radio" name="group-RZ9Fk" id="tab-mnvpDpd" ><label data-title="pnpm" for="tab-mnvpDpd">pnpm</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-PGvPx" id="tab-Seb6QdL" checked><label data-title="npm" for="tab-Seb6QdL">npm</label><input type="radio" name="group-PGvPx" id="tab-qj71Z0v" ><label data-title="yarn" for="tab-qj71Z0v">yarn</label><input type="radio" name="group-PGvPx" id="tab-FjHg4EF" ><label data-title="pnpm" for="tab-FjHg4EF">pnpm</label></div><div class="blocks">
 <div class="language-bash vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme@latest</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span></span></code></pre>
 </div></div></div>
 <p>也可以指定项目名</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-BCjxo" id="tab-Eol1KS_" checked><label data-title="npm" for="tab-Eol1KS_">npm</label><input type="radio" name="group-BCjxo" id="tab-QyrIi-f" ><label data-title="yarn" for="tab-QyrIi-f">yarn</label><input type="radio" name="group-BCjxo" id="tab-GpttFZk" ><label data-title="pnpm" for="tab-GpttFZk">pnpm</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-SEVI5" id="tab-JJHSOJO" checked><label data-title="npm" for="tab-JJHSOJO">npm</label><input type="radio" name="group-SEVI5" id="tab-dDT0lfc" ><label data-title="yarn" for="tab-dDT0lfc">yarn</label><input type="radio" name="group-SEVI5" id="tab-7JlkRYR" ><label data-title="pnpm" for="tab-7JlkRYR">pnpm</label></div><div class="blocks">
 <div class="language-bash vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme@latest</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div></div></div>
 <p><img src="./theme/MTY4OTQyMDE1NTcxMA==689420155710.png" alt="" loading="lazy"></p>
 <p>② 安装依赖</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-J5t1n" id="tab-F7YV9VC" checked><label data-title="pnpm" for="tab-F7YV9VC">pnpm</label><input type="radio" name="group-J5t1n" id="tab-oWfLxuP" ><label data-title="安装 PNPM" for="tab-oWfLxuP">安装 PNPM</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-N27lH" id="tab-vSQITFU" checked><label data-title="pnpm" for="tab-vSQITFU">pnpm</label><input type="radio" name="group-N27lH" id="tab-YMlbMyz" ><label data-title="安装 PNPM" for="tab-YMlbMyz">安装 PNPM</label></div><div class="blocks">
 <div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 如果你没有 PNPM 请先安装</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> i</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -g</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span></span></code></pre>
@@ -12564,183 +12647,6 @@ ya]]></description>
 </ul>
 ]]></content:encoded>
             <enclosure url="https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/time-tools-9/MTYyODYwNTM4NTM2Mg==628605385362.png" length="0" type="image/png"/>
-        </item>
-        <item>
-            <title><![CDATA[做一个CL版的时间管理工具（八）]]></title>
-            <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/minor-and-patch-deps/preview/ripplejourney/ripplejourney.github.io/branch/renovate/minor-and-patch-deps/works/time-tools/time-tools-8.html</link>
-            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/minor-and-patch-deps/preview/ripplejourney/ripplejourney.github.io/branch/renovate/minor-and-patch-deps/works/time-tools/time-tools-8.html</guid>
-            <pubDate>Mon, 09 Aug 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[前言
-上一篇文章主要阐述了删除任务与事物管理相关的指令开发
-本文将着重介绍上文没讲解完的部分`writeRecord`方法，将记录的事物自动输出到配置的文件中
- 本期效果
-
- 功能开发
- 自动记录事务]]></description>
-            <content:encoded><![CDATA[<h1 id="做一个cli版的时间管理工具-八" tabindex="-1">做一个CLI版的时间管理工具（八） <a class="header-anchor" href="#做一个cli版的时间管理工具-八" aria-label="Permalink to &quot;做一个CLI版的时间管理工具（八）&quot;"></a></h1>
-<h2 id="前言" tabindex="-1">前言 <a class="header-anchor" href="#前言" aria-label="Permalink to &quot;前言&quot;"></a></h2>
-<p><a href="./time-tools-7.html">上一篇文章</a>主要阐述了删除任务与事物管理相关的指令开发</p>
-<p>本文将着重介绍上文没讲解完的部分<code>writeRecord</code>方法，将记录的事物自动输出到配置的文件中</p>
-<h2 id="本期效果" tabindex="-1">本期效果 <a class="header-anchor" href="#本期效果" aria-label="Permalink to &quot;本期效果&quot;"></a></h2>
-<blockquote>
-<p>演示过程中发现了一个bug，赶紧修复一下</p>
-</blockquote>
-<p><img src="./time-tools-8/MTYyODUyMTgxOTI4Mw==628521819283.png" alt="图片" loading="lazy"></p>
-<h2 id="功能开发" tabindex="-1">功能开发 <a class="header-anchor" href="#功能开发" aria-label="Permalink to &quot;功能开发&quot;"></a></h2>
-<h3 id="自动记录事务" tabindex="-1">自动记录事务 <a class="header-anchor" href="#自动记录事务" aria-label="Permalink to &quot;自动记录事务&quot;"></a></h3>
-<p>首先补齐打印事务耗时的逻辑</p>
-<ul>
-<li>从获取的配置文件中解构出事务对象<code>thing</code>,包含两个属性
-<ul>
-<li>name</li>
-<li>startTime</li>
-</ul>
-</li>
-<li>使用<code>new Date(startTime)</code>转换开始日期</li>
-<li>调用<code>mmsToNormal</code>计算当前时间与开始时间的差值</li>
-</ul>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> { </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">thing</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> } </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> config</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> s</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> new</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> Date</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(thing.startTime)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">console.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">log</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`事务耗时:${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">thing</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">name</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">} ${</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">mmsToNormal</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">(</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">Date</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">now</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">() </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> s</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">)</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span></code></pre>
-</div><p><code>mmsToNormal</code>方法非常朴素，将一个毫秒表示的时间换成<code>天，时，分，秒</code></p>
-<ul>
-<li>其中数字取整采用位运算符<code>&gt;&gt;</code>,右移0位</li>
-<li>逐级取值</li>
-</ul>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">function</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> mmsToNormal</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">mms</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    mms </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (mms </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">/</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 1000</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">>></span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> day</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (mms </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">24</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> *</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 60</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> *</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 60</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">>></span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    mms </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> day </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 24</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> *</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 60</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> *</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 60</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> hour</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (mms </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">60</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> *</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 60</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">>></span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    mms </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> hour </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 60</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> *</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 60</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> minute</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (mms </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">/</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 60</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">>></span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    mms </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> minute </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 60</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    return</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">day</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}天 ${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">hour</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}时 ${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">minute</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}分 ${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">mms</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}秒`</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><p>在结束当前事务和直接开始新的事务的时候都会打印这个任务的耗时，然后将其结果写入到md中</p>
-<p>开始新任务的逻辑如下：</p>
-<ul>
-<li>打印耗时</li>
-<li>输出记录到文件中</li>
-<li>更新事务的值为最新的事务</li>
-<li>更新配置</li>
-</ul>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">console.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">log</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`事务耗时:${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">thing</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">name</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">} ${</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">mmsToNormal</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">(</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">Date</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">now</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">() </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> s</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">)</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">writeRecord</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(recordFilepath, task, thing.name, thing.startTime)</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">thing.name </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> name</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">thing.startTime </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> new</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> Date</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">().</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">getTime</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">()</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">writeFileSync</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(configPath, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">JSON</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">stringify</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(config))</span></span></code></pre>
-</div><p>下面开始介绍<code>writeRecord</code>的实现,接收4个参数</p>
-<ul>
-<li>filePath：输出目标文件的路径</li>
-<li>task：当前进行中的任务名</li>
-<li>thing：当前进行中的事务名</li>
-<li>startTime：事务开始时间</li>
-</ul>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">function</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> writeRecord</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">filePath</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">task</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">thing</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">startTime</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">){</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    // ...code</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><p>通过<code>getJSON</code>与<code>getFileContent</code>方法合力将输出目标文件转为<code>json</code></p>
-<p>将开始时间转为<code>Date</code>对象，调用<code>Date.prototype.format</code>方法获取事务开始时间的日期</p>
-<p>其中<code>format</code>方法的逻辑来源与<a href="https://blog.csdn.net/meizz/article/details/405708" target="_blank" rel="noreferrer">网上大神写的正则</a></p>
-<p>事务持续时间保留5位小数</p>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> json</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> getJSON</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">getFileContent</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(filePath))</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> date</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> new</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> Date</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(startTime)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> title</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> date.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">format</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'yyyy-MM-dd'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> hours</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> ((Date.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">now</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">() </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> date.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">getTime</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">()) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">/</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 3600000</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">).</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">toFixed</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">5</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
-</div><p>导出json使用的是<code>outPutMarkdown</code>方法，默认导出结果不会带<code>时间</code>，例如</p>
-<div class="language-md vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">md</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold"># 时间</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">## 任务名</span></span>
-<span class="line"><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> content</span></span>
-<span class="line"><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> 事务2</span></span></code></pre>
-</div><p>通过修改获取的json，将content内容加上时间，加上时间后的输出结果</p>
-<div class="language-md vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">md</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold"># 时间</span></span>
-<span class="line"><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">## 任务名</span></span>
-<span class="line"><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> content time</span></span>
-<span class="line"><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> 事务2 0.02</span></span></code></pre>
-</div><p>修改原数据<code>content</code>加上<code>time</code>的逻辑如下：</p>
-<ul>
-<li>通过reduce方法遍历所有的tasks</li>
-<li>通过map方法将所有task中的things读取出来</li>
-<li>调用flat方法展开数组</li>
-<li>再遍历每一个thing，为其content加上时间</li>
-</ul>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> things</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> json.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">reduce</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">((</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">pre</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">v</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    const</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> { </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">tasks</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> } </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> v</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> things</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> tasks.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">map</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">v</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> v.things).</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">flat</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    return</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> pre.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">concat</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(things)</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}, [])</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">things.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">forEach</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">t</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    const</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> { </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">content</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">time</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> } </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> t</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    t.content </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> `${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">content</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">} ${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">time</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}`</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">})</span></span></code></pre>
-</div><p>下面开始核心逻辑</p>
-<p>遍历<code>json</code>判断事务对应的日期是否已经存在</p>
-<p>不存在则为当天的首个数据，直接向json对象中插入这个完整的对象即可</p>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> dayIdx</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> json.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">findIndex</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">v</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> v.title </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">===</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> title)</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (dayIdx </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">===</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> -</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> item</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        title,</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        tasks: [</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">            {</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">                title: task,</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">                things: [</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">                    {</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">                        content: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">thing</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">} ${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">hours</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">                        time: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'0'</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">                    }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">                ]</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">            }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        ]</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    json.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">push</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(item)</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    return</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> writeFileSync</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(filePath, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">outPutMarkdown</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(json, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">false</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">))</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><p>如果不是当天首个事务，接着就判断是否是一个新的任务</p>
-<p>遍历这一天数据中的每一个任务，判断任务名是否和当前的任务一致</p>
-<ul>
-<li>如果是，则将这个任务及事务相关数据插入到这一天的数据中</li>
-<li><code>dataItem</code>表示这一天的数据</li>
-</ul>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> dataItem</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> json[dayIdx]</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> taskIdx</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> dataItem.tasks.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">findIndex</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">v</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> v.title </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">===</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> task)</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">// 新的任务</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (taskIdx </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">===</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> -</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    dataItem.tasks.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">push</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">({</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        title: task,</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        things: [</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">            {</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">                content: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">thing</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">} ${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">hours</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">                time: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'0'</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">            }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        ]</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    })</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    return</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> writeFileSync</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(filePath, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">outPutMarkdown</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(json, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">false</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">))</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
-</div><p>最后就是直接将事务插入到旧的任务当中</p>
-<div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> taskItem</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> dataItem.tasks[taskIdx]</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">taskItem.things.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">push</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">({</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    content: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">`${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">thing</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">} ${</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">hours</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    time: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'0'</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">})</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">return</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> writeFileSync</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(filePath, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">outPutMarkdown</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(json, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">false</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">))</span></span></code></pre>
-</div><p>到此<code>timc thing [option] [name]</code>指令基本开发完毕</p>
-<ul>
-<li><code>--stop,-s</code>:结束当前事务</li>
-</ul>
-<h2 id="其它" tabindex="-1">其它 <a class="header-anchor" href="#其它" aria-label="Permalink to &quot;其它&quot;"></a></h2>
-<p>由于每天空闲时间有限，本文就先到这</p>
-<p>如果读者还感觉意犹未尽，敬请期待后续更新，或持续关注一下<a href="https://github.com/ATQQ/time-control" target="_blank" rel="noreferrer">仓库</a>的状态</p>
-<p>欢迎评论区提需求，交流探讨</p>
-<p>本系列会不断的更新迭代，直至产品初代完成</p>
-<ul>
-<li><a href="https://github.com/ATQQ/time-control" target="_blank" rel="noreferrer">仓库地址</a></li>
-</ul>
-]]></content:encoded>
-            <enclosure url="https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/time-tools-8/MTYyODUyMTgxOTI4Mw==628521819283.png" length="0" type="image/png"/>
         </item>
     </channel>
 </rss>
