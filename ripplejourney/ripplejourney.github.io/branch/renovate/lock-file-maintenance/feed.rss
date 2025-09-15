@@ -4,7 +4,7 @@
         <title>代码</title>
         <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance</link>
         <description>天道酬勤，恒以致遠（大前端相关技术分享）</description>
-        <lastBuildDate>Mon, 08 Sep 2025 00:34:34 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 15 Sep 2025 01:46:30 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -14,6 +14,86 @@
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance</link>
         </image>
         <copyright>代码 2006 - 2025</copyright>
+        <item>
+            <title><![CDATA[**PostgreSQL 容器启动失败：WSL 配置终极解决方案**]]></title>
+            <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/dify/postgresql_wsl_solution.html</link>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/dify/postgresql_wsl_solution.html</guid>
+            <pubDate>Thu, 11 Sep 2025 16:00:00 GMT</pubDate>
+            <description><![CDATA[PostgreSQL 容器启动失败：WSL 配置终极解决方案]]></description>
+            <content:encoded><![CDATA[<h1 id="postgresql-容器启动失败-wsl-配置终极解决方案" tabindex="-1"><strong>PostgreSQL 容器启动失败：WSL 配置终极解决方案</strong> <a class="header-anchor" href="#postgresql-容器启动失败-wsl-配置终极解决方案" aria-label="Permalink to &quot;**PostgreSQL 容器启动失败：WSL 配置终极解决方案**&quot;"></a></h1>
+<h2 id="问题现象" tabindex="-1"><strong>问题现象</strong> <a class="header-anchor" href="#问题现象" aria-label="Permalink to &quot;**问题现象**&quot;"></a></h2>
+<p>在 Windows + WSL 环境下运行 dify\docker&gt; podman compose down &amp;&amp; podman compose up -d, 创建 PostgreSQL 容器时，出现以下错误：</p>
+<div class="language-plaintext vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">plaintext</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>initdb: error: could not change permissions of directory "/var/lib/postgresql/data/pgdata": Operation not permitted</span></span>
+<span class="line"><span>chmod: /var/lib/postgresql/data/pgdata: Operation not permitted</span></span></code></pre>
+</div><hr>
+<h2 id="根本原因" tabindex="-1"><strong>根本原因</strong> <a class="header-anchor" href="#根本原因" aria-label="Permalink to &quot;**根本原因**&quot;"></a></h2>
+<p>Windows 和 WSL 默认的文件系统挂载方式导致：</p>
+<ol>
+<li><strong>权限隔离</strong>：WSL 挂载的 Windows 目录（如 <code>/mnt/c/...</code>）默认禁止修改权限。</li>
+<li><strong>用户冲突</strong>：容器内用户（如 <code>postgres</code>）无法操作挂载目录的权限。</li>
+</ol>
+<hr>
+<h2 id="终极解决方案-调整-wsl-配置" tabindex="-1"><strong>终极解决方案：调整 WSL 配置</strong> <a class="header-anchor" href="#终极解决方案-调整-wsl-配置" aria-label="Permalink to &quot;**终极解决方案：调整 WSL 配置**&quot;"></a></h2>
+<h3 id="_1-修改-wsl-配置文件" tabindex="-1"><strong>1. 修改 WSL 配置文件</strong> <a class="header-anchor" href="#_1-修改-wsl-配置文件" aria-label="Permalink to &quot;**1. 修改 WSL 配置文件**&quot;"></a></h3>
+<p>在 WSL 中运行以下命令：</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> nano</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /etc/wsl.conf</span></span></code></pre>
+</div><p>添加以下内容（如果文件不存在则新建）：</p>
+<div class="language-ini vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">ini</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">[automount]</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">options</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> = </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"metadata,umask=22,fmask=11"</span></span></code></pre>
+</div><p>保存后退出（<code>Ctrl+O</code> → <code>Enter</code> → <code>Ctrl+X</code>）。</p>
+<h3 id="_2-重启-wsl" tabindex="-1"><strong>2. 重启 WSL</strong> <a class="header-anchor" href="#_2-重启-wsl" aria-label="Permalink to &quot;**2. 重启 WSL**&quot;"></a></h3>
+<p>在 Windows PowerShell 中运行：</p>
+<div class="language-powershell vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">powershell</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">wsl </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">--</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">shutdown</span></span></code></pre>
+</div><p>重新启动 WSL 终端使配置生效。</p>
+<h3 id="_3-验证配置" tabindex="-1"><strong>3. 验证配置</strong> <a class="header-anchor" href="#_3-验证配置" aria-label="Permalink to &quot;**3. 验证配置**&quot;"></a></h3>
+<p>在 WSL 中运行：</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">cat</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /etc/wsl.conf</span></span></code></pre>
+</div><p>确认输出包含上述配置。</p>
+<hr>
+<h2 id="辅助步骤-可选" tabindex="-1"><strong>辅助步骤（可选）</strong> <a class="header-anchor" href="#辅助步骤-可选" aria-label="Permalink to &quot;**辅助步骤（可选）**&quot;"></a></h2>
+<h3 id="_1-确保目录存在" tabindex="-1"><strong>1. 确保目录存在</strong> <a class="header-anchor" href="#_1-确保目录存在" aria-label="Permalink to &quot;**1. 确保目录存在**&quot;"></a></h3>
+<p>在 Windows 中创建目标目录：</p>
+<div class="language-powershell vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">powershell</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">mkdir </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">p C:\AppData\code\ai\dify\docker\volumes\db\</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">data</span></span></code></pre>
+</div><h3 id="_2-调整目录权限" tabindex="-1"><strong>2. 调整目录权限</strong> <a class="header-anchor" href="#_2-调整目录权限" aria-label="Permalink to &quot;**2. 调整目录权限**&quot;"></a></h3>
+<p>在 WSL 中运行：</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> chmod</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -R</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 755</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /mnt/c/AppData/code/ai/dify/docker/volumes/db/data</span></span></code></pre>
+</div><h3 id="_3-重新启动容器" tabindex="-1"><strong>3. 重新启动容器</strong> <a class="header-anchor" href="#_3-重新启动容器" aria-label="Permalink to &quot;**3. 重新启动容器**&quot;"></a></h3>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">podman-compose</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> down</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> &#x26;&#x26; </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">podman-compose</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> up</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -d</span></span></code></pre>
+</div><hr>
+<h2 id="为什么这是最佳方案" tabindex="-1"><strong>为什么这是最佳方案？</strong> <a class="header-anchor" href="#为什么这是最佳方案" aria-label="Permalink to &quot;**为什么这是最佳方案？**&quot;"></a></h2>
+<ol>
+<li><strong>一劳永逸</strong>：修改 WSL 配置后，所有容器挂载目录的权限问题自动解决。</li>
+<li><strong>无需硬编码用户</strong>：避免在 <code>docker-compose.yml</code> 中强制指定 <code>user: &quot;1000:1000&quot;</code>。</li>
+<li><strong>兼容性更好</strong>：支持所有需要权限操作的容器（如 MySQL、MongoDB 等）。</li>
+</ol>
+<hr>
+<h2 id="验证方法" tabindex="-1"><strong>验证方法</strong> <a class="header-anchor" href="#验证方法" aria-label="Permalink to &quot;**验证方法**&quot;"></a></h2>
+<ol>
+<li>
+<p><strong>检查目录权限</strong>
+在 WSL 中运行：</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">ls</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -ld</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /mnt/c/AppData/code/ai/dify/docker/volumes/db/data</span></span></code></pre>
+</div><p>正常输出示例：</p>
+<div class="language-plaintext vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">plaintext</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>drwxr-xr-x 1 user user 4096 Sep 11 10:00 /mnt/c/.../data</span></span></code></pre>
+</div></li>
+<li>
+<p><strong>查看容器日志</strong></p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">podman</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> logs</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">container_i</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">d</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span></span></code></pre>
+</div><p>确认无权限错误。</p>
+</li>
+</ol>
+<hr>
+<h2 id="注意事项" tabindex="-1"><strong>注意事项</strong> <a class="header-anchor" href="#注意事项" aria-label="Permalink to &quot;**注意事项**&quot;"></a></h2>
+<ol>
+<li><strong>WSL 版本</strong>：仅 WSL 2 支持此配置（通过 <code>wsl -l -v</code> 检查）。</li>
+<li><strong>安全限制</strong>：<code>umask=22</code> 表示默认权限为 <code>755</code>（可根据需要调整）。</li>
+</ol>
+<hr>
+<h2 id="总结" tabindex="-1"><strong>总结</strong> <a class="header-anchor" href="#总结" aria-label="Permalink to &quot;**总结**&quot;"></a></h2>
+<p>通过调整 WSL 的 <code>automount</code> 配置，从根本上解决了容器挂载目录的权限问题。此方法简单、通用，是 Windows + WSL 环境下运行数据库容器的推荐方案。</p>
+<hr>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[实现自动为 VitePress 网站添加 RSS 订阅的插件]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/learn/vitepress-plugin-rss.html</link>
@@ -1001,265 +1081,6 @@ Github项目地址：<a href="https://github.com/typicode/json-server" target="_
 <li>感谢点赞与支持💕💕💕</li>
 </ol>
 ]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[我如何使用Coze来分析掘金热榜数据 | Coze插件开发]]></title>
-            <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/coze/juejin-hot-rank-bot.html</link>
-            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/coze/juejin-hot-rank-bot.html</guid>
-            <pubDate>Tue, 09 Jul 2024 16:55:35 GMT</pubDate>
-            <description><![CDATA[# 我如何使用Coze来分析掘金热榜数据 | Coze插件开发
-
-## 前言
-[掘金热榜](https://juejin.cn/hot/collected-articles)想必大家会偶尔扫一扫，看看感兴趣的进行进一步阅读。
-
-![](./juejin-hot-rank-bot/e873781d6738026921ae38111f8a4019.png)
-
-文章相关的榜单主要就是`掘金文章榜`，`文章收藏榜`这两个。
-
->[扣子（coze.cn）](https://www.coze.cn/)是一款用来开发新一代 AI Chat Bot 的应用编辑平台。
-
-![](./juejin-hot-rank-bot/6c959d43f030a07fb0dfaca615052cfb.png)
-
-可以理解是 `对话机器人` 定制工厂。
-
-![](./juejin-hot-rank-bot/f380f324533336c360e8fb25b595a430.png)
-
-`Coze` 上开放的定制能力主要有 4 个`Bots`，`插件`，`工作流`，`知识库`。
-
-咱们这里要想让机器人读取掘金热榜的数据就要借助插件的能力咯。
-
-**下面进入正题，看看如何把这两者结合起来？**
-
-*想要体验最后效果的可以直接访问这个已经搭建好的机器人：[掘金热榜分析](https://www.coze.cn/store/bot/7339921359969108031?from=bots_card)。*
-
-|                                     页面                                      |                                     效果                                      |
-| :]]></description>
-            <content:encoded><![CDATA[<h1 id="我如何使用coze来分析掘金热榜数据-coze插件开发" tabindex="-1">我如何使用Coze来分析掘金热榜数据 | Coze插件开发 <a class="header-anchor" href="#我如何使用coze来分析掘金热榜数据-coze插件开发" aria-label="Permalink to &quot;我如何使用Coze来分析掘金热榜数据 | Coze插件开发&quot;"></a></h1>
-<h2 id="前言" tabindex="-1">前言 <a class="header-anchor" href="#前言" aria-label="Permalink to &quot;前言&quot;"></a></h2>
-<p><a href="https://juejin.cn/hot/collected-articles" target="_blank" rel="noreferrer">掘金热榜</a>想必大家会偶尔扫一扫，看看感兴趣的进行进一步阅读。</p>
-<p><img src="./juejin-hot-rank-bot/e873781d6738026921ae38111f8a4019.png" alt="" loading="lazy"></p>
-<p>文章相关的榜单主要就是<code>掘金文章榜</code>，<code>文章收藏榜</code>这两个。</p>
-<blockquote>
-<p><a href="https://www.coze.cn/" target="_blank" rel="noreferrer">扣子（coze.cn）</a>是一款用来开发新一代 AI Chat Bot 的应用编辑平台。</p>
-</blockquote>
-<p><img src="./juejin-hot-rank-bot/6c959d43f030a07fb0dfaca615052cfb.png" alt="" loading="lazy"></p>
-<p>可以理解是 <code>对话机器人</code> 定制工厂。</p>
-<p><img src="./juejin-hot-rank-bot/f380f324533336c360e8fb25b595a430.png" alt="" loading="lazy"></p>
-<p><code>Coze</code> 上开放的定制能力主要有 4 个<code>Bots</code>，<code>插件</code>，<code>工作流</code>，<code>知识库</code>。</p>
-<p>咱们这里要想让机器人读取掘金热榜的数据就要借助插件的能力咯。</p>
-<p><strong>下面进入正题，看看如何把这两者结合起来？</strong></p>
-<p><em>想要体验最后效果的可以直接访问这个已经搭建好的机器人：<a href="https://www.coze.cn/store/bot/7339921359969108031?from=bots_card" target="_blank" rel="noreferrer">掘金热榜分析</a>。</em></p>
-<table tabindex="0">
-<thead>
-<tr>
-<th style="text-align:center">页面</th>
-<th style="text-align:center">效果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="./juejin-hot-rank-bot/1bd1e494dd695ac020eb46ef555696e5.png" alt="" loading="lazy"></td>
-<td style="text-align:center"><img src="./juejin-hot-rank-bot/1d5ee81c4478932399eeb7bcad204a7e.png" alt="" loading="lazy"></td>
-</tr>
-</tbody>
-</table>
-<h2 id="开发插件" tabindex="-1">开发插件 <a class="header-anchor" href="#开发插件" aria-label="Permalink to &quot;开发插件&quot;"></a></h2>
-<h3 id="创建插件" tabindex="-1">创建插件 <a class="header-anchor" href="#创建插件" aria-label="Permalink to &quot;创建插件&quot;"></a></h3>
-<p>切换到 <code>个人空间</code> -&gt; <code>插件</code> 目录下，点击创建插件。</p>
-<p><img src="./juejin-hot-rank-bot/ef51089c3a2486fdd34151f39a47cf74.png" alt="" loading="lazy"></p>
-<p>录入 API 信息</p>
-<p><img src="./juejin-hot-rank-bot/679de7e34a46396ea04777eb55e1c9ba.png" alt="" loading="lazy"></p>
-<p>从填的<code>插件URL</code>，<code>Header 列表</code>，<code>授权方式</code>这几项配置我相信大家就能看出 &quot;插件&quot; 本质是什么了。</p>
-<p><strong>没错插件就是一个支持调用的服务端接口</strong></p>
-<p>这里相当于是配置接口调用的 <code>base 路径</code> 和 <code>公共鉴权</code> 参数</p>
-<p>由此咱们可以把一些开放的公共查询接口都可以录入到插件中，比如 <a href="https://apifox.com/apihub/" target="_blank" rel="noreferrer">API Hub</a> 上收集的公共API。</p>
-<p><img src="./juejin-hot-rank-bot/73fc2cc273c1f5c22d358f0d02232029.png" alt="" loading="lazy"></p>
-<p>这里的 <code>api.juejin.cn</code> 就是我在 devTools 中看到（ba）的🤭。</p>
-<h3 id="创建工具" tabindex="-1">创建工具 <a class="header-anchor" href="#创建工具" aria-label="Permalink to &quot;创建工具&quot;"></a></h3>
-<p>进入创建的插件后，就可以创建工具了。</p>
-<p><img src="./juejin-hot-rank-bot/a2265ab81ab50cc5f921fb266080d666.png" alt="" loading="lazy"></p>
-<p><em>乍一看怎么又有一个新概念，“工具”？打开配置窗口一看就悟了！</em></p>
-<p><img src="./juejin-hot-rank-bot/4dba81d401be69b5fda62c5603daf8e7.png" alt="" loading="lazy"></p>
-<p>哦😯，这个<strong>工具就是录入具体的功能API，配置一下具体API的<code>请求路径，方法，参数</code></strong></p>
-<p>下面是配置过程截图</p>
-<table tabindex="0">
-<thead>
-<tr>
-<th style="text-align:center">输入参数</th>
-<th style="text-align:center">输出参数（支持自动解析）</th>
-<th style="text-align:center">调试校验</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="./juejin-hot-rank-bot/83ca062018f61c26201b5be01d9e8d29.png" alt="" loading="lazy"></td>
-<td style="text-align:center"><img src="./juejin-hot-rank-bot/031e3432096d19c9f1f8e903991e16cd.png" alt="" loading="lazy"></td>
-<td style="text-align:center"><img src="./juejin-hot-rank-bot/6c0c2526984304d8aa66714691768345.png" alt="" loading="lazy"></td>
-</tr>
-</tbody>
-</table>
-<h3 id="发布" tabindex="-1">发布 <a class="header-anchor" href="#发布" aria-label="Permalink to &quot;发布&quot;"></a></h3>
-<p>先发布工具</p>
-<p><img src="./juejin-hot-rank-bot/a90fa856a60df0cb64a80d5395a3591a.png" alt="" loading="lazy"></p>
-<p>再上架插件，就大工告成了，过程中填写的表单都可以AI自动生成辅助填写（美滋滋）。</p>
-<p><img src="./juejin-hot-rank-bot/01f487c484c8d6e316e7a479a81640fe.png" alt="" loading="lazy"></p>
-<p>插件上架后，大家就可以公开使用咯，使用的机器人也能公开。</p>
-<h2 id="开发bot" tabindex="-1">开发bot <a class="header-anchor" href="#开发bot" aria-label="Permalink to &quot;开发bot&quot;"></a></h2>
-<h3 id="创建bot" tabindex="-1">创建bot <a class="header-anchor" href="#创建bot" aria-label="Permalink to &quot;创建bot&quot;"></a></h3>
-<p>这个就很简单了，主要就是写 &quot;魔法咒语&quot;，过程也有AI辅助。</p>
-<p>在创建入口，填写一下机器人的 <code>名字</code> 和 <code>介绍</code> 即可，<code>logo</code> 直接用自动生成。</p>
-<p><img src="./juejin-hot-rank-bot/8099d2f705be95b1e20c737cd94599ad.png" alt="" loading="lazy"></p>
-<h3 id="编辑bot" tabindex="-1">编辑bot <a class="header-anchor" href="#编辑bot" aria-label="Permalink to &quot;编辑bot&quot;"></a></h3>
-<p>编辑页面长下面这样子，咱们这里主要关注<code>人设</code>与<code>插件</code>部分即可。</p>
-<p><img src="./juejin-hot-rank-bot/e260c84cb2c6180072c9866a4fc55c20.png" alt="" loading="lazy"></p>
-<p>可以先添加插件，直接搜索咱们开发的插件名即可。</p>
-<p>将咱们录入的工具（API） 添加进去即可
-<img src="./juejin-hot-rank-bot/86832534b77d6ba3204477638ed78db7.png" alt="" loading="lazy"></p>
-<p>接下来就是写“咒语”，比如我只简单写了下面这一句话：</p>
-<div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>你是一个资深的互联网资讯分析师，可以根据用户的需求从掘金热榜中筛选数据，并按要求格式分析输出。</span></span></code></pre>
-</div><p>然后用<code>AI优化</code>功能，就给我扩展完善了。</p>
-<p><img src="./juejin-hot-rank-bot/e24f2f6488dbf4038a45b13ef802bb70.png" alt="" loading="lazy"></p>
-<div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span># 角色</span></span>
-<span class="line"><span>你是一个资深的互联网资讯分析师，可以根据用户的需求从掘金热榜中筛选数据，并按要求格式分析输出。</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>## 技能</span></span>
-<span class="line"><span>- 从掘金热榜中筛选出符合用户需求的数据</span></span>
-<span class="line"><span>- 对筛选出的数据进行分析</span></span>
-<span class="line"><span>- 按照要求格式输出分析结果</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>## 限制</span></span>
-<span class="line"><span>- 只能从掘金热榜中筛选数据</span></span>
-<span class="line"><span>- 输出结果必须符合要求格式</span></span></code></pre>
-</div><p>至此核心部分就完成了，下面可以简单测试一下。</p>
-<p><img src="./juejin-hot-rank-bot/524097eb12ea5438b7f8b98b334b61d3.png" alt="" loading="lazy"></p>
-<p><img src="./juejin-hot-rank-bot/c55b1b104e4e5341cbae7cc2df01b0d1.png" alt="" loading="lazy"></p>
-<h2 id="优化" tabindex="-1">优化 <a class="header-anchor" href="#优化" aria-label="Permalink to &quot;优化&quot;"></a></h2>
-<h3 id="提示词优化" tabindex="-1">提示词优化 <a class="header-anchor" href="#提示词优化" aria-label="Permalink to &quot;提示词优化&quot;"></a></h3>
-<p>咱们咒语里没有体现查询哪个榜单的数据，默认调用 API 时都是查的综合榜单。</p>
-<p>用户在提问的时候可以说查询 后端/Android 等榜单，此时咱们就需要将这些榜单对应的查询参数写到 提示词 里。</p>
-<p>向下面这样，这样查询结果更加符合用户需要的榜单数据。</p>
-<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">### 掘金热榜插件参数对照</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> 综合：1</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> 后端：6809637767543259144</span></span>
-<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> 安卓：6809635626879549454</span></span></code></pre>
-</div><h3 id="插件优化" tabindex="-1">插件优化 <a class="header-anchor" href="#插件优化" aria-label="Permalink to &quot;插件优化&quot;"></a></h3>
-<p>API 查询结果中有很多不需要的无关参数，咱们可以使用一层服务对传入参数过滤后再配置到平台上，避免导致结果过大，超出对话上下文限制的 tokens 数量。</p>
-<h2 id="最后" tabindex="-1">最后 <a class="header-anchor" href="#最后" aria-label="Permalink to &quot;最后&quot;"></a></h2>
-<p>欢迎大家踊跃<a href="https://www.coze.cn/store/plugin" target="_blank" rel="noreferrer">贡献插件</a>，理论上配合自定义API，机器人就有无限的可能。</p>
-<p>体验文章搭建的<a href="https://www.coze.cn/store/bot/7339921359969108031?from=bots_card" target="_blank" rel="noreferrer">掘金热榜分析机器人</a></p>
-<p>bot ID；7339921359969108031</p>
-]]></content:encoded>
-            <enclosure url="https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/juejin-hot-rank-bot/e873781d6738026921ae38111f8a4019.png" length="0" type="image/png"/>
-        </item>
-        <item>
-            <title><![CDATA[Mac 安装 stable-diffusion]]></title>
-            <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/stable-diffusion/mac-install.html</link>
-            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/stable-diffusion/mac-install.html</guid>
-            <pubDate>Tue, 09 Jul 2024 16:55:35 GMT</pubDate>
-            <description><![CDATA[Mac 实操安装 stable-diffusion，包含环境配置，sd插件安装，模型安装等内容]]></description>
-            <content:encoded><![CDATA[<h1 id="mac-安装-stable-diffusion" tabindex="-1">Mac 安装 stable-diffusion <a class="header-anchor" href="#mac-安装-stable-diffusion" aria-label="Permalink to &quot;Mac 安装 stable-diffusion&quot;"></a></h1>
-<p>笔者所使用设备 Mac mini（macOS Ventura），如读者你是 window 请自行谷歌 window 安装 stable-diffusion 教程。</p>
-<p>笔者不会python，也不会机器学习，安装过程可能不是最佳的方式，但是能跑起来（hh）。</p>
-<blockquote>
-<nav class="table-of-contents"><ul><li><a href="#环境准备">环境准备</a><ul><li><a href="#安装python">安装python</a></li><li><a href="#安装-stable-diffusion-webui">安装 stable-diffusion-webui</a></li></ul></li><li><a href="#配置-stable-diffusion-webui">配置 stable-diffusion-webui</a><ul><li><a href="#汉化">汉化</a></li><li><a href="#安装插件">安装插件</a></li></ul></li><li><a href="#安装模型">安装模型</a></li><li><a href="#简单使用">简单使用</a></li></ul></nav>
-</blockquote>
-<h2 id="环境准备" tabindex="-1">环境准备 <a class="header-anchor" href="#环境准备" aria-label="Permalink to &quot;环境准备&quot;"></a></h2>
-<ul>
-<li>科学上网工具：确保安装过程网络通畅</li>
-<li><a href="https://www.python.org/downloads/release/python-3106/" target="_blank" rel="noreferrer">python 3.16.0</a> ：确保大部分依赖库能顺利运行</li>
-<li><a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui" target="_blank" rel="noreferrer">stable-diffusion-webui</a>：sd 网页应用</li>
-</ul>
-<h3 id="安装python" tabindex="-1">安装python <a class="header-anchor" href="#安装python" aria-label="Permalink to &quot;安装python&quot;"></a></h3>
-<blockquote>
-<p>笔者的操作不一定是最佳实践</p>
-</blockquote>
-<p>我这里使用安装包傻瓜式的一键安装，从官网下载 <a href="https://www.python.org/downloads/release/python-3106/" target="_blank" rel="noreferrer">python 3.16.0</a> 安装包</p>
-<p><img src="./mac-install/MTY4ODMwMDc3OTM2Mg==688300779362.png" alt="" loading="lazy"></p>
-<p>打开下载好的安装包，无脑选择下一步即可</p>
-<p><img src="./mac-install/MTY4ODMwMDgyMDQyMw==688300820423.png" alt="" loading="lazy"></p>
-<p>安装完后打开终端输入，<a href="https://app.warp.dev/block/s9LVoqUBc12tgLXmwl1sQO" target="_blank" rel="noreferrer">查看 python 版本</a></p>
-<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">python3</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --version</span></span></code></pre>
-</div><p><img src="./mac-install/MTY4ODMwMTAyODI2Nw==688301028267.png" alt="" loading="lazy"></p>
-<p>这里可以在<code>~/.zshrc</code>中设置一个别名<code>python</code>，方便后续使用</p>
-<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">alias</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> python</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">python3</span></span></code></pre>
-</div><p><img src="./mac-install/MTY4ODMwMTEwMTgzNw==688301101837.png" alt="" loading="lazy"></p>
-<p><img src="./mac-install/MTY4ODMwMTEzMjgzNQ==688301132835.png" alt="" loading="lazy"></p>
-<h3 id="安装-stable-diffusion-webui" tabindex="-1">安装 stable-diffusion-webui <a class="header-anchor" href="#安装-stable-diffusion-webui" aria-label="Permalink to &quot;安装 stable-diffusion-webui&quot;"></a></h3>
-<p>clone 项目到本地</p>
-<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> clone</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> https://github.com/AUTOMATIC1111/stable-diffusion-webui.git</span></span></code></pre>
-</div><p>克隆完成后进入项目目录</p>
-<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">cd</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> stable-diffusion-webui</span></span></code></pre>
-</div><p>安装项目依赖(此过程会持续一段时间)</p>
-<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pip</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -r</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> requirements.txt</span></span></code></pre>
-</div><p>启动项目</p>
-<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">./webui.sh</span></span></code></pre>
-</div><p><img src="./mac-install/MTY4ODMwMTU4NTA0Mw==688301585043.png" alt="" loading="lazy"></p>
-<p>访问 <code>http://127.0.0.1:7860/</code> 即可应用的内容</p>
-<p><img src="./mac-install/MTY4ODMwMTY2MTk5MA==688301661990.png" alt="" loading="lazy"></p>
-<h2 id="配置-stable-diffusion-webui" tabindex="-1">配置 stable-diffusion-webui <a class="header-anchor" href="#配置-stable-diffusion-webui" aria-label="Permalink to &quot;配置 stable-diffusion-webui&quot;"></a></h2>
-<h3 id="汉化" tabindex="-1">汉化 <a class="header-anchor" href="#汉化" aria-label="Permalink to &quot;汉化&quot;"></a></h3>
-<p>为了方便后续的使用我们可以将 stable-diffusion-webui 汉化一下</p>
-<p>使用插件<a href="https://github.com/VinsonLaro/stable-diffusion-webui-chinese" target="_blank" rel="noreferrer">stable-diffusion-webui-chinese</a></p>
-<p>安装操作路径: <code>Extensions</code> =&gt; <code>URL for extension's git repository</code> =&gt; <code>Install</code></p>
-<p><img src="./mac-install/MTY4ODMwMTc1ODg0MQ==688301758841.png" alt="" loading="lazy"></p>
-<p>输入插件地址：<code>https://github.com/VinsonLaro/stable-diffusion-webui-chinese</code>,点击<code>Install</code>即可</p>
-<p>紧接着应用插件：<code>Installed</code> =&gt; <code>Apply and restart UI</code></p>
-<p><img src="./mac-install/MTY4ODMwMTk0NTg4Nw==688301945887.png" alt="" loading="lazy"></p>
-<p>设置汉化：<code>Settings</code> =&gt; <code>User Interface</code> =&gt; <code>Localization</code> =&gt; <code>Apply Settings</code> =&gt; <code>Reload UI</code></p>
-<p><img src="./mac-install/MTY4ODMwMjA5NjAwMQ==688302096001.png" alt="" loading="lazy"></p>
-<p>推荐使用中英对照，方便观看部分英文教程</p>
-<p><img src="./mac-install/MTY4ODMwMjM3MTAwNw==688302371007.png" alt="" loading="lazy"></p>
-<p>再次访问即可看到英文汉化的内容</p>
-<h3 id="安装插件" tabindex="-1">安装插件 <a class="header-anchor" href="#安装插件" aria-label="Permalink to &quot;安装插件&quot;"></a></h3>
-<p>由于网络问题可能会出现访问失败的情况，如下图所示</p>
-<p><img src="./mac-install/MTY4ODMwMjQ0NDUwNg==688302444506.png" alt="" loading="lazy"></p>
-<p>这里可以使用笔者的CV下来的配置<code>https://script.sugarat.top/json/sd.json</code></p>
-<p>或者浏览器访问<a href="https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusion-webui-extensions/master/index.json" target="_blank" rel="noreferrer">链接资源</a>，将其下载到本地，本地启动一个服务（比如使用<a href="https://www.npmjs.com/package/http-server" target="_blank" rel="noreferrer">http-server</a>）</p>
-<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> http-server</span></span></code></pre>
-</div><p><img src="./mac-install/MTY4ODMwMjc3ODEzNg==688302778136.png" alt="" loading="lazy"></p>
-<p>url设置为<code>http://127.0.0.1:8080/sd.json</code>即可，点击 加载 即可看到插件列表</p>
-<p><img src="./mac-install/MTY4ODMwMzI4NTY5Mg==688303285692.png" alt="" loading="lazy"></p>
-<p>例如 安装 <code>sd-webui-controlnet</code> 和 <code>3D Openpose Editor</code></p>
-<p>搜索<code>controlnet</code>，找到相应的插件，点击 <code>Installed</code> 即可</p>
-<p><img src="./mac-install/MTY4ODMwNTU2NjA0Mw==688305566043.png" alt="" loading="lazy"></p>
-<p>在已安装列表即可看到安装的插件</p>
-<p><img src="./mac-install/MTY4ODMwNjIyOTMxNg==688306229316.png" alt="" loading="lazy"></p>
-<p>重启后即可看到刚安装的插件生效了</p>
-<p><img src="./mac-install/MTY4ODMwNjc4MzcxMg==688306783712.png" alt="" loading="lazy"></p>
-<h2 id="安装模型" tabindex="-1">安装模型 <a class="header-anchor" href="#安装模型" aria-label="Permalink to &quot;安装模型&quot;"></a></h2>
-<blockquote>
-<p>从 <a href="https://civitai.com/" target="_blank" rel="noreferrer">C 站</a>：<a href="https://civitai.com/" target="_blank" rel="noreferrer">https://civitai.com/</a> 下载（需要科学上网工具才能访问）</p>
-</blockquote>
-<p><img src="./mac-install/MTY4ODMwOTEzMzUzNA==688309133534.png" alt="" loading="lazy"></p>
-<p>比如 <a href="https://civitai.com/models/6424?modelVersionId=11745" target="_blank" rel="noreferrer">ChilloutMix</a> 模型</p>
-<p>点击下载</p>
-<p><img src="./mac-install/MTY4ODMwOTI2NTU3Mg==688309265572.png" alt="" loading="lazy"></p>
-<p>导入下载的模型到目录 <code>models/Stable-diffusion</code></p>
-<p><img src="./mac-install/MTY4ODMwOTUyMDk4MA==688309520980.png" alt="" loading="lazy"></p>
-<p>然后重启服务或者点击刷新</p>
-<p><img src="./mac-install/MTY4ODU3MDA2NDczNA==688570064734.png" alt="" loading="lazy"></p>
-<p><img src="./mac-install/MTY4ODMwOTYxMDkyOA==688309610928.png" alt="" loading="lazy"></p>
-<h2 id="简单使用" tabindex="-1">简单使用 <a class="header-anchor" href="#简单使用" aria-label="Permalink to &quot;简单使用&quot;"></a></h2>
-<p>可以直接 Copy 其它用户分享到C站上的提示词</p>
-<p>比如下面<a href="https://civitai.com/images/312507?period=AllTime&amp;periodMode=published&amp;sort=Newest&amp;view=categories&amp;modelVersionId=27828&amp;modelId=23302&amp;postId=79817" target="_blank" rel="noreferrer">这个例子</a></p>
-<p>查看大图时滑到右下角</p>
-<p><img src="./mac-install/MTY4ODMwOTg3ODUxOA==688309878518.png" alt="" loading="lazy"></p>
-<p>或者缩略图右下角的 “i”</p>
-<p><img src="./mac-install/MTY4ODMwOTkwMzgwOA==688309903808.png" alt="" loading="lazy"></p>
-<p>下面实操使用一下上面的提示词</p>
-<p>我这里把步数调成了30</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-vt3c_" id="tab--qu5Vgk" checked><label data-title="① 提示词" for="tab--qu5Vgk">① 提示词</label><input type="radio" name="group-vt3c_" id="tab-lLaTK2h" ><label data-title="② 反向提示词" for="tab-lLaTK2h">② 反向提示词</label><input type="radio" name="group-vt3c_" id="tab-UB996Ce" ><label data-title="③ 采样器" for="tab-UB996Ce">③ 采样器</label><input type="radio" name="group-vt3c_" id="tab-2BHUJSG" ><label data-title="④ 步数" for="tab-2BHUJSG">④ 步数</label><input type="radio" name="group-vt3c_" id="tab-xwCjF5F" ><label data-title="⑤ 引导系数" for="tab-xwCjF5F">⑤ 引导系数</label></div><div class="blocks">
-<div class="language-txt vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>extremely detailed CG uniform 8k illustrations, high color substitution, sketches graffiti art, illustrations photo, masterpiece, hyper detailed, best quality, ultra high res, high resolution, (intricate details), perfect lighting, best shadow, (graffiti wall:1.4), 1 girl, (extremely detailed face and eyes), (shiny big eyes), (shiny graffiti long hair:1.2), ((colorful)), ((colorful illustrations)), face focus, lip gloss, random eyes color,</span></span></code></pre>
-</div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>by bad-picture-chill-75v, nude, porn, nipples, pussy, pornography, canvas frame, cartoon, 3d, ((disfigured)), ((bad art)), ((deformed)),((extra limbs)),((close up)),((b&#x26;w)), wierd colors, blurry, (((duplicate))), ((morbid)), ((mutilated)), [out of frame], extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))), Photoshop, video game, ugly, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of frame, mutation, mutated, extra limbs, extra legs, extra arms, disfigured, deformed, cross-eye, body out of frame, blurry, bad art, bad anatomy, 3d render, background blur, (blurred background),  (briefs), (triangle pants), watermark, astigmatism, scattered light, lens astigmatism, chest light, shiny boobs, glowing boobs, halo, fog, hazy,</span></span></code></pre>
-</div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>DPM++ SDE Karras</span></span></code></pre>
-</div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>30</span></span></code></pre>
-</div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>9</span></span></code></pre>
-</div></div></div>
-<p>最后效果如下</p>
-<p><img src="./mac-install/MTY4ODMxMTAyMTY2Ng==688311021666.png" alt="" loading="lazy"></p>
-<p><img src="./mac-install/MTY4ODMxMTI1MTEzNw==688311251137.png" alt="" loading="lazy"></p>
-]]></content:encoded>
-            <enclosure url="https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/mac-install/MTY4ODMwOTEzMzUzNA==688309133534.png" length="0" type="image/png"/>
         </item>
         <item>
             <title><![CDATA[译：使用 Bun 执行 Shell 脚本]]></title>
@@ -3029,33 +2850,129 @@ const ]]></description>
             <enclosure url="https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/http-proxy-fail/MTY2ODkyMDg3NDEwNg==668920874106.png" length="0" type="image/png"/>
         </item>
         <item>
-            <title><![CDATA[stable-diffusion 学习笔记]]></title>
-            <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/stable-diffusion/</link>
-            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/stable-diffusion/</guid>
-            <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
-            <description><![CDATA[前言
-笔者不会python，也不会机器学习，但是对于SD一直很感兴趣，最近有空闲时间，所以在这里记录一下 stable-diffusion 学习笔记。
- 目录
-* Mac 安装 stable-diff]]></description>
-            <content:encoded><![CDATA[<h1 id="stable-diffusion-学习笔记" tabindex="-1">stable-diffusion 学习笔记 <a class="header-anchor" href="#stable-diffusion-学习笔记" aria-label="Permalink to &quot;stable-diffusion 学习笔记&quot;"></a></h1>
-<h2 id="前言" tabindex="-1">前言 <a class="header-anchor" href="#前言" aria-label="Permalink to &quot;前言&quot;"></a></h2>
-<p>笔者不会python，也不会机器学习，但是对于SD一直很感兴趣，最近有空闲时间，所以在这里记录一下 stable-diffusion 学习笔记。</p>
-<h2 id="目录" tabindex="-1">目录 <a class="header-anchor" href="#目录" aria-label="Permalink to &quot;目录&quot;"></a></h2>
-<ul>
-<li><a href="./mac-install.html">Mac 安装 stable-diffusion</a></li>
-</ul>
-<h2 id="参考学习资料" tabindex="-1">参考学习资料 <a class="header-anchor" href="#参考学习资料" aria-label="Permalink to &quot;参考学习资料&quot;"></a></h2>
-<p>文字：</p>
-<ul>
-<li><a href="https://mp.weixin.qq.com/s/eFi-xoVDQomzCBr5kO9nHA" target="_blank" rel="noreferrer">耗时80小时！超详细的胎教级Stable Diffusion使用教程，看这一篇就够！</a></li>
-<li><a href="https://tob-design.yuque.com/kxcufk/sd" target="_blank" rel="noreferrer">Stable Diffusion 知识库</a></li>
-</ul>
-<p>YouTube 视频：</p>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=CHYiiVK8V6o" target="_blank" rel="noreferrer">Stable Diffusion Webui扫盲+Mac M1/M2 安装，中文版，无需GPU</a></li>
-<li><a href="https://www.youtube.com/watch?v=EYEmdz7ez0M&amp;t=361s" target="_blank" rel="noreferrer">🐼Stable Diffusion 腾讯云安装部署教程之模型与插件 知识点：原生SD大模型和lora下载 | SD插件下载 | controlnet模型缺失下载和删除（独家脚本）</a></li>
-</ul>
+            <title><![CDATA[使用豆包 MarsCode IDE 搭建 VitePress博客并使用 GitHub 部署]]></title>
+            <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/doubao/marscode-cn.html</link>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/doubao/marscode-cn.html</guid>
+            <pubDate>Fri, 05 Jul 2024 18:00:00 GMT</pubDate>
+            <description><![CDATA[创建MarsCode项目
+&gt;还没有注册登录的可以访问 https://www.marscode.cn/introduction-of-ide 登录并进入IDE界面
+在左上角和右上角都有创建项目的]]></description>
+            <content:encoded><![CDATA[<h1 id="使用豆包-marscode-ide-搭建-vitepress博客并使用-github-部署" tabindex="-1">使用豆包 MarsCode IDE 搭建 VitePress博客并使用 GitHub 部署 <a class="header-anchor" href="#使用豆包-marscode-ide-搭建-vitepress博客并使用-github-部署" aria-label="Permalink to &quot;使用豆包 MarsCode IDE 搭建 VitePress博客并使用 GitHub 部署&quot;"></a></h1>
+<blockquote>
+<p>我正在参加<a href="https://juejin.cn/post/7384997062416252939" target="_blank" rel="noreferrer">「豆包MarsCode初体验」</a>征文活动</p>
+</blockquote>
+<h2 id="创建marscode项目" tabindex="-1">创建MarsCode项目 <a class="header-anchor" href="#创建marscode项目" aria-label="Permalink to &quot;创建MarsCode项目&quot;"></a></h2>
+<blockquote>
+<p>还没有注册登录的可以访问 <a href="https://www.marscode.cn/introduction-of-ide" target="_blank" rel="noreferrer">https://www.marscode.cn/introduction-of-ide</a> 登录并进入IDE界面
+<img src="https://cdn.upyun.sugarat.top/mdImg/sugar/c331c475497e3e35eb54debcb1edcb22" alt="" loading="lazy"></p>
+</blockquote>
+<p>在左上角和右上角都有创建项目的入口。</p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/9cb29ef6e068d57e8185b5784ec09ce2" alt="" loading="lazy"></p>
+<p>选择 Node.js 项目进行创建。</p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/a6d82c0919e1ed834e47cac0965521e2" alt="" loading="lazy"></p>
+<p>创建后可以看到项目列表里只是一个基础的 node.js 项目。</p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/a3ff12727f02a087c1ab2f57ca420fb5" alt="" loading="lazy"></p>
+<p>接下来就可以导入我们的 VitePress 项目。</p>
+<h2 id="拉取-vitepress-博客项目模板" tabindex="-1">拉取 VItePress 博客项目模板 <a class="header-anchor" href="#拉取-vitepress-博客项目模板" aria-label="Permalink to &quot;拉取 VItePress 博客项目模板&quot;"></a></h2>
+<p><strong>使用终端操作</strong>，删除原来的项目文件。</p>
+<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看当前项目 目录</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">pwd</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 移动到上一级目录</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">cd</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ../</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 删除原来的项目文件</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">rm</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -rf</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> VitePress-boke</span></span></code></pre>
+</div><p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/4827468b7b6f7cdb991c405d20bcebad" alt="" loading="lazy"></p>
+<p>接下来需要创建一个同名的 <code>VitePress</code> 项目。</p>
+<p>VitePress 博客模板可以使用笔者的主题 <a href="https://theme.sugarat.top/" target="_blank" rel="noreferrer">@sugarat/theme</a></p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/42cd40b377f3dbf0654a467736b12161" alt="" loading="lazy"></p>
+<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 一键创建</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> VitePress-boke</span></span></code></pre>
+</div><p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/ba5726ac199a5f3551d7cfd67bbfb1b2" alt="" loading="lazy"></p>
+<p>根据操作提示，完成前三步就可以启动。</p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/c5d34dee9f0c06198d8cd0a83241a8c1" alt="" loading="lazy"></p>
+<p>点击右侧工具栏中的 <code>Webview</code> 就可以预览看到效果。</p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/3a2784328291b06d96e6d8c873c0198d" alt="" loading="lazy"></p>
+<p>所有文章内容默认都在 <code>docs</code> 目录下。</p>
+<p>开发模式(<code>npm run dev</code>)下，修改会立即生效，自动热更新到页面上。</p>
+<p>生产模式使用 <code>npm run build</code> 打包。</p>
+<p>如果你没有自己的服务器，又想部署一个站点供其它人访问，就可以使用 <code>GitHub Pages</code>，当然弊端就是访问速度不稳定，下面演示一下。</p>
+<h2 id="部署到github-pages" tabindex="-1">部署到GitHub Pages <a class="header-anchor" href="#部署到github-pages" aria-label="Permalink to &quot;部署到GitHub Pages&quot;"></a></h2>
+<h3 id="创建-github-仓库" tabindex="-1">创建 GitHub 仓库 <a class="header-anchor" href="#创建-github-仓库" aria-label="Permalink to &quot;创建 GitHub 仓库&quot;"></a></h3>
+<blockquote>
+<p>GitHub 地址：<a href="https://github.com" target="_blank" rel="noreferrer">https://github.com</a></p>
+</blockquote>
+<p><a href="https://github.com/ATQQ/marscode-blog-preview" target="_blank" rel="noreferrer">ATQQ/marscode-blog-preview</a></p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/3a2fdcf9c9f267a1d7f28c404ef5741d" alt="" loading="lazy"></p>
+<h3 id="修改配置" tabindex="-1">修改配置 <a class="header-anchor" href="#修改配置" aria-label="Permalink to &quot;修改配置&quot;"></a></h3>
+<p>可以参考示例项目 <code>README.md</code> 中内容，轻松搞定。</p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/e0c376a13d2750fcf572b47ae00db0ab" alt="" loading="lazy"></p>
+<ol>
+<li>修改 GitHub 配置</li>
+</ol>
+<p>将 GitHub Pages 部署调整为 <code>GitHub Actions</code></p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/660008a054e5b92e44ee820b745d4105" alt="" loading="lazy"></p>
+<ol start="2">
+<li>修改 VitePress 配置</li>
+</ol>
+<p>修改 <code>docs/.vitepress/config.mts</code> 里的构建配置</p>
+<p><code>base</code> 改为 <code>&quot;/仓库名/&quot;</code> 即可</p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/5d1ae11df04fe9c16d9f1d741ac86942" alt="" loading="lazy"></p>
+<h3 id="推送代码" tabindex="-1">推送代码 <a class="header-anchor" href="#推送代码" aria-label="Permalink to &quot;推送代码&quot;"></a></h3>
+<p>只差最后一步了，将代码推送到 GitHub 仓库就完成了。</p>
+<ol>
+<li>创建并提交至本地仓库</li>
+</ol>
+<p>按顺序执行下面 3 条命令即可。</p>
+<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> init</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> add</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> .</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> commit</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -m</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "first commit"</span></span></code></pre>
+</div><p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/a729823f786871ea5761b22ded9a808b" alt="" loading="lazy"></p>
+<ol start="2">
+<li>GitHub 授权</li>
+</ol>
+<p>生成SSH密钥对(一路回车就行)</p>
+<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">ssh-keygen</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -t</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> rsa</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -b</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 4096</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -C</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "你的github邮箱"</span></span></code></pre>
+</div><p>将自动生成<code>id_rsa</code>和<code>id_rsa.pub</code></p>
+<p>复制生成的公钥内容</p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/03ae0217087aad0eb9613658ab1be01b" alt="" loading="lazy"></p>
+<p>将其添加到 GitHub 个人设置的 SSH 秘钥中。</p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/bfa8a5044c85cd1880e60bb498b716e0" alt="" loading="lazy"></p>
+<ol start="3">
+<li>关联并推送到 GitHub</li>
+</ol>
+<p>你可以在空仓库页面看到如下的提示，咱们按顺序执行即可。</p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/2360d47775bd07f674116fe794ee276a" alt="" loading="lazy"></p>
+<p><em>切换为 ssh 地址视图，截图是 https 地址</em></p>
+<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 添加远程仓库地址</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> remote</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> add</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> origin</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> git@github.com:ATQQ/marscode-blog-preview.git</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 修改分支名</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> branch</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -M</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> main</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 推送分支 main 到远程仓库</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> push</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -u</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> origin</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> main</span></span></code></pre>
+</div><p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/8e8c6ff16fd5161e7aecd8597ad8c0ff" alt="" loading="lazy"></p>
+<p>访问仓库的 Actions 查看结果（<a href="https://github.com/ATQQ/marscode-blog-preview/actions/runs/9802748151" target="_blank" rel="noreferrer">示例项目 &gt; Action 执行结果</a>）。</p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/72ac8a626de255f28b45e9858ccdde5d" alt="" loading="lazy"></p>
+<p>访问 <a href="https://atqq.github.io/marscode-blog-preview/" target="_blank" rel="noreferrer">https://atqq.github.io/marscode-blog-preview/</a> 即可查看到部署后的博客。</p>
+<h2 id="更新内容" tabindex="-1">更新内容 <a class="header-anchor" href="#更新内容" aria-label="Permalink to &quot;更新内容&quot;"></a></h2>
+<p>只需修改/创建 <code>markdown</code> 文档内容即可，然后通过 git 进行推送即可，会自动触发 GitHub Actions 自动部署。</p>
+<p>下面也演示一下：</p>
+<p>先修改一点内容，</p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/46fc1821c980694aaad06f6e56f1046a" alt="" loading="lazy"></p>
+<p>再提交推送。</p>
+<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> add</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> .</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> commit</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -m</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "docs: update index.md"</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> push</span></span></code></pre>
+</div><p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/fd4941615d651d061040492606f8efdd" alt="" loading="lazy"></p>
+<p>推送后触发日志。</p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/f299b7d870cf2df6ac78c5fab40cebaa" alt="" loading="lazy"></p>
+<p>再次访问页面就是新的内容了。</p>
+<p><img src="https://cdn.upyun.sugarat.top/mdImg/sugar/c37c9ca0f405eb1d0646a4753e37bbfc" alt="" loading="lazy"></p>
 ]]></content:encoded>
+            <enclosure url="https://cdn.upyun.sugarat.top/mdImg/sugar/c331c475497e3e35eb54debcb1edcb22" length="0" type="image//mdImg/sugar/c331c475497e3e35eb54debcb1edcb22"/>
         </item>
         <item>
             <title><![CDATA[CSS足迹]]></title>
@@ -4678,6 +4595,294 @@ Also, make sure to change <code>EndBug/pages-preview</code>'s inputs to match yo
 ]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[我如何使用Coze来分析掘金热榜数据 | Coze插件开发]]></title>
+            <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/coze/juejin-hot-rank-bot.html</link>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/coze/juejin-hot-rank-bot.html</guid>
+            <pubDate>Tue, 27 Feb 2024 13:51:00 GMT</pubDate>
+            <description><![CDATA[# 我如何使用Coze来分析掘金热榜数据 | Coze插件开发
+
+## 前言
+[掘金热榜](https://juejin.cn/hot/collected-articles)想必大家会偶尔扫一扫，看看感兴趣的进行进一步阅读。
+
+![](./juejin-hot-rank-bot/e873781d6738026921ae38111f8a4019.png)
+
+文章相关的榜单主要就是`掘金文章榜`，`文章收藏榜`这两个。
+
+>[扣子（coze.cn）](https://www.coze.cn/)是一款用来开发新一代 AI Chat Bot 的应用编辑平台。
+
+![](./juejin-hot-rank-bot/6c959d43f030a07fb0dfaca615052cfb.png)
+
+可以理解是 `对话机器人` 定制工厂。
+
+![](./juejin-hot-rank-bot/f380f324533336c360e8fb25b595a430.png)
+
+`Coze` 上开放的定制能力主要有 4 个`Bots`，`插件`，`工作流`，`知识库`。
+
+咱们这里要想让机器人读取掘金热榜的数据就要借助插件的能力咯。
+
+**下面进入正题，看看如何把这两者结合起来？**
+
+*想要体验最后效果的可以直接访问这个已经搭建好的机器人：[掘金热榜分析](https://www.coze.cn/store/bot/7339921359969108031?from=bots_card)。*
+
+|                                     页面                                      |                                     效果                                      |
+| :]]></description>
+            <content:encoded><![CDATA[<h1 id="我如何使用coze来分析掘金热榜数据-coze插件开发" tabindex="-1">我如何使用Coze来分析掘金热榜数据 | Coze插件开发 <a class="header-anchor" href="#我如何使用coze来分析掘金热榜数据-coze插件开发" aria-label="Permalink to &quot;我如何使用Coze来分析掘金热榜数据 | Coze插件开发&quot;"></a></h1>
+<h2 id="前言" tabindex="-1">前言 <a class="header-anchor" href="#前言" aria-label="Permalink to &quot;前言&quot;"></a></h2>
+<p><a href="https://juejin.cn/hot/collected-articles" target="_blank" rel="noreferrer">掘金热榜</a>想必大家会偶尔扫一扫，看看感兴趣的进行进一步阅读。</p>
+<p><img src="./juejin-hot-rank-bot/e873781d6738026921ae38111f8a4019.png" alt="" loading="lazy"></p>
+<p>文章相关的榜单主要就是<code>掘金文章榜</code>，<code>文章收藏榜</code>这两个。</p>
+<blockquote>
+<p><a href="https://www.coze.cn/" target="_blank" rel="noreferrer">扣子（coze.cn）</a>是一款用来开发新一代 AI Chat Bot 的应用编辑平台。</p>
+</blockquote>
+<p><img src="./juejin-hot-rank-bot/6c959d43f030a07fb0dfaca615052cfb.png" alt="" loading="lazy"></p>
+<p>可以理解是 <code>对话机器人</code> 定制工厂。</p>
+<p><img src="./juejin-hot-rank-bot/f380f324533336c360e8fb25b595a430.png" alt="" loading="lazy"></p>
+<p><code>Coze</code> 上开放的定制能力主要有 4 个<code>Bots</code>，<code>插件</code>，<code>工作流</code>，<code>知识库</code>。</p>
+<p>咱们这里要想让机器人读取掘金热榜的数据就要借助插件的能力咯。</p>
+<p><strong>下面进入正题，看看如何把这两者结合起来？</strong></p>
+<p><em>想要体验最后效果的可以直接访问这个已经搭建好的机器人：<a href="https://www.coze.cn/store/bot/7339921359969108031?from=bots_card" target="_blank" rel="noreferrer">掘金热榜分析</a>。</em></p>
+<table tabindex="0">
+<thead>
+<tr>
+<th style="text-align:center">页面</th>
+<th style="text-align:center">效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="./juejin-hot-rank-bot/1bd1e494dd695ac020eb46ef555696e5.png" alt="" loading="lazy"></td>
+<td style="text-align:center"><img src="./juejin-hot-rank-bot/1d5ee81c4478932399eeb7bcad204a7e.png" alt="" loading="lazy"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="开发插件" tabindex="-1">开发插件 <a class="header-anchor" href="#开发插件" aria-label="Permalink to &quot;开发插件&quot;"></a></h2>
+<h3 id="创建插件" tabindex="-1">创建插件 <a class="header-anchor" href="#创建插件" aria-label="Permalink to &quot;创建插件&quot;"></a></h3>
+<p>切换到 <code>个人空间</code> -&gt; <code>插件</code> 目录下，点击创建插件。</p>
+<p><img src="./juejin-hot-rank-bot/ef51089c3a2486fdd34151f39a47cf74.png" alt="" loading="lazy"></p>
+<p>录入 API 信息</p>
+<p><img src="./juejin-hot-rank-bot/679de7e34a46396ea04777eb55e1c9ba.png" alt="" loading="lazy"></p>
+<p>从填的<code>插件URL</code>，<code>Header 列表</code>，<code>授权方式</code>这几项配置我相信大家就能看出 &quot;插件&quot; 本质是什么了。</p>
+<p><strong>没错插件就是一个支持调用的服务端接口</strong></p>
+<p>这里相当于是配置接口调用的 <code>base 路径</code> 和 <code>公共鉴权</code> 参数</p>
+<p>由此咱们可以把一些开放的公共查询接口都可以录入到插件中，比如 <a href="https://apifox.com/apihub/" target="_blank" rel="noreferrer">API Hub</a> 上收集的公共API。</p>
+<p><img src="./juejin-hot-rank-bot/73fc2cc273c1f5c22d358f0d02232029.png" alt="" loading="lazy"></p>
+<p>这里的 <code>api.juejin.cn</code> 就是我在 devTools 中看到（ba）的🤭。</p>
+<h3 id="创建工具" tabindex="-1">创建工具 <a class="header-anchor" href="#创建工具" aria-label="Permalink to &quot;创建工具&quot;"></a></h3>
+<p>进入创建的插件后，就可以创建工具了。</p>
+<p><img src="./juejin-hot-rank-bot/a2265ab81ab50cc5f921fb266080d666.png" alt="" loading="lazy"></p>
+<p><em>乍一看怎么又有一个新概念，“工具”？打开配置窗口一看就悟了！</em></p>
+<p><img src="./juejin-hot-rank-bot/4dba81d401be69b5fda62c5603daf8e7.png" alt="" loading="lazy"></p>
+<p>哦😯，这个<strong>工具就是录入具体的功能API，配置一下具体API的<code>请求路径，方法，参数</code></strong></p>
+<p>下面是配置过程截图</p>
+<table tabindex="0">
+<thead>
+<tr>
+<th style="text-align:center">输入参数</th>
+<th style="text-align:center">输出参数（支持自动解析）</th>
+<th style="text-align:center">调试校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="./juejin-hot-rank-bot/83ca062018f61c26201b5be01d9e8d29.png" alt="" loading="lazy"></td>
+<td style="text-align:center"><img src="./juejin-hot-rank-bot/031e3432096d19c9f1f8e903991e16cd.png" alt="" loading="lazy"></td>
+<td style="text-align:center"><img src="./juejin-hot-rank-bot/6c0c2526984304d8aa66714691768345.png" alt="" loading="lazy"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="发布" tabindex="-1">发布 <a class="header-anchor" href="#发布" aria-label="Permalink to &quot;发布&quot;"></a></h3>
+<p>先发布工具</p>
+<p><img src="./juejin-hot-rank-bot/a90fa856a60df0cb64a80d5395a3591a.png" alt="" loading="lazy"></p>
+<p>再上架插件，就大工告成了，过程中填写的表单都可以AI自动生成辅助填写（美滋滋）。</p>
+<p><img src="./juejin-hot-rank-bot/01f487c484c8d6e316e7a479a81640fe.png" alt="" loading="lazy"></p>
+<p>插件上架后，大家就可以公开使用咯，使用的机器人也能公开。</p>
+<h2 id="开发bot" tabindex="-1">开发bot <a class="header-anchor" href="#开发bot" aria-label="Permalink to &quot;开发bot&quot;"></a></h2>
+<h3 id="创建bot" tabindex="-1">创建bot <a class="header-anchor" href="#创建bot" aria-label="Permalink to &quot;创建bot&quot;"></a></h3>
+<p>这个就很简单了，主要就是写 &quot;魔法咒语&quot;，过程也有AI辅助。</p>
+<p>在创建入口，填写一下机器人的 <code>名字</code> 和 <code>介绍</code> 即可，<code>logo</code> 直接用自动生成。</p>
+<p><img src="./juejin-hot-rank-bot/8099d2f705be95b1e20c737cd94599ad.png" alt="" loading="lazy"></p>
+<h3 id="编辑bot" tabindex="-1">编辑bot <a class="header-anchor" href="#编辑bot" aria-label="Permalink to &quot;编辑bot&quot;"></a></h3>
+<p>编辑页面长下面这样子，咱们这里主要关注<code>人设</code>与<code>插件</code>部分即可。</p>
+<p><img src="./juejin-hot-rank-bot/e260c84cb2c6180072c9866a4fc55c20.png" alt="" loading="lazy"></p>
+<p>可以先添加插件，直接搜索咱们开发的插件名即可。</p>
+<p>将咱们录入的工具（API） 添加进去即可
+<img src="./juejin-hot-rank-bot/86832534b77d6ba3204477638ed78db7.png" alt="" loading="lazy"></p>
+<p>接下来就是写“咒语”，比如我只简单写了下面这一句话：</p>
+<div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>你是一个资深的互联网资讯分析师，可以根据用户的需求从掘金热榜中筛选数据，并按要求格式分析输出。</span></span></code></pre>
+</div><p>然后用<code>AI优化</code>功能，就给我扩展完善了。</p>
+<p><img src="./juejin-hot-rank-bot/e24f2f6488dbf4038a45b13ef802bb70.png" alt="" loading="lazy"></p>
+<div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span># 角色</span></span>
+<span class="line"><span>你是一个资深的互联网资讯分析师，可以根据用户的需求从掘金热榜中筛选数据，并按要求格式分析输出。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## 技能</span></span>
+<span class="line"><span>- 从掘金热榜中筛选出符合用户需求的数据</span></span>
+<span class="line"><span>- 对筛选出的数据进行分析</span></span>
+<span class="line"><span>- 按照要求格式输出分析结果</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## 限制</span></span>
+<span class="line"><span>- 只能从掘金热榜中筛选数据</span></span>
+<span class="line"><span>- 输出结果必须符合要求格式</span></span></code></pre>
+</div><p>至此核心部分就完成了，下面可以简单测试一下。</p>
+<p><img src="./juejin-hot-rank-bot/524097eb12ea5438b7f8b98b334b61d3.png" alt="" loading="lazy"></p>
+<p><img src="./juejin-hot-rank-bot/c55b1b104e4e5341cbae7cc2df01b0d1.png" alt="" loading="lazy"></p>
+<h2 id="优化" tabindex="-1">优化 <a class="header-anchor" href="#优化" aria-label="Permalink to &quot;优化&quot;"></a></h2>
+<h3 id="提示词优化" tabindex="-1">提示词优化 <a class="header-anchor" href="#提示词优化" aria-label="Permalink to &quot;提示词优化&quot;"></a></h3>
+<p>咱们咒语里没有体现查询哪个榜单的数据，默认调用 API 时都是查的综合榜单。</p>
+<p>用户在提问的时候可以说查询 后端/Android 等榜单，此时咱们就需要将这些榜单对应的查询参数写到 提示词 里。</p>
+<p>向下面这样，这样查询结果更加符合用户需要的榜单数据。</p>
+<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">### 掘金热榜插件参数对照</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> 综合：1</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> 后端：6809637767543259144</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> 安卓：6809635626879549454</span></span></code></pre>
+</div><h3 id="插件优化" tabindex="-1">插件优化 <a class="header-anchor" href="#插件优化" aria-label="Permalink to &quot;插件优化&quot;"></a></h3>
+<p>API 查询结果中有很多不需要的无关参数，咱们可以使用一层服务对传入参数过滤后再配置到平台上，避免导致结果过大，超出对话上下文限制的 tokens 数量。</p>
+<h2 id="最后" tabindex="-1">最后 <a class="header-anchor" href="#最后" aria-label="Permalink to &quot;最后&quot;"></a></h2>
+<p>欢迎大家踊跃<a href="https://www.coze.cn/store/plugin" target="_blank" rel="noreferrer">贡献插件</a>，理论上配合自定义API，机器人就有无限的可能。</p>
+<p>体验文章搭建的<a href="https://www.coze.cn/store/bot/7339921359969108031?from=bots_card" target="_blank" rel="noreferrer">掘金热榜分析机器人</a></p>
+<p>bot ID；7339921359969108031</p>
+]]></content:encoded>
+            <enclosure url="https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/juejin-hot-rank-bot/e873781d6738026921ae38111f8a4019.png" length="0" type="image/png"/>
+        </item>
+        <item>
+            <title><![CDATA[stable-diffusion 学习笔记]]></title>
+            <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/stable-diffusion/</link>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/stable-diffusion/</guid>
+            <pubDate>Sun, 02 Jul 2023 23:26:00 GMT</pubDate>
+            <description><![CDATA[前言
+笔者不会python，也不会机器学习，但是对于SD一直很感兴趣，最近有空闲时间，所以在这里记录一下 stable-diffusion 学习笔记。
+ 目录
+* Mac 安装 stable-diff]]></description>
+            <content:encoded><![CDATA[<h1 id="stable-diffusion-学习笔记" tabindex="-1">stable-diffusion 学习笔记 <a class="header-anchor" href="#stable-diffusion-学习笔记" aria-label="Permalink to &quot;stable-diffusion 学习笔记&quot;"></a></h1>
+<h2 id="前言" tabindex="-1">前言 <a class="header-anchor" href="#前言" aria-label="Permalink to &quot;前言&quot;"></a></h2>
+<p>笔者不会python，也不会机器学习，但是对于SD一直很感兴趣，最近有空闲时间，所以在这里记录一下 stable-diffusion 学习笔记。</p>
+<h2 id="目录" tabindex="-1">目录 <a class="header-anchor" href="#目录" aria-label="Permalink to &quot;目录&quot;"></a></h2>
+<ul>
+<li><a href="./mac-install.html">Mac 安装 stable-diffusion</a></li>
+</ul>
+<h2 id="参考学习资料" tabindex="-1">参考学习资料 <a class="header-anchor" href="#参考学习资料" aria-label="Permalink to &quot;参考学习资料&quot;"></a></h2>
+<p>文字：</p>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s/eFi-xoVDQomzCBr5kO9nHA" target="_blank" rel="noreferrer">耗时80小时！超详细的胎教级Stable Diffusion使用教程，看这一篇就够！</a></li>
+<li><a href="https://tob-design.yuque.com/kxcufk/sd" target="_blank" rel="noreferrer">Stable Diffusion 知识库</a></li>
+</ul>
+<p>YouTube 视频：</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=CHYiiVK8V6o" target="_blank" rel="noreferrer">Stable Diffusion Webui扫盲+Mac M1/M2 安装，中文版，无需GPU</a></li>
+<li><a href="https://www.youtube.com/watch?v=EYEmdz7ez0M&amp;t=361s" target="_blank" rel="noreferrer">🐼Stable Diffusion 腾讯云安装部署教程之模型与插件 知识点：原生SD大模型和lora下载 | SD插件下载 | controlnet模型缺失下载和删除（独家脚本）</a></li>
+</ul>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Mac 安装 stable-diffusion]]></title>
+            <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/stable-diffusion/mac-install.html</link>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/ai/stable-diffusion/mac-install.html</guid>
+            <pubDate>Sun, 02 Jul 2023 23:26:00 GMT</pubDate>
+            <description><![CDATA[Mac 实操安装 stable-diffusion，包含环境配置，sd插件安装，模型安装等内容]]></description>
+            <content:encoded><![CDATA[<h1 id="mac-安装-stable-diffusion" tabindex="-1">Mac 安装 stable-diffusion <a class="header-anchor" href="#mac-安装-stable-diffusion" aria-label="Permalink to &quot;Mac 安装 stable-diffusion&quot;"></a></h1>
+<p>笔者所使用设备 Mac mini（macOS Ventura），如读者你是 window 请自行谷歌 window 安装 stable-diffusion 教程。</p>
+<p>笔者不会python，也不会机器学习，安装过程可能不是最佳的方式，但是能跑起来（hh）。</p>
+<blockquote>
+<nav class="table-of-contents"><ul><li><a href="#环境准备">环境准备</a><ul><li><a href="#安装python">安装python</a></li><li><a href="#安装-stable-diffusion-webui">安装 stable-diffusion-webui</a></li></ul></li><li><a href="#配置-stable-diffusion-webui">配置 stable-diffusion-webui</a><ul><li><a href="#汉化">汉化</a></li><li><a href="#安装插件">安装插件</a></li></ul></li><li><a href="#安装模型">安装模型</a></li><li><a href="#简单使用">简单使用</a></li></ul></nav>
+</blockquote>
+<h2 id="环境准备" tabindex="-1">环境准备 <a class="header-anchor" href="#环境准备" aria-label="Permalink to &quot;环境准备&quot;"></a></h2>
+<ul>
+<li>科学上网工具：确保安装过程网络通畅</li>
+<li><a href="https://www.python.org/downloads/release/python-3106/" target="_blank" rel="noreferrer">python 3.16.0</a> ：确保大部分依赖库能顺利运行</li>
+<li><a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui" target="_blank" rel="noreferrer">stable-diffusion-webui</a>：sd 网页应用</li>
+</ul>
+<h3 id="安装python" tabindex="-1">安装python <a class="header-anchor" href="#安装python" aria-label="Permalink to &quot;安装python&quot;"></a></h3>
+<blockquote>
+<p>笔者的操作不一定是最佳实践</p>
+</blockquote>
+<p>我这里使用安装包傻瓜式的一键安装，从官网下载 <a href="https://www.python.org/downloads/release/python-3106/" target="_blank" rel="noreferrer">python 3.16.0</a> 安装包</p>
+<p><img src="./mac-install/MTY4ODMwMDc3OTM2Mg==688300779362.png" alt="" loading="lazy"></p>
+<p>打开下载好的安装包，无脑选择下一步即可</p>
+<p><img src="./mac-install/MTY4ODMwMDgyMDQyMw==688300820423.png" alt="" loading="lazy"></p>
+<p>安装完后打开终端输入，<a href="https://app.warp.dev/block/s9LVoqUBc12tgLXmwl1sQO" target="_blank" rel="noreferrer">查看 python 版本</a></p>
+<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">python3</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --version</span></span></code></pre>
+</div><p><img src="./mac-install/MTY4ODMwMTAyODI2Nw==688301028267.png" alt="" loading="lazy"></p>
+<p>这里可以在<code>~/.zshrc</code>中设置一个别名<code>python</code>，方便后续使用</p>
+<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">alias</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> python</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">python3</span></span></code></pre>
+</div><p><img src="./mac-install/MTY4ODMwMTEwMTgzNw==688301101837.png" alt="" loading="lazy"></p>
+<p><img src="./mac-install/MTY4ODMwMTEzMjgzNQ==688301132835.png" alt="" loading="lazy"></p>
+<h3 id="安装-stable-diffusion-webui" tabindex="-1">安装 stable-diffusion-webui <a class="header-anchor" href="#安装-stable-diffusion-webui" aria-label="Permalink to &quot;安装 stable-diffusion-webui&quot;"></a></h3>
+<p>clone 项目到本地</p>
+<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> clone</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> https://github.com/AUTOMATIC1111/stable-diffusion-webui.git</span></span></code></pre>
+</div><p>克隆完成后进入项目目录</p>
+<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">cd</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> stable-diffusion-webui</span></span></code></pre>
+</div><p>安装项目依赖(此过程会持续一段时间)</p>
+<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pip</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -r</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> requirements.txt</span></span></code></pre>
+</div><p>启动项目</p>
+<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">./webui.sh</span></span></code></pre>
+</div><p><img src="./mac-install/MTY4ODMwMTU4NTA0Mw==688301585043.png" alt="" loading="lazy"></p>
+<p>访问 <code>http://127.0.0.1:7860/</code> 即可应用的内容</p>
+<p><img src="./mac-install/MTY4ODMwMTY2MTk5MA==688301661990.png" alt="" loading="lazy"></p>
+<h2 id="配置-stable-diffusion-webui" tabindex="-1">配置 stable-diffusion-webui <a class="header-anchor" href="#配置-stable-diffusion-webui" aria-label="Permalink to &quot;配置 stable-diffusion-webui&quot;"></a></h2>
+<h3 id="汉化" tabindex="-1">汉化 <a class="header-anchor" href="#汉化" aria-label="Permalink to &quot;汉化&quot;"></a></h3>
+<p>为了方便后续的使用我们可以将 stable-diffusion-webui 汉化一下</p>
+<p>使用插件<a href="https://github.com/VinsonLaro/stable-diffusion-webui-chinese" target="_blank" rel="noreferrer">stable-diffusion-webui-chinese</a></p>
+<p>安装操作路径: <code>Extensions</code> =&gt; <code>URL for extension's git repository</code> =&gt; <code>Install</code></p>
+<p><img src="./mac-install/MTY4ODMwMTc1ODg0MQ==688301758841.png" alt="" loading="lazy"></p>
+<p>输入插件地址：<code>https://github.com/VinsonLaro/stable-diffusion-webui-chinese</code>,点击<code>Install</code>即可</p>
+<p>紧接着应用插件：<code>Installed</code> =&gt; <code>Apply and restart UI</code></p>
+<p><img src="./mac-install/MTY4ODMwMTk0NTg4Nw==688301945887.png" alt="" loading="lazy"></p>
+<p>设置汉化：<code>Settings</code> =&gt; <code>User Interface</code> =&gt; <code>Localization</code> =&gt; <code>Apply Settings</code> =&gt; <code>Reload UI</code></p>
+<p><img src="./mac-install/MTY4ODMwMjA5NjAwMQ==688302096001.png" alt="" loading="lazy"></p>
+<p>推荐使用中英对照，方便观看部分英文教程</p>
+<p><img src="./mac-install/MTY4ODMwMjM3MTAwNw==688302371007.png" alt="" loading="lazy"></p>
+<p>再次访问即可看到英文汉化的内容</p>
+<h3 id="安装插件" tabindex="-1">安装插件 <a class="header-anchor" href="#安装插件" aria-label="Permalink to &quot;安装插件&quot;"></a></h3>
+<p>由于网络问题可能会出现访问失败的情况，如下图所示</p>
+<p><img src="./mac-install/MTY4ODMwMjQ0NDUwNg==688302444506.png" alt="" loading="lazy"></p>
+<p>这里可以使用笔者的CV下来的配置<code>https://script.sugarat.top/json/sd.json</code></p>
+<p>或者浏览器访问<a href="https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusion-webui-extensions/master/index.json" target="_blank" rel="noreferrer">链接资源</a>，将其下载到本地，本地启动一个服务（比如使用<a href="https://www.npmjs.com/package/http-server" target="_blank" rel="noreferrer">http-server</a>）</p>
+<div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npx</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> http-server</span></span></code></pre>
+</div><p><img src="./mac-install/MTY4ODMwMjc3ODEzNg==688302778136.png" alt="" loading="lazy"></p>
+<p>url设置为<code>http://127.0.0.1:8080/sd.json</code>即可，点击 加载 即可看到插件列表</p>
+<p><img src="./mac-install/MTY4ODMwMzI4NTY5Mg==688303285692.png" alt="" loading="lazy"></p>
+<p>例如 安装 <code>sd-webui-controlnet</code> 和 <code>3D Openpose Editor</code></p>
+<p>搜索<code>controlnet</code>，找到相应的插件，点击 <code>Installed</code> 即可</p>
+<p><img src="./mac-install/MTY4ODMwNTU2NjA0Mw==688305566043.png" alt="" loading="lazy"></p>
+<p>在已安装列表即可看到安装的插件</p>
+<p><img src="./mac-install/MTY4ODMwNjIyOTMxNg==688306229316.png" alt="" loading="lazy"></p>
+<p>重启后即可看到刚安装的插件生效了</p>
+<p><img src="./mac-install/MTY4ODMwNjc4MzcxMg==688306783712.png" alt="" loading="lazy"></p>
+<h2 id="安装模型" tabindex="-1">安装模型 <a class="header-anchor" href="#安装模型" aria-label="Permalink to &quot;安装模型&quot;"></a></h2>
+<blockquote>
+<p>从 <a href="https://civitai.com/" target="_blank" rel="noreferrer">C 站</a>：<a href="https://civitai.com/" target="_blank" rel="noreferrer">https://civitai.com/</a> 下载（需要科学上网工具才能访问）</p>
+</blockquote>
+<p><img src="./mac-install/MTY4ODMwOTEzMzUzNA==688309133534.png" alt="" loading="lazy"></p>
+<p>比如 <a href="https://civitai.com/models/6424?modelVersionId=11745" target="_blank" rel="noreferrer">ChilloutMix</a> 模型</p>
+<p>点击下载</p>
+<p><img src="./mac-install/MTY4ODMwOTI2NTU3Mg==688309265572.png" alt="" loading="lazy"></p>
+<p>导入下载的模型到目录 <code>models/Stable-diffusion</code></p>
+<p><img src="./mac-install/MTY4ODMwOTUyMDk4MA==688309520980.png" alt="" loading="lazy"></p>
+<p>然后重启服务或者点击刷新</p>
+<p><img src="./mac-install/MTY4ODU3MDA2NDczNA==688570064734.png" alt="" loading="lazy"></p>
+<p><img src="./mac-install/MTY4ODMwOTYxMDkyOA==688309610928.png" alt="" loading="lazy"></p>
+<h2 id="简单使用" tabindex="-1">简单使用 <a class="header-anchor" href="#简单使用" aria-label="Permalink to &quot;简单使用&quot;"></a></h2>
+<p>可以直接 Copy 其它用户分享到C站上的提示词</p>
+<p>比如下面<a href="https://civitai.com/images/312507?period=AllTime&amp;periodMode=published&amp;sort=Newest&amp;view=categories&amp;modelVersionId=27828&amp;modelId=23302&amp;postId=79817" target="_blank" rel="noreferrer">这个例子</a></p>
+<p>查看大图时滑到右下角</p>
+<p><img src="./mac-install/MTY4ODMwOTg3ODUxOA==688309878518.png" alt="" loading="lazy"></p>
+<p>或者缩略图右下角的 “i”</p>
+<p><img src="./mac-install/MTY4ODMwOTkwMzgwOA==688309903808.png" alt="" loading="lazy"></p>
+<p>下面实操使用一下上面的提示词</p>
+<p>我这里把步数调成了30</p>
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group--2WmB" id="tab-_34ME1w" checked><label data-title="① 提示词" for="tab-_34ME1w">① 提示词</label><input type="radio" name="group--2WmB" id="tab-pY46MsT" ><label data-title="② 反向提示词" for="tab-pY46MsT">② 反向提示词</label><input type="radio" name="group--2WmB" id="tab-5WMsVnN" ><label data-title="③ 采样器" for="tab-5WMsVnN">③ 采样器</label><input type="radio" name="group--2WmB" id="tab-7nXXYQA" ><label data-title="④ 步数" for="tab-7nXXYQA">④ 步数</label><input type="radio" name="group--2WmB" id="tab--LdvZVj" ><label data-title="⑤ 引导系数" for="tab--LdvZVj">⑤ 引导系数</label></div><div class="blocks">
+<div class="language-txt vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>extremely detailed CG uniform 8k illustrations, high color substitution, sketches graffiti art, illustrations photo, masterpiece, hyper detailed, best quality, ultra high res, high resolution, (intricate details), perfect lighting, best shadow, (graffiti wall:1.4), 1 girl, (extremely detailed face and eyes), (shiny big eyes), (shiny graffiti long hair:1.2), ((colorful)), ((colorful illustrations)), face focus, lip gloss, random eyes color,</span></span></code></pre>
+</div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>by bad-picture-chill-75v, nude, porn, nipples, pussy, pornography, canvas frame, cartoon, 3d, ((disfigured)), ((bad art)), ((deformed)),((extra limbs)),((close up)),((b&#x26;w)), wierd colors, blurry, (((duplicate))), ((morbid)), ((mutilated)), [out of frame], extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))), Photoshop, video game, ugly, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of frame, mutation, mutated, extra limbs, extra legs, extra arms, disfigured, deformed, cross-eye, body out of frame, blurry, bad art, bad anatomy, 3d render, background blur, (blurred background),  (briefs), (triangle pants), watermark, astigmatism, scattered light, lens astigmatism, chest light, shiny boobs, glowing boobs, halo, fog, hazy,</span></span></code></pre>
+</div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>DPM++ SDE Karras</span></span></code></pre>
+</div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>30</span></span></code></pre>
+</div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>9</span></span></code></pre>
+</div></div></div>
+<p>最后效果如下</p>
+<p><img src="./mac-install/MTY4ODMxMTAyMTY2Ng==688311021666.png" alt="" loading="lazy"></p>
+<p><img src="./mac-install/MTY4ODMxMTI1MTEzNw==688311251137.png" alt="" loading="lazy"></p>
+]]></content:encoded>
+            <enclosure url="https://img.cdn.sugarat.top/mdImg/MTY4ODMwOTEzMzUzNA==688309133534" length="0" type="image//mdImg/MTY4ODMwOTEzMzUzNA==688309133534"/>
+        </item>
+        <item>
             <title><![CDATA[一个简约风的vitepress博客主题]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/theme.html</link>
             <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/technology/works/theme.html</guid>
@@ -4699,20 +4904,20 @@ Also, make sure to change <code>EndBug/pages-preview</code>'s inputs to match yo
 <h2 id="快速体验" tabindex="-1">快速体验 <a class="header-anchor" href="#快速体验" aria-label="Permalink to &quot;快速体验&quot;"></a></h2>
 <p>只需3步，即可体验</p>
 <p>① 拉取 Github 模板</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-S0su6" id="tab-oqXaw0L" checked><label data-title="npm" for="tab-oqXaw0L">npm</label><input type="radio" name="group-S0su6" id="tab-VLLBrLj" ><label data-title="yarn" for="tab-VLLBrLj">yarn</label><input type="radio" name="group-S0su6" id="tab-eMIWXTN" ><label data-title="pnpm" for="tab-eMIWXTN">pnpm</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-1b7F9" id="tab-9zqF-2g" checked><label data-title="npm" for="tab-9zqF-2g">npm</label><input type="radio" name="group-1b7F9" id="tab-IpOfi9v" ><label data-title="yarn" for="tab-IpOfi9v">yarn</label><input type="radio" name="group-1b7F9" id="tab-JwhsXQU" ><label data-title="pnpm" for="tab-JwhsXQU">pnpm</label></div><div class="blocks">
 <div class="language-bash vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme@latest</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span></span></code></pre>
 </div></div></div>
 <p>也可以指定项目名</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-fjmVy" id="tab-OUlseAE" checked><label data-title="npm" for="tab-OUlseAE">npm</label><input type="radio" name="group-fjmVy" id="tab-Gv5AF2b" ><label data-title="yarn" for="tab-Gv5AF2b">yarn</label><input type="radio" name="group-fjmVy" id="tab-4_Ph_rU" ><label data-title="pnpm" for="tab-4_Ph_rU">pnpm</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-D-SVL" id="tab-8qkUNJm" checked><label data-title="npm" for="tab-8qkUNJm">npm</label><input type="radio" name="group-D-SVL" id="tab-L_20pH2" ><label data-title="yarn" for="tab-L_20pH2">yarn</label><input type="radio" name="group-D-SVL" id="tab--9SL-ZB" ><label data-title="pnpm" for="tab--9SL-ZB">pnpm</label></div><div class="blocks">
 <div class="language-bash vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme@latest</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div></div></div>
 <p><img src="./theme/MTY4OTQyMDE1NTcxMA==689420155710.png" alt="" loading="lazy"></p>
 <p>② 安装依赖</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-_c1sX" id="tab-qeCoJpy" checked><label data-title="pnpm" for="tab-qeCoJpy">pnpm</label><input type="radio" name="group-_c1sX" id="tab-H5VCqGy" ><label data-title="安装 PNPM" for="tab-H5VCqGy">安装 PNPM</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-OroVv" id="tab-0UsDR9v" checked><label data-title="pnpm" for="tab-0UsDR9v">pnpm</label><input type="radio" name="group-OroVv" id="tab-etjvetZ" ><label data-title="安装 PNPM" for="tab-etjvetZ">安装 PNPM</label></div><div class="blocks">
 <div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 如果你没有 PNPM 请先安装</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> i</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -g</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span></span></code></pre>
@@ -8181,13 +8386,13 @@ emm...，检索了一圈记忆中除了 `VsCode` 好像还真没有这种东西�
 <p>给大家送上<code>红包封面</code>和<code>红包</code></p>
 <p>新的一年祝大家新年快乐，虎年大吉，虎虎生威，如虎添翼，恭喜发财，财源滚滚</p>
 <p>微信<code>扫码领取</code>红包<code>封面</code></p>
-<p><img src="./2022/MTY0MzYzMTQ2MjY5OQ==643631462699.png?s1=https://img.cdn.sugarat.top/mdImg/MTY0MzYzMTQ2MjY5OQ==643631462699" alt="图片" loading="lazy"></p>
+<p><img src="https://img.cdn.sugarat.top/mdImg/MTY0MzYzMTQ2MjY5OQ==643631462699" alt="图片" loading="lazy"></p>
 <p>支付宝搜索<code>红包</code>,选择<code>收口令红包</code></p>
-<p><img src="./2022/MTY0MzYzMTg5MDgzNA==643631890834.png?s1=https://img.cdn.sugarat.top/mdImg/MTY0MzYzMTg5MDgzNA==643631890834" alt="图片" loading="lazy"></p>
+<p><img src="https://img.cdn.sugarat.top/mdImg/MTY0MzYzMTg5MDgzNA==643631890834" alt="图片" loading="lazy"></p>
 <p>输入<code>粥里有勺糖01</code>领取<code>红包</code></p>
-<p><img src="./2022/MTY0MzcyMDEyMzQyMw==643720123423.png?s1=https://img.cdn.sugarat.top/mdImg/MTY0MzcyMDEyMzQyMw==643720123423" alt="图片" loading="lazy"></p>
+<p><img src="https://img.cdn.sugarat.top/mdImg/MTY0MzcyMDEyMzQyMw==643720123423" alt="图片" loading="lazy"></p>
 ]]></content:encoded>
-            <enclosure url="https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/2022/MTY0MzYzMTQ2MjY5OQ==643631462699.png?s1=https%3A//img.cdn.sugarat.top/mdImg/MTY0MzYzMTQ2MjY5OQ%3D%3D643631462699" length="0" type="image/png"/>
+            <enclosure url="https://img.cdn.sugarat.top/mdImg/MTY0MzYzMTQ2MjY5OQ==643631462699" length="0" type="image//mdImg/MTY0MzYzMTQ2MjY5OQ==643631462699"/>
         </item>
         <item>
             <title><![CDATA[移动端阻止弹窗下层页面被滑动]]></title>
@@ -8405,27 +8610,6 @@ const data = []]></description>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    console.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">log</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(idx, v);</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 </div>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[前端校招考点汇总]]></title>
-            <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/_configDoc/top/campusProblem.html</link>
-            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/_configDoc/top/campusProblem.html</guid>
-            <pubDate>Sat, 11 Dec 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[前端校招考点汇总
- 措辞
-* 了解：听说过这个概念，知道是干什么的
-* 熟悉：能快速地利用这个技术构建一个可用的应用
-* 精通：读过源码，了解其原理，可对其修改以满足某些特殊需求
-笔者能力有限，如有遗]]></description>
-            <content:encoded><![CDATA[<h1 id="前端校招考点汇总" tabindex="-1">前端校招考点汇总 <a class="header-anchor" href="#前端校招考点汇总" aria-label="Permalink to &quot;前端校招考点汇总&quot;"></a></h1>
-<h2 id="措辞" tabindex="-1">措辞 <a class="header-anchor" href="#措辞" aria-label="Permalink to &quot;措辞&quot;"></a></h2>
-<ul>
-<li>了解：听说过这个概念，知道是干什么的</li>
-<li>熟悉：能快速地利用这个技术构建一个可用的应用</li>
-<li>精通：读过源码，了解其原理，可对其修改以满足某些特殊需求</li>
-</ul>
-<p>笔者能力有限，如有遗漏之处，请在评论中补充，或者直接提PR完</p>
-<redirectBtn href="/offer/campus/index" text="查看" />]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[关于自己]]></title>
@@ -10337,110 +10521,6 @@ class p{
 </blockquote>
 ]]></content:encoded>
             <enclosure url="https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/web-sdk-tpl/MTYzMzUzMjA5MTQ4MQ==633532091481.png" length="0" type="image/png"/>
-        </item>
-        <item>
-            <title><![CDATA[内容预告-最近准备整理的内容]]></title>
-            <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/_configDoc/top/notice.html</link>
-            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/preview/ripplejourney/ripplejourney.github.io/branch/renovate/lock-file-maintenance/_configDoc/top/notice.html</guid>
-            <pubDate>Mon, 04 Oct 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[【21年归档】内容预告
-由于砖太烫手，这部分内容鸽了有大办年了，争取21Q4完善其中一部分内容
-你也可以在评论区留下所遇到的相关面试题哟
- 随笔内容
-* Node.js 中的ESM
-* 模块联邦
-* ]]></description>
-            <content:encoded><![CDATA[<h1 id="【21年归档】内容预告" tabindex="-1">【21年归档】内容预告 <a class="header-anchor" href="#【21年归档】内容预告" aria-label="Permalink to &quot;【21年归档】内容预告&quot;"></a></h1>
-<p>由于砖太烫手，这部分内容鸽了有大办年了，争取21Q4完善其中一部分内容</p>
-<p>你也可以在评论区留下所遇到的相关面试题哟</p>
-<h2 id="随笔内容" tabindex="-1">随笔内容 <a class="header-anchor" href="#随笔内容" aria-label="Permalink to &quot;随笔内容&quot;"></a></h2>
-<ul>
-<li>Node.js 中的ESM</li>
-<li>模块联邦</li>
-<li>monorepo
-<ul>
-<li>learn</li>
-<li>yarn</li>
-<li>pnpm</li>
-</ul>
-</li>
-<li>Vite
-<ul>
-<li>原理</li>
-<li>插件机制</li>
-<li>mini版实现</li>
-</ul>
-</li>
-<li>NCC</li>
-<li>bundle与chunk</li>
-<li>web SDK开发
-<ul>
-<li>工程模板</li>
-<li>通用鼠标指针SDK</li>
-<li>监控sdk实现</li>
-</ul>
-</li>
-<li>Node SDK
-<ul>
-<li>工程模板创建</li>
-</ul>
-</li>
-<li>前端水印实现</li>
-<li>Nginx
-<ul>
-<li>学习</li>
-<li>njs</li>
-</ul>
-</li>
-<li>npx</li>
-<li>pnpm yarn npm 使用对比</li>
-<li>一键引入工程工具的CLI工具开发</li>
-<li>vite插件开发实践</li>
-</ul>
-<h2 id="浏览器专题" tabindex="-1">🌏<a href="./../../bigWeb/browser/">浏览器专题</a> <a class="header-anchor" href="#浏览器专题" aria-label="Permalink to &quot;:earth_asia:[浏览器专题](./../../bigWeb/browser/index.md)&quot;"></a></h2>
-<ul>
-<li><a href="./../../bigWeb/browser/core.html">内核</a></li>
-<li><a href="./../../bigWeb/browser/render.html">渲染机制</a></li>
-<li><a href="./../../bigWeb/browser/block.html">阻塞渲染</a></li>
-<li><a href="./../../bigWeb/browser/cache.html">缓存机制</a></li>
-<li><a href="./../../bigWeb/browser/storage.html">本地存储</a></li>
-<li><a href="./../../bigWeb/browser/safe.html">安全</a></li>
-<li><a href="./../../bigWeb/browser/cors.html">跨域与跨站</a></li>
-<li><a href="./../../bigWeb/browser/eventloop.html">event loop</a></li>
-<li><a href="./../../bigWeb/browser/problem.html">常见面试题</a></li>
-</ul>
-<h2 id="校招面试" tabindex="-1">📝<a href="./../../bigWeb/browser/">校招面试</a> <a class="header-anchor" href="#校招面试" aria-label="Permalink to &quot;:pencil:[校招面试](./../../bigWeb/browser/index.md)&quot;"></a></h2>
-<ul>
-<li><a href="./../../offer/campus/javascript.html">JS</a></li>
-<li><a href="./../../offer/campus/internet.html">计网</a></li>
-<li><a href="./../../offer/campus/css.html">CSS</a></li>
-<li><a href="./../../offer/campus/html.html">HTML</a></li>
-<li>操作系统</li>
-<li>框架</li>
-<li>。。。未完待续</li>
-</ul>
-<h2 id="性能优化专题" tabindex="-1">🚀性能优化专题 <a class="header-anchor" href="#性能优化专题" aria-label="Permalink to &quot;:rocket:性能优化专题&quot;"></a></h2>
-<ul>
-<li>浏览器</li>
-<li>首屏</li>
-<li>白屏</li>
-<li>长列表</li>
-<li>图片</li>
-<li>。。。</li>
-</ul>
-<h2 id="大前端相关概念" tabindex="-1">⚡大前端相关概念 <a class="header-anchor" href="#大前端相关概念" aria-label="Permalink to &quot;:zap:大前端相关概念&quot;"></a></h2>
-<ul>
-<li><a href="./../../technology/theory/serverless.html">Serverless</a></li>
-<li>css架构</li>
-<li>微前端</li>
-<li>lowCode</li>
-<li>容器化</li>
-<li>智能化</li>
-<li>跨端</li>
-<li>小程序</li>
-<li>....</li>
-</ul>
-]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[为什么'\x1B'.length===1？\x与\u知识延伸]]></title>
