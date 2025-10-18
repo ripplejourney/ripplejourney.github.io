@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "pagefind": "1.4.0",
-    "sass": "1.92.1",
-    "vite": "7.1.5"
+    "sass": "1.93.2",
+    "vite": "7.1.10"
   }
 }
