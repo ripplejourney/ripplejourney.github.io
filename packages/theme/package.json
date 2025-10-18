@@ -61,11 +61,11 @@
     "swiper": "^11.2.10",
     "vitepress-markdown-timeline": "^1.2.2",
     "vitepress-plugin-announcement": "workspace:*",
-    "vitepress-plugin-group-icons": "1.6.3",
+    "vitepress-plugin-group-icons": "1.6.4",
     "vitepress-plugin-mermaid": "2.0.17",
     "vitepress-plugin-pagefind": "workspace:*",
     "vitepress-plugin-rss": "workspace:*",
-    "vitepress-plugin-tabs": "0.7.1"
+    "vitepress-plugin-tabs": "0.7.3"
   },
   "devDependencies": {
     "@element-plus/icons-vue": "^2.3.2",
