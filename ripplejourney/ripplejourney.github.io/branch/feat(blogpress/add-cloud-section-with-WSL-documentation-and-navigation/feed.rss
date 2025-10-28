@@ -4,7 +4,7 @@
         <title>代码</title>
         <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/feat(blogpress/add-cloud-section-with-WSL-documentation-and-navigation</link>
         <description>天道酬勤，恒以致遠（大前端相关技术分享）</description>
-        <lastBuildDate>Mon, 27 Oct 2025 08:43:30 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 28 Oct 2025 06:35:09 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-cn</language>
@@ -15,19 +15,150 @@
         </image>
         <copyright>代码 2006 - 2025</copyright>
         <item>
+            <title><![CDATA[zsh和oh-my-zsh美化]]></title>
+            <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/feat(blogpress/add-cloud-section-with-WSL-documentation-and-navigation/preview/ripplejourney/ripplejourney.github.io/branch/feat(blogpress/add-cloud-section-with-WSL-documentation-and-navigation/cloud/wsl/zsh和oh-my-zsh美化.html</link>
+            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/feat(blogpress/add-cloud-section-with-WSL-documentation-and-navigation/preview/ripplejourney/ripplejourney.github.io/branch/feat(blogpress/add-cloud-section-with-WSL-documentation-and-navigation/cloud/wsl/zsh和oh-my-zsh美化.html</guid>
+            <pubDate>Tue, 28 Oct 2025 20:00:00 GMT</pubDate>
+            <description><![CDATA[- window 11
+- 开启`适用与 Linx 的 Windows 子系统`
+- 到微软商店下载 `Ubuntu` 系统
+- 这里我使用的是 `WSL1`, `wsl --set-default-]]></description>
+            <content:encoded><![CDATA[<h2 id="准备" tabindex="-1">准备 <a class="header-anchor" href="#准备" aria-label="Permalink to &quot;准备&quot;"></a></h2>
+<ul>
+<li>window 11</li>
+<li>开启<code>适用与 Linx 的 Windows 子系统</code></li>
+<li>到微软商店下载 <code>Ubuntu</code> 系统</li>
+<li>这里我使用的是 <code>WSL1</code>, <code>wsl --set-default-version &lt;Version&gt;</code></li>
+</ul>
+<h3 id="查看当前环境的-shell" tabindex="-1">查看当前环境的 shell <a class="header-anchor" href="#查看当前环境的-shell" aria-label="Permalink to &quot;查看当前环境的 shell&quot;"></a></h3>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">echo</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> $SHELL</span></span></code></pre>
+</div><h3 id="查看当前系统有那些-shell" tabindex="-1">查看当前系统有那些 shell <a class="header-anchor" href="#查看当前系统有那些-shell" aria-label="Permalink to &quot;查看当前系统有那些 shell&quot;"></a></h3>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">cat</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /etc/shells</span></span></code></pre>
+</div><h2 id="安装-zsh" tabindex="-1">安装 zsh <a class="header-anchor" href="#安装-zsh" aria-label="Permalink to &quot;安装 zsh&quot;"></a></h2>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> apt</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> zsh</span></span></code></pre>
+</div><h2 id="将-zsh-设置为默认的-shell" tabindex="-1">将 zsh 设置为默认的 shell <a class="header-anchor" href="#将-zsh-设置为默认的-shell" aria-label="Permalink to &quot;将 zsh 设置为默认的 shell&quot;"></a></h2>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">chsh</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -s</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /bin/zsh</span></span></code></pre>
+</div><h2 id="安装-oh-my-zsh" tabindex="-1">安装 Oh My Zsh <a class="header-anchor" href="#安装-oh-my-zsh" aria-label="Permalink to &quot;安装 Oh My Zsh&quot;"></a></h2>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> clone</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> https://github.com/ohmyzsh/ohmyzsh.git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ~/.oh-my-zsh</span></span></code></pre>
+</div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">cp</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ~/.oh-my-zsh/templates/zshrc.zsh-template</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ~/.zshrc</span></span></code></pre>
+</div><h2 id="安装-powerlevel10k" tabindex="-1">安装 Powerlevel10k <a class="header-anchor" href="#安装-powerlevel10k" aria-label="Permalink to &quot;安装 Powerlevel10k&quot;"></a></h2>
+<h3 id="克隆仓库" tabindex="-1">克隆仓库 <a class="header-anchor" href="#克隆仓库" aria-label="Permalink to &quot;克隆仓库&quot;"></a></h3>
+<blockquote>
+<p>GitHub</p>
+</blockquote>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> clone</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --depth=1</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> https://github.com/romkatv/powerlevel10k.git</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> ${ZSH_CUSTOM</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">:-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">$HOME</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">.oh-my-zsh</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">custom}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">/themes/powerlevel10k</span></span></code></pre>
+</div><blockquote>
+<p>Gitee</p>
+</blockquote>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> clone</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --depth=1</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> https://gitee.com/romkatv/powerlevel10k.git</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> ${ZSH_CUSTOM</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">:-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">$HOME</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">.oh-my-zsh</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">custom}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">/themes/powerlevel10k</span></span></code></pre>
+</div><h3 id="设置主题" tabindex="-1">设置主题 <a class="header-anchor" href="#设置主题" aria-label="Permalink to &quot;设置主题&quot;"></a></h3>
+<p>在 <code>~/.zshrc</code> 中添加</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">ZSH_THEME</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"powerlevel10k/powerlevel10k"</span></span></code></pre>
+</div><p>使配置生效。</p>
+<div class="language-shell vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">shell</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">source</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ~/.zshrc</span></span></code></pre>
+</div><h4 id="设置字体为-meslolgs-nf" tabindex="-1">设置字体为 MesloLGS NF <a class="header-anchor" href="#设置字体为-meslolgs-nf" aria-label="Permalink to &quot;设置字体为 MesloLGS NF&quot;"></a></h4>
+<blockquote>
+<p><a href="https://github.com/romkatv/powerlevel10k#manual-font-installation" target="_blank" rel="noreferrer">https://github.com/romkatv/powerlevel10k#manual-font-installation</a></p>
+</blockquote>
+<h4 id="自定义配置" tabindex="-1">自定义配置 <a class="header-anchor" href="#自定义配置" aria-label="Permalink to &quot;自定义配置&quot;"></a></h4>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">p10k</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> configure</span></span></code></pre>
+</div><h2 id="安装一些-zsh-常用插件" tabindex="-1">安装一些 zsh 常用插件 <a class="header-anchor" href="#安装一些-zsh-常用插件" aria-label="Permalink to &quot;安装一些 zsh 常用插件&quot;"></a></h2>
+<blockquote>
+<p>安装插件后要使用 <code>source .zshrc</code> 使配置生效</p>
+</blockquote>
+<ul>
+<li>
+<p>git</p>
+<blockquote>
+<p>显示 git 的一些功能，默认已经安装</p>
+</blockquote>
+<div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>plugins=(git)</span></span></code></pre>
+</div></li>
+<li>
+<p>z</p>
+<blockquote>
+<p>跳转目录，直接在 plugins 里面添加 z</p>
+</blockquote>
+<div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>plugins=(</span></span>
+<span class="line"><span>        git</span></span>
+<span class="line"><span>        z)</span></span></code></pre>
+</div></li>
+<li>
+<p>sudo</p>
+<blockquote>
+<p>偶尔输入某个命令，提示没有权限，需要加sudo，这个时候按两下ESC，就会在命令行头部加上 sudo 默认已经安装</p>
+</blockquote>
+<div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>plugins=(</span></span>
+<span class="line"><span>        git</span></span>
+<span class="line"><span>        sudo</span></span>
+<span class="line"><span>        z)</span></span></code></pre>
+</div></li>
+<li>
+<p>zsh-autosuggestions</p>
+<blockquote>
+<p>会记录你之前输入过的所有命令，并且自动匹配你可能想要输入命令，然后按 Tab 补全</p>
+</blockquote>
+<p><a href="https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh" target="_blank" rel="noreferrer">https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh</a></p>
+<p>克隆仓库</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> clone</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> https://github.com/zsh-users/zsh-autosuggestions</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> ${ZSH_CUSTOM</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">:-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">~</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">.oh-my-zsh</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">custom}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">/plugins/zsh-autosuggestions</span></span></code></pre>
+</div><p>添加配置</p>
+<div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>plugins=(</span></span>
+<span class="line"><span>        git</span></span>
+<span class="line"><span>        sudo</span></span>
+<span class="line"><span>        z</span></span>
+<span class="line"><span>        zsh-autosuggestions)</span></span></code></pre>
+</div></li>
+<li>
+<p>zsh-syntax-highlighting</p>
+<blockquote>
+<p>直接在输入过程中就会提示你，当前命令是否正确，错误红色，正确绿色</p>
+</blockquote>
+<p><a href="https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh" target="_blank" rel="noreferrer">https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh</a></p>
+<p>克隆仓库</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">git</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> clone</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> https://github.com/zsh-users/zsh-syntax-highlighting.git</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> ${ZSH_CUSTOM</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">:-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">~</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">.oh-my-zsh</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">custom}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">/plugins/zsh-syntax-highlighting</span></span></code></pre>
+</div><p>添加配置</p>
+<div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>plugins=(</span></span>
+<span class="line"><span>        git</span></span>
+<span class="line"><span>        sudo</span></span>
+<span class="line"><span>        z</span></span>
+<span class="line"><span>        zsh-autosuggestions</span></span>
+<span class="line"><span>        zsh-syntax-highlighting)</span></span></code></pre>
+</div></li>
+</ul>
+]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[wsl中安装docker 1panel k8s]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/feat(blogpress/add-cloud-section-with-WSL-documentation-and-navigation/preview/ripplejourney/ripplejourney.github.io/branch/feat(blogpress/add-cloud-section-with-WSL-documentation-and-navigation/cloud/wsl/install docker k8s 1panel in WSL.html</link>
             <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/feat(blogpress/add-cloud-section-with-WSL-documentation-and-navigation/preview/ripplejourney/ripplejourney.github.io/branch/feat(blogpress/add-cloud-section-with-WSL-documentation-and-navigation/cloud/wsl/install docker k8s 1panel in WSL.html</guid>
             <pubDate>Mon, 27 Oct 2025 18:00:00 GMT</pubDate>
-            <description><![CDATA[安装wsl并升级到最新版
+            <description><![CDATA[设置wsl的系统配置
 ```bash
-Win10或者Win11升级到最新版本即可。 启用Windows 子系统功能，使用管理员权限打开一个 PowerShell 窗口，输入以下命令：
-dism.e]]></description>
+ 设置wsl的系统配置
+notepad $env:UserProfile\.wslconfig
+ 如果wsl正在运行，需要重启wsl
+wsl --shutdown]]></description>
             <content:encoded><![CDATA[<h1 id="wsl中安装docker-1panel-k8s" tabindex="-1">wsl中安装docker 1panel k8s <a class="header-anchor" href="#wsl中安装docker-1panel-k8s" aria-label="Permalink to &quot;wsl中安装docker 1panel k8s&quot;"></a></h1>
 <blockquote>
 <p>仅再2025年当前时间点测试有效，后续相关配置可能变化，自行修改</p>
 </blockquote>
-<h2 id="安装wsl并升级到最新版" tabindex="-1">安装wsl并升级到最新版 <a class="header-anchor" href="#安装wsl并升级到最新版" aria-label="Permalink to &quot;安装wsl并升级到最新版&quot;"></a></h2>
+<h2 id="设置wsl的系统配置" tabindex="-1">设置wsl的系统配置 <a class="header-anchor" href="#设置wsl的系统配置" aria-label="Permalink to &quot;设置wsl的系统配置&quot;"></a></h2>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 设置wsl的系统配置</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">#</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">notepad</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> $env</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">:UserProfile</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">\.</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">wslconfig</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 如果wsl正在运行，需要重启wsl</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">wsl</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --shutdown</span></span></code></pre>
+</div><p>粘贴如下内容到notepad</p>
+<div class="language-ini vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">ini</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">[wsl2]</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">firewall</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">=false</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">dhcp</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">=false</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">ipv6</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">=true</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">networkingMode</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">=Mirrored</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">swap</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">=0 </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 关闭swap</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">[experimental]</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">hostAddressLoopback</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">=true</span></span></code></pre>
+</div><h2 id="安装wsl并升级到最新版" tabindex="-1">安装wsl并升级到最新版 <a class="header-anchor" href="#安装wsl并升级到最新版" aria-label="Permalink to &quot;安装wsl并升级到最新版&quot;"></a></h2>
 <div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">#Win10或者Win11升级到最新版本即可。 启用Windows 子系统功能，使用管理员权限打开一个 PowerShell 窗口，输入以下命令：</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">dism.exe</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /online</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /enable-feature</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /featurename:Microsoft-Windows-Subsystem-Linux</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /all</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /norestart</span></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">#还需要再启用虚拟机平台功能，在 PowerShell 中输入以下命令，重启系统：</span></span>
@@ -49,10 +180,120 @@ dism.e]]></description>
 </div><p>运行进入ubuntu</p>
 <div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 运行进入ubuntu</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">wsl</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -d</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> Ubuntu-24.04</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 更改ubuntu更新源</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">cp</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /etc/apt/sources.list</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /etc/apt/sources.list.bak</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">echo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "deb http://mirrors.aliyun.com/ubuntu/ focal main restricted</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">deb http://mirrors.aliyun.com/ubuntu/ focal universe</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">deb http://mirrors.aliyun.com/ubuntu/ focal-updates universe</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">deb http://mirrors.aliyun.com/ubuntu/ focal multiverse</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">deb http://mirrors.aliyun.com/ubuntu/ focal-updates multiverse</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">deb http://mirrors.aliyun.com/ubuntu/ focal-security universe</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">deb http://mirrors.aliyun.com/ubuntu/ focal-security multiverse"</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">/etc/apt/sources.list</span></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 更新系统</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">apt</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> update</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> &#x26;&#x26; </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">apt</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> upgrade</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -y</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 确认systemd是否启用</span></span>
-<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">systemctl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> status</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> systemd-resolved</span></span></code></pre>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 确认systemd是否启用,当前wsl 已经支持systemd，不需要安装</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># systemctl status systemd-resolved</span></span></code></pre>
+</div><h2 id="安装zsh和oh-my-zsh美化" tabindex="-1">安装zsh和oh-my-zsh美化 <a class="header-anchor" href="#安装zsh和oh-my-zsh美化" aria-label="Permalink to &quot;安装zsh和oh-my-zsh美化&quot;"></a></h2>
+<p><a href="./zsh和oh-my-zsh美化.html">安装zsh和oh-my-zsh美化</a></p>
+<h2 id="安装docker-docker-compose" tabindex="-1">安装docker/docker-compose <a class="header-anchor" href="#安装docker-docker-compose" aria-label="Permalink to &quot;安装docker/docker-compose&quot;"></a></h2>
+<p>因为wsl2已经完整使用了linux内核了，此种方式和先前在linux虚拟机安装docker类似，步骤如下：</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">curl</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -fsSL</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> https://get.docker.com</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -o</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> get-docker.sh</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 若无法下载，可以使用阿里云镜像</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">#curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> sh</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> get-docker.sh</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> service</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> start</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">#开机启动</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">systemctl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> enable</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> docker</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># #禁止开机启动</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># systemctl disable docker</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># # 检查dockerd进程启动</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># service docker status</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># ps aux|grep docker</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># # 检查拉取镜像等正常</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># docker pull busybox</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># docker images</span></span></code></pre>
+</div><blockquote>
+<p>Docker 也专门开发了可以使用 WSL2 中的 Docker 守护进程的桌面管理程序, 打开 Docker Desktop WSL2 backend 页面，下载最新的 Docker Desktop for Windows 程序 ，建议下载stable版本。下载地址：<a href="https://www.docker.com/products/docker-desktop" target="_blank" rel="noreferrer">https://www.docker.com/products/docker-desktop</a></p>
+</blockquote>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 安装docker-compose</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">DOCKER_CONFIG</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">${DOCKER_CONFIG</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">:-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">$HOME</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">.docker}</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">mkdir</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -p</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> $DOCKER_CONFIG</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">/cli-plugins</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">curl</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -SL</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-linux-x86_64</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -o</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> $DOCKER_CONFIG</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">/cli-plugins/docker-compose</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">#Apply executable permissions to the binary:</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">chmod</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> +x</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> $DOCKER_CONFIG</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">/cli-plugins/docker-compose</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">#Test the installation.</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> compose</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> version</span></span></code></pre>
+</div><h2 id="卸载-docker" tabindex="-1">卸载 docker <a class="header-anchor" href="#卸载-docker" aria-label="Permalink to &quot;卸载 docker&quot;"></a></h2>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 卸载docker</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> container</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> stop</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> $(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> container</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ls</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -aq</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> system</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> prune</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -a</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --volumes</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># #或者可以使用apt像卸载其他软件包一样来卸载 Docker：</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># sudo apt purge docker-ce</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># sudo apt autoremove</span></span></code></pre>
+</div><h2 id="修改docker数据存储路径-非必要不设置" tabindex="-1">修改docker数据存储路径(非必要不设置) <a class="header-anchor" href="#修改docker数据存储路径-非必要不设置" aria-label="Permalink to &quot;修改docker数据存储路径(非必要不设置)&quot;"></a></h2>
+<p>wsl ubuntu 默认安装在 c 盘，希望将 docker 的数据存储路径（默认为 /var/lib/docker ）修改到 d 盘。
+添加 /etc/docker/daemon.json 文件，内容如下</p>
+<div class="language-json vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">json</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "registry-mirrors"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"https://registry.docker-cn.com"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">],</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "data-root"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"/mnt/d/data/docker"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "log-driver"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"json-file"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "log-opts"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: { </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">"max-size"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"100m"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> }</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+</div><blockquote>
+<p>docker 启动失败。wls ubuntu docker可能不支持将文件存储到 windows 磁盘。
+将 /var/lib/docker 拷贝到 d 盘，报错，应该是 windows 磁盘不支持这些特殊文件(权限问题)。</p>
+<div class="language-log vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">log</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">hekai@thinkpad-l14:~$ sudo mv /var/lib/docker /mnt/d/data/docker</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">mv: cannot create special file </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'/mnt/d/data/docker/volumes/backingFsBlockDev'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: Operation not supported</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">mv: cannot create special file </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'/mnt/d/data/docker/volumes/docker-centos7-slurm-cluster_mysql/_data/mysql.sock'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: Operation not supported</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">mv: cannot create special file </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'/mnt/d/data/docker/overlay2/3a272b47e6ae28aa475f3eea705bdb2bdeb83dc97c6feb91cc20e6c49bbc004b-init/work/work/#23d'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: Operation not supported</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">mv: cannot create special file </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'/mnt/d/data/docker/overlay2/2a012b89cc6a205c6c8a148abae32a5e735695b52a54e2e3e792c2a5e88a00af-init/work/work/#23f'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: Operation not supported</span></span></code></pre>
+</div></blockquote>
+<p>接着编辑镜像文件(不存在这个文件的话，会自动创建)：</p>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">cat</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> >></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /etc/docker/daemon.json</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">EOF</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">{</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">    "registry-mirrors": [</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://a4zqywx0.mirror.aliyuncs.com",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://docker.1panel.live",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://registry-vpc.cn-qingdao.aliyuncs.com",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://f1361db2.m.daocloud.io",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://docker.mirrors.ustc.edu.cn",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://mirror.ccs.tencentyun.com",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://hub-mirror.c.163.com",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://docker.m.daocloud.io",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://docker.imgdb.de",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://docker-0.unsee.tech",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://docker.hlmirror.com",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://cjie.eu.org",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://f1361db2.m.daocloud.io",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://docker.mirrors.ustc.edu.cn",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://mirror.ccs.tencentyun.com",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://hub-mirror.c.163.com",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://a4zqywx0.mirror.aliyuncs.com",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://docker.m.daocloud.io",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://docker.imgdb.de",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://docker-0.unsee.tech",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://docker.hlmirror.com",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://cjie.eu.org",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://registry.cn-hangzhou.aliyuncs.com",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://reg-mirror.qiniu.com",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://docker.mirrors.ustc.edu.cn",</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">        "https://hub-mirror.c.163.com"</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">    ]</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">}</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">EOF</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">#重启Dokcer</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">service</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> restart</span></span></code></pre>
+</div><h2 id="安装1panel" tabindex="-1">安装1panel <a class="header-anchor" href="#安装1panel" aria-label="Permalink to &quot;安装1panel&quot;"></a></h2>
+<div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 安装1panel</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bash</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -c</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "$(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">curl</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -sSL</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> https://resource.fit2cloud.com/1panel/package/v2/quick_start.sh)"</span></span></code></pre>
 </div>]]></content:encoded>
         </item>
         <item>
@@ -3830,16 +4071,6 @@ Github:ustbhuangyi
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[力扣刷题记录]]></title>
-            <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/feat(blogpress/add-cloud-section-with-WSL-documentation-and-navigation/preview/ripplejourney/ripplejourney.github.io/branch/feat(blogpress/add-cloud-section-with-WSL-documentation-and-navigation/computerBase/leetcode/</link>
-            <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/feat(blogpress/add-cloud-section-with-WSL-documentation-and-navigation/preview/ripplejourney/ripplejourney.github.io/branch/feat(blogpress/add-cloud-section-with-WSL-documentation-and-navigation/computerBase/leetcode/</guid>
-            <pubDate>Tue, 25 Jun 2024 06:37:12 GMT</pubDate>
-            <description><![CDATA[目录]]></description>
-            <content:encoded><![CDATA[<h1 id="力扣刷题记录" tabindex="-1">力扣刷题记录 <a class="header-anchor" href="#力扣刷题记录" aria-label="Permalink to &quot;力扣刷题记录&quot;"></a></h1>
-<h2 id="目录" tabindex="-1">目录 <a class="header-anchor" href="#目录" aria-label="Permalink to &quot;目录&quot;"></a></h2>
-]]></content:encoded>
-        </item>
-        <item>
             <title><![CDATA[记录操作系统相关知识]]></title>
             <link>https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/feat(blogpress/add-cloud-section-with-WSL-documentation-and-navigation/preview/ripplejourney/ripplejourney.github.io/branch/feat(blogpress/add-cloud-section-with-WSL-documentation-and-navigation/computerBase/os/</link>
             <guid isPermaLink="false">https://www.dmsrs.org/preview/ripplejourney/ripplejourney.github.io/branch/feat(blogpress/add-cloud-section-with-WSL-documentation-and-navigation/preview/ripplejourney/ripplejourney.github.io/branch/feat(blogpress/add-cloud-section-with-WSL-documentation-and-navigation/computerBase/os/</guid>
@@ -4910,7 +5141,7 @@ Also, make sure to change <code>EndBug/pages-preview</code>'s inputs to match yo
 <p><img src="./mac-install/MTY4ODMwOTkwMzgwOA==688309903808.png" alt="" loading="lazy"></p>
 <p>下面实操使用一下上面的提示词</p>
 <p>我这里把步数调成了30</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-JYzcz" id="tab-SD8MOQo" checked><label data-title="① 提示词" for="tab-SD8MOQo">① 提示词</label><input type="radio" name="group-JYzcz" id="tab-4KAU1me" ><label data-title="② 反向提示词" for="tab-4KAU1me">② 反向提示词</label><input type="radio" name="group-JYzcz" id="tab-T7uZiXs" ><label data-title="③ 采样器" for="tab-T7uZiXs">③ 采样器</label><input type="radio" name="group-JYzcz" id="tab-MJMBXho" ><label data-title="④ 步数" for="tab-MJMBXho">④ 步数</label><input type="radio" name="group-JYzcz" id="tab-KgV4X63" ><label data-title="⑤ 引导系数" for="tab-KgV4X63">⑤ 引导系数</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-d2wh1" id="tab-ab6a5bQ" checked><label data-title="① 提示词" for="tab-ab6a5bQ">① 提示词</label><input type="radio" name="group-d2wh1" id="tab-tBQ_XeL" ><label data-title="② 反向提示词" for="tab-tBQ_XeL">② 反向提示词</label><input type="radio" name="group-d2wh1" id="tab-29O4vqk" ><label data-title="③ 采样器" for="tab-29O4vqk">③ 采样器</label><input type="radio" name="group-d2wh1" id="tab-M1oMH-m" ><label data-title="④ 步数" for="tab-M1oMH-m">④ 步数</label><input type="radio" name="group-d2wh1" id="tab-jqt9MOc" ><label data-title="⑤ 引导系数" for="tab-jqt9MOc">⑤ 引导系数</label></div><div class="blocks">
 <div class="language-txt vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>extremely detailed CG uniform 8k illustrations, high color substitution, sketches graffiti art, illustrations photo, masterpiece, hyper detailed, best quality, ultra high res, high resolution, (intricate details), perfect lighting, best shadow, (graffiti wall:1.4), 1 girl, (extremely detailed face and eyes), (shiny big eyes), (shiny graffiti long hair:1.2), ((colorful)), ((colorful illustrations)), face focus, lip gloss, random eyes color,</span></span></code></pre>
 </div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>by bad-picture-chill-75v, nude, porn, nipples, pussy, pornography, canvas frame, cartoon, 3d, ((disfigured)), ((bad art)), ((deformed)),((extra limbs)),((close up)),((b&#x26;w)), wierd colors, blurry, (((duplicate))), ((morbid)), ((mutilated)), [out of frame], extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))), Photoshop, video game, ugly, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of frame, mutation, mutated, extra limbs, extra legs, extra arms, disfigured, deformed, cross-eye, body out of frame, blurry, bad art, bad anatomy, 3d render, background blur, (blurred background),  (briefs), (triangle pants), watermark, astigmatism, scattered light, lens astigmatism, chest light, shiny boobs, glowing boobs, halo, fog, hazy,</span></span></code></pre>
 </div><div class="language-txt vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span>DPM++ SDE Karras</span></span></code></pre>
@@ -4945,20 +5176,20 @@ Also, make sure to change <code>EndBug/pages-preview</code>'s inputs to match yo
 <h2 id="快速体验" tabindex="-1">快速体验 <a class="header-anchor" href="#快速体验" aria-label="Permalink to &quot;快速体验&quot;"></a></h2>
 <p>只需3步，即可体验</p>
 <p>① 拉取 Github 模板</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-KmIFY" id="tab-BOah79M" checked><label data-title="npm" for="tab-BOah79M">npm</label><input type="radio" name="group-KmIFY" id="tab-SnD3_i2" ><label data-title="yarn" for="tab-SnD3_i2">yarn</label><input type="radio" name="group-KmIFY" id="tab-M5W3uDJ" ><label data-title="pnpm" for="tab-M5W3uDJ">pnpm</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-UF25G" id="tab-gcHB5co" checked><label data-title="npm" for="tab-gcHB5co">npm</label><input type="radio" name="group-UF25G" id="tab-PNjNBK8" ><label data-title="yarn" for="tab-PNjNBK8">yarn</label><input type="radio" name="group-UF25G" id="tab-ptl9sLf" ><label data-title="pnpm" for="tab-ptl9sLf">pnpm</label></div><div class="blocks">
 <div class="language-bash vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme@latest</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span></span></code></pre>
 </div></div></div>
 <p>也可以指定项目名</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-HsCeS" id="tab-Ru6fnhb" checked><label data-title="npm" for="tab-Ru6fnhb">npm</label><input type="radio" name="group-HsCeS" id="tab-3WzbY-Z" ><label data-title="yarn" for="tab-3WzbY-Z">yarn</label><input type="radio" name="group-HsCeS" id="tab-85a3Fs_" ><label data-title="pnpm" for="tab-85a3Fs_">pnpm</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-6nE_k" id="tab-IW4AAQU" checked><label data-title="npm" for="tab-IW4AAQU">npm</label><input type="radio" name="group-6nE_k" id="tab-7J4mlif" ><label data-title="yarn" for="tab-7J4mlif">yarn</label><input type="radio" name="group-6nE_k" id="tab-I5UezvH" ><label data-title="pnpm" for="tab-I5UezvH">pnpm</label></div><div class="blocks">
 <div class="language-bash vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme@latest</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">yarn</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> create</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> @sugarat/theme</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> my-first-blog</span></span></code></pre>
 </div></div></div>
 <p><img src="./theme/MTY4OTQyMDE1NTcxMA==689420155710.png" alt="" loading="lazy"></p>
 <p>② 安装依赖</p>
-<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-HMLRl" id="tab-yoM8t_Q" checked><label data-title="pnpm" for="tab-yoM8t_Q">pnpm</label><input type="radio" name="group-HMLRl" id="tab-ScRWDJr" ><label data-title="安装 PNPM" for="tab-ScRWDJr">安装 PNPM</label></div><div class="blocks">
+<div class="vp-code-group vp-adaptive-theme"><div class="tabs"><input type="radio" name="group-TWCBk" id="tab-Aw23jX2" checked><label data-title="pnpm" for="tab-Aw23jX2">pnpm</label><input type="radio" name="group-TWCBk" id="tab-Y_GT2vS" ><label data-title="安装 PNPM" for="tab-Y_GT2vS">安装 PNPM</label></div><div class="blocks">
 <div class="language-sh vp-adaptive-theme active"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">pnpm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> install</span></span></code></pre>
 </div><div class="language-sh vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">sh</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0" v-pre=""><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 如果你没有 PNPM 请先安装</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> i</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -g</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pnpm</span></span></code></pre>
