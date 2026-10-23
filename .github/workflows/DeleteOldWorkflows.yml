@@ -37,7 +37,7 @@ jobs:
     steps:
       - name: Delete Workflow Runs
         id: del_workflows
-        uses: Mattraks/delete-workflow-runs@86d29a75093353c4c509a876c176234037c2025b # v2
+        uses: Mattraks/delete-workflow-runs@0cf693bc9909e5e867ee8f27b813224ba862939c # v2
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
@@ -49,7 +49,7 @@ jobs:
 
       - name: Delete self
         id: delself
-        uses: Mattraks/delete-workflow-runs@86d29a75093353c4c509a876c176234037c2025b # v2
+        uses: Mattraks/delete-workflow-runs@0cf693bc9909e5e867ee8f27b813224ba862939c # v2
         with:
           token: ${{ github.token }}
           retain_days: 0
